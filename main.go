@@ -1,7 +1,7 @@
-package application
+package main
 
 import (
-	"net/http"
+
 	// _ "net/http/pprof"
 
 	// "bitbucket.org/SlothNinja/atf"
@@ -17,13 +17,12 @@ import (
 	// "bitbucket.org/SlothNinja/slothninja-games/sn/user_controller"
 	// "bitbucket.org/SlothNinja/tammany"
 
-	"github.com/SlothNinja/slothninja-games/sn/restful"
-	"github.com/SlothNinja/slothninja-games/welcome"
+	"github.com/SlothNinja/restful"
+	"github.com/SlothNinja/welcome"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
-	"google.golang.org/appengine"
 )
 
 const (
@@ -36,12 +35,12 @@ const (
 	blockKeyLength = 32
 )
 
-func init() {
-	if appengine.IsDevAppServer() {
-		gin.SetMode(gin.DebugMode)
-	} else {
-		gin.SetMode(gin.ReleaseMode)
-	}
+func main() {
+	// if appengine.IsDevAppServer() {
+	// 	gin.SetMode(gin.DebugMode)
+	// } else {
+	// 	gin.SetMode(gin.ReleaseMode)
+	// }
 
 	hashKey := securecookie.GenerateRandomKey(hashKeyLength)
 	if hashKey == nil {
@@ -56,7 +55,7 @@ func init() {
 	store := cookie.NewStore(hashKey, blockKey)
 	// store := sessions.NewCookieStore([]byte("secret123"))
 
-	r := gin.New()
+	r := gin.Default()
 	r.Use(
 		// restful.CTXHandler(),
 		restful.TemplateHandler(r),
@@ -95,5 +94,7 @@ func init() {
 	// // Confucius
 	// confucius.Register(gType.Confucius, r)
 
-	http.Handle(rootPath, r)
+	// http.Handle(rootPath, r)
+
+	r.Run()
 }
