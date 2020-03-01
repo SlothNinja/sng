@@ -18,6 +18,8 @@ import (
 	// "bitbucket.org/SlothNinja/tammany"
 
 	"github.com/SlothNinja/restful"
+	"github.com/SlothNinja/user"
+	user_controller "github.com/SlothNinja/user-controller"
 	"github.com/SlothNinja/welcome"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -57,11 +59,11 @@ func main() {
 
 	r := gin.Default()
 	r.Use(
+		sessions.Sessions("sngsession", store),
 		// restful.CTXHandler(),
 		restful.TemplateHandler(r),
 		// user.GetGUserHandler,
-		// user.GetCUserHandler,
-		sessions.Sessions("sngsession", store),
+		user.GetCUserHandler,
 	)
 
 	// Welcome Page (index.html) route
@@ -74,7 +76,7 @@ func main() {
 	// game.AddRoutes(gamesPrefix, r)
 
 	// // User Routes
-	// user_controller.AddRoutes(userPrefix, r)
+	user_controller.AddRoutes(userPrefix, r)
 
 	// // Rating Routes
 	// rating.AddRoutes(ratingPrefix, r)
