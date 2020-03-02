@@ -17,7 +17,10 @@ import (
 	// "bitbucket.org/SlothNinja/slothninja-games/sn/user_controller"
 	// "bitbucket.org/SlothNinja/tammany"
 
+	"github.com/SlothNinja/game"
+	"github.com/SlothNinja/got"
 	"github.com/SlothNinja/restful"
+	gtype "github.com/SlothNinja/type"
 	"github.com/SlothNinja/user"
 	user_controller "github.com/SlothNinja/user-controller"
 	"github.com/SlothNinja/welcome"
@@ -73,7 +76,7 @@ func main() {
 	// send.AddRoutes(mailPrefix, r)
 
 	// // Games Routes
-	// game.AddRoutes(gamesPrefix, r)
+	game.AddRoutes(gamesPrefix, r)
 
 	// // User Routes
 	user_controller.AddRoutes(userPrefix, r)
@@ -82,19 +85,19 @@ func main() {
 	// rating.AddRoutes(ratingPrefix, r)
 
 	// // After The Flood
-	// atf.Register(gType.ATF, r)
+	// atf.Register(gtype.ATF, r)
 
 	// // Guild of Thieves
-	// got.Register(gType.GOT, r)
+	got.Register(gtype.GOT, r)
 
 	// // Tammany Hall
-	// tammany.Register(gType.Tammany, r)
+	// tammany.Register(gtype.Tammany, r)
 
 	// // Indonesia
-	// indonesia.Register(gType.Indonesia, r)
+	// indonesia.Register(gtype.Indonesia, r)
 
 	// // Confucius
-	// confucius.Register(gType.Confucius, r)
+	// confucius.Register(gtype.Confucius, r)
 
 	// http.Handle(rootPath, r)
 
