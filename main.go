@@ -1,25 +1,16 @@
 package main
 
 import (
-
-	// _ "net/http/pprof"
-
-	// "bitbucket.org/SlothNinja/atf"
 	// "bitbucket.org/SlothNinja/confucius"
-	// "bitbucket.org/SlothNinja/got"
 	// "bitbucket.org/SlothNinja/indonesia"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/game"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/rating"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/restful"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/send"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/type"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/user"
-	// "bitbucket.org/SlothNinja/slothninja-games/sn/user_controller"
-	// "bitbucket.org/SlothNinja/tammany"
 
+	"net/http"
+
+	"github.com/SlothNinja/atf"
 	"github.com/SlothNinja/game"
 	"github.com/SlothNinja/got"
 	"github.com/SlothNinja/restful"
+	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
 	"github.com/SlothNinja/user"
 	user_controller "github.com/SlothNinja/user-controller"
@@ -28,6 +19,7 @@ import (
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
+	"google.golang.org/appengine"
 )
 
 const (
@@ -84,14 +76,14 @@ func main() {
 	// // Rating Routes
 	// rating.AddRoutes(ratingPrefix, r)
 
-	// // After The Flood
-	// atf.Register(gtype.ATF, r)
+	// After The Flood
+	atf.Register(gtype.ATF, r)
 
 	// // Guild of Thieves
 	got.Register(gtype.GOT, r)
 
 	// // Tammany Hall
-	// tammany.Register(gtype.Tammany, r)
+	tammany.Register(gtype.Tammany, r)
 
 	// // Indonesia
 	// indonesia.Register(gtype.Indonesia, r)
@@ -99,7 +91,6 @@ func main() {
 	// // Confucius
 	// confucius.Register(gtype.Confucius, r)
 
-	// http.Handle(rootPath, r)
-
-	r.Run()
+	http.Handle(rootPath, r)
+	appengine.Main()
 }
