@@ -1,15 +1,16 @@
 package main
 
 import (
-	// "bitbucket.org/SlothNinja/confucius"
-	// "bitbucket.org/SlothNinja/indonesia"
-
 	"net/http"
 
 	"github.com/SlothNinja/atf"
+	"github.com/SlothNinja/confucius"
 	"github.com/SlothNinja/game"
 	"github.com/SlothNinja/got"
+	"github.com/SlothNinja/indonesia"
+	"github.com/SlothNinja/rating"
 	"github.com/SlothNinja/restful"
+	"github.com/SlothNinja/send"
 	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
 	"github.com/SlothNinja/user"
@@ -64,32 +65,32 @@ func main() {
 	// Welcome Page (index.html) route
 	welcome.AddRoutes(r)
 
-	// // Mail route
-	// send.AddRoutes(mailPrefix, r)
+	// Mail route
+	send.AddRoutes(mailPrefix, r)
 
-	// // Games Routes
+	// Games Routes
 	game.AddRoutes(gamesPrefix, r)
 
-	// // User Routes
+	// User Routes
 	user_controller.AddRoutes(userPrefix, r)
 
-	// // Rating Routes
-	// rating.AddRoutes(ratingPrefix, r)
+	// Rating Routes
+	rating.AddRoutes(ratingPrefix, r)
 
 	// After The Flood
 	atf.Register(gtype.ATF, r)
 
-	// // Guild of Thieves
+	// Guild of Thieves
 	got.Register(gtype.GOT, r)
 
-	// // Tammany Hall
+	// Tammany Hall
 	tammany.Register(gtype.Tammany, r)
 
-	// // Indonesia
-	// indonesia.Register(gtype.Indonesia, r)
+	// Indonesia
+	indonesia.Register(gtype.Indonesia, r)
 
-	// // Confucius
-	// confucius.Register(gtype.Confucius, r)
+	// Confucius
+	confucius.Register(gtype.Confucius, r)
 
 	http.Handle(rootPath, r)
 	appengine.Main()
