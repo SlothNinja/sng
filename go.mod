@@ -9,6 +9,7 @@ require (
 	github.com/SlothNinja/rating v0.0.0-20200316005149-e563eb99a046
 	github.com/SlothNinja/restful v0.0.0-20200316004945-5dc79423e483
 	github.com/SlothNinja/send v0.0.0-20200316010642-9eccb6544327
+	github.com/SlothNinja/sn v0.0.0-20200316205930-74eb994524a3
 	github.com/SlothNinja/tammany v0.0.0-20200316013703-2489c8353f4b
 	github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3
 	github.com/SlothNinja/user v0.0.0-20200316001319-fa6de0ac8141

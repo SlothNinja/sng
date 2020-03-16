@@ -76,6 +76,8 @@ github.com/SlothNinja/send v0.0.0-20200316010642-9eccb6544327 h1:pDG5cVS4u8KYPyJ
 github.com/SlothNinja/send v0.0.0-20200316010642-9eccb6544327/go.mod h1:1kmPm6vp49B3A7k8Du92MobBRANYUWUh+p3lHlHgXKc=
 github.com/SlothNinja/sn v0.0.0-20200229185633-ae23f40d2db2 h1:hBS5PxB2J7CuzstBGpYugaoNs2EeYeq5u27y7oZhjNo=
 github.com/SlothNinja/sn v0.0.0-20200229185633-ae23f40d2db2/go.mod h1:epqp39ct88tFhHY/v/LwJp8jWrRVKe09t7MEeY/BCTc=
+github.com/SlothNinja/sn v0.0.0-20200316205930-74eb994524a3 h1:DRI50DGOje/aK9Uynk+E+4ri3uTZpuA1IpEJGzDv0to=
+github.com/SlothNinja/sn v0.0.0-20200316205930-74eb994524a3/go.mod h1:epqp39ct88tFhHY/v/LwJp8jWrRVKe09t7MEeY/BCTc=
 github.com/SlothNinja/tammany v0.0.0-20200316013703-2489c8353f4b h1:YmHUSNUBHqJU83yNNL7Exeax3BOmrUQ85P1ppD3t+3k=
 github.com/SlothNinja/tammany v0.0.0-20200316013703-2489c8353f4b/go.mod h1:Y3D9Z26LpAuzAySemrOxnQDmt6h8r/ui12E9CtdKLCc=
 github.com/SlothNinja/type v0.0.0-20200229193321-83a182ab5697/go.mod h1:9SvSNZQIKtv68lMBMZzuPeZwFO6Q4GvfhD25IJq+v1s=

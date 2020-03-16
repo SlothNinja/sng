@@ -11,6 +11,7 @@ import (
 	"github.com/SlothNinja/rating"
 	"github.com/SlothNinja/restful"
 	"github.com/SlothNinja/send"
+	"github.com/SlothNinja/sn"
 	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
 	"github.com/SlothNinja/user"
@@ -24,6 +25,8 @@ import (
 )
 
 const (
+	NODE_ENV       = "NODE_ENV"
+	production     = "production"
 	userPrefix     = "user"
 	gamesPrefix    = "games"
 	ratingPrefix   = "rating"
@@ -35,11 +38,11 @@ const (
 )
 
 func main() {
-	// if appengine.IsDevAppServer() {
-	// 	gin.SetMode(gin.DebugMode)
-	// } else {
-	// 	gin.SetMode(gin.ReleaseMode)
-	// }
+	if sn.IsProduction() {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
+		gin.SetMode(gin.DebugMode)
+	}
 
 	hashKey := securecookie.GenerateRandomKey(hashKeyLength)
 	if hashKey == nil {
