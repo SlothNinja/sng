@@ -31,6 +31,7 @@ const (
 	rootPath       = "/"
 	hashKeyLength  = 64
 	blockKeyLength = 32
+	sessionName    = "sng-oauth"
 )
 
 func main() {
@@ -55,7 +56,7 @@ func main() {
 
 	r := gin.Default()
 	r.Use(
-		sessions.Sessions("sngsession", store),
+		sessions.Sessions(sessionName, store),
 		// restful.CTXHandler(),
 		restful.TemplateHandler(r),
 		// user.GetGUserHandler,
