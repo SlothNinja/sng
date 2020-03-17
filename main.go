@@ -58,10 +58,14 @@ func main() {
 	// store := sessions.NewCookieStore([]byte("secret123"))
 
 	r := gin.Default()
+	renderer := restful.ParseTemplates("templates/", ".tmpl")
+	r.HTMLRender = renderer
+
 	r.Use(
 		sessions.Sessions(sessionName, store),
+		restful.AddTemplates(renderer.Templates),
 		// restful.CTXHandler(),
-		restful.TemplateHandler(r),
+		// restful.TemplateHandler(r),
 		// user.GetGUserHandler,
 		user.GetCUserHandler,
 	)
