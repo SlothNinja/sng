@@ -1,13 +1,18 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	"net/http"
+	"time"
 
+	"cloud.google.com/go/datastore"
 	"github.com/SlothNinja/atf"
 	"github.com/SlothNinja/confucius"
 	"github.com/SlothNinja/game"
 	"github.com/SlothNinja/got"
 	"github.com/SlothNinja/indonesia"
+	"github.com/SlothNinja/log"
 	"github.com/SlothNinja/rating"
 	"github.com/SlothNinja/restful"
 	"github.com/SlothNinja/send"
@@ -44,17 +49,12 @@ func main() {
 		gin.SetMode(gin.DebugMode)
 	}
 
-	hashKey := securecookie.GenerateRandomKey(hashKeyLength)
-	if hashKey == nil {
-		panic("generated hashKey was nil")
+	s, err := getSecrets()
+	if err != nil {
+		panic(err.Error())
 	}
 
-	blockKey := securecookie.GenerateRandomKey(blockKeyLength)
-	if blockKey == nil {
-		panic("generated blockKey was nil")
-	}
-
-	store := cookie.NewStore(hashKey, blockKey)
+	store := cookie.NewStore(s.HashKey, s.BlockKey)
 	// store := sessions.NewCookieStore([]byte("secret123"))
 
 	r := gin.Default()
@@ -102,4 +102,77 @@ func main() {
 
 	http.Handle(rootPath, r)
 	appengine.Main()
+}
+
+type secrets struct {
+	HashKey   []byte
+	BlockKey  []byte
+	UpdatedAt time.Time
+	Key       *datastore.Key `datastore:"__key__"`
+}
+
+func getSecrets() (secrets, error) {
+	s := secrets{
+		Key: secretsKey(),
+	}
+
+	c := context.Background()
+	dsClient, err := datastore.NewClient(c, "")
+	if err != nil {
+		return s, err
+	}
+
+	err = dsClient.Get(c, s.Key, &s)
+	if err == nil {
+		return s, nil
+	}
+
+	if err != datastore.ErrNoSuchEntity {
+		return s, err
+	}
+
+	log.Warningf("generated new secrets")
+	s, err = genSecrets()
+	if err != nil {
+		return s, err
+	}
+
+	_, err = dsClient.Put(c, s.Key, &s)
+	return s, err
+}
+
+func secretsKey() *datastore.Key {
+	return datastore.NameKey("Secrets", "root", nil)
+}
+
+func genSecrets() (secrets, error) {
+	s := secrets{
+		HashKey:  securecookie.GenerateRandomKey(hashKeyLength),
+		BlockKey: securecookie.GenerateRandomKey(blockKeyLength),
+		Key:      secretsKey(),
+	}
+
+	if s.HashKey == nil {
+		return s, fmt.Errorf("generated hashKey was nil")
+	}
+
+	if s.BlockKey == nil {
+		return s, fmt.Errorf("generated blockKey was nil")
+	}
+
+	return s, nil
+}
+
+func (s *secrets) Load(ps []datastore.Property) error {
+	return datastore.LoadStruct(s, ps)
+}
+
+func (s *secrets) Save() ([]datastore.Property, error) {
+	s.UpdatedAt = time.Now()
+	return datastore.SaveStruct(s)
+}
+
+func (s *secrets) LoadKey(k *datastore.Key) error {
+	s.Key = k
+	return nil
 }
