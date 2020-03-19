@@ -40,6 +40,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/SlothNinja/atf v0.0.0-20200317225324-62570fca35fc h1:i9QQrIL5WQfFF15+PADEerlB/CPpI/fOYVUmi2lKPsI=
 github.com/SlothNinja/atf v0.0.0-20200317225324-62570fca35fc/go.mod h1:UctSmel2V8MCCCAuaSOWjQFLdGaoOLHFLXrVueB1uqg=
+github.com/SlothNinja/atf v0.0.0-20200319182646-fb493ec83314 h1:eNEjUIkhYu8wh8Q98QhDxDuX6yMyIcCvkekE4EcFdks=
+github.com/SlothNinja/atf v0.0.0-20200319182646-fb493ec83314/go.mod h1:MPilYFeFwEepTgx7xijXh/j4pyq/XylCZrGd+rjOU2k=
 github.com/SlothNinja/codec v0.0.0-20200229214548-e3da7deddffb h1:cmijJjwd73XRE4muVM9R51oDSAjxbm4IEHYZ/kSbuaE=
 github.com/SlothNinja/codec v0.0.0-20200229214548-e3da7deddffb/go.mod h1:WY/iaymNavjXFKyXZMiYOoKvtFZYNghufHIB4lT7ZCA=
 github.com/SlothNinja/color v0.0.0-20200229192705-407f9b576df3/go.mod h1:L8puHZqhntWbqvq6GVDhOkIwNQY4HhCgfZJyuhMgcCA=
