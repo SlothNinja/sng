@@ -6,9 +6,9 @@ require (
 	github.com/SlothNinja/confucius v0.0.0-20200317231415-f88d2a1f7df7
 	github.com/SlothNinja/game v0.0.0-20200318231742-8870d80b57ff
 	github.com/SlothNinja/got v0.0.0-20200317230549-03cb62567304
-	github.com/SlothNinja/indonesia v0.0.0-20200317231213-d802616702b1
+	github.com/SlothNinja/indonesia v0.0.0-20200319034911-cdcbca2a720b
 	github.com/SlothNinja/log v0.0.2
-	github.com/SlothNinja/rating v0.0.0-20200316005149-e563eb99a046
+	github.com/SlothNinja/rating v0.0.0-20200319033517-c89d1a2ada36
 	github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2
 	github.com/SlothNinja/send v0.0.0-20200316010642-9eccb6544327
 	github.com/SlothNinja/sn v0.0.0-20200316205930-74eb994524a3
