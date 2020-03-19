@@ -8,6 +8,7 @@ require (
 	github.com/SlothNinja/got v0.0.0-20200317230549-03cb62567304
 	github.com/SlothNinja/indonesia v0.0.0-20200319034911-cdcbca2a720b
 	github.com/SlothNinja/log v0.0.2
+	github.com/SlothNinja/mlog v0.0.0-20200319132402-ae728a349beb // indirect
 	github.com/SlothNinja/rating v0.0.0-20200319041223-e4d234b4c689
 	github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2
 	github.com/SlothNinja/send v0.0.0-20200316010642-9eccb6544327
