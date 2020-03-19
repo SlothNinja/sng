@@ -76,8 +76,8 @@ github.com/SlothNinja/mlog v0.0.0-20200316010411-7a902d317278 h1:Ghm2eUKqYlkG+6X
 github.com/SlothNinja/mlog v0.0.0-20200316010411-7a902d317278/go.mod h1:/fX3U3chCubPCCNa8X2zfc10c+NJo3h9Jzjeha0Q4uU=
 github.com/SlothNinja/rating v0.0.0-20200316005149-e563eb99a046 h1:frIsAIA4Sm3AVvK903f7xjEFN6Ox8sk/7ob5dmuTfH0=
 github.com/SlothNinja/rating v0.0.0-20200316005149-e563eb99a046/go.mod h1:1HlgdLHO87RLh6MLXqIAEUzTh7VqvNpxEa9U3GrasdY=
-github.com/SlothNinja/rating v0.0.0-20200319033517-c89d1a2ada36 h1:YNuJK6/Y1MsRN5GWGiOFlsqxgU4I4bOSHsaOwx/o+hI=
-github.com/SlothNinja/rating v0.0.0-20200319033517-c89d1a2ada36/go.mod h1:yROYjvr+uEhK8yw3Fh0qB/a7FaEJTTeHwhSvjR5HKFA=
+github.com/SlothNinja/rating v0.0.0-20200319041223-e4d234b4c689 h1:8+gbfRLz2uplSjx9xkdEI5rLvUn+hEijNrwaejpdWRQ=
+github.com/SlothNinja/rating v0.0.0-20200319041223-e4d234b4c689/go.mod h1:yROYjvr+uEhK8yw3Fh0qB/a7FaEJTTeHwhSvjR5HKFA=
 github.com/SlothNinja/restful v0.0.0-20200228034717-038235db935a/go.mod h1:b07n+6HfLMGNHNZjYkohQmnADku9IA55shlWvcnFRJ8=
 github.com/SlothNinja/restful v0.0.0-20200305160031-2685dc5cffcd/go.mod h1:b07n+6HfLMGNHNZjYkohQmnADku9IA55shlWvcnFRJ8=
 github.com/SlothNinja/restful v0.0.0-20200316004945-5dc79423e483 h1:WsxC2CmBz+/HBjJu1tr3MUPGoNsmtao+eLxfaTGxM5s=
