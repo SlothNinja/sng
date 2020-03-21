@@ -15,7 +15,6 @@ import (
 	"github.com/SlothNinja/log"
 	"github.com/SlothNinja/rating"
 	"github.com/SlothNinja/restful"
-	"github.com/SlothNinja/send"
 	"github.com/SlothNinja/sn"
 	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
@@ -72,9 +71,6 @@ func main() {
 
 	// Welcome Page (index.html) route
 	welcome.AddRoutes(r)
-
-	// Mail route
-	send.AddRoutes(mailPrefix, r)
 
 	// Games Routes
 	game.AddRoutes(gamesPrefix, r)
