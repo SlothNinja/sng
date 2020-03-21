@@ -105,8 +105,8 @@ github.com/SlothNinja/sn v0.0.0-20200316205930-74eb994524a3/go.mod h1:epqp39ct88
 github.com/SlothNinja/sn v0.0.0-20200319230317-a899e08418dc h1:sPI1Rqd0ZhWgSkXYsMaVifm+rhYJRDsehIP7jDN+I4U=
 github.com/SlothNinja/sn v0.0.0-20200319230317-a899e08418dc/go.mod h1:epqp39ct88tFhHY/v/LwJp8jWrRVKe09t7MEeY/BCTc=
 github.com/SlothNinja/tammany v0.0.0-20200317231135-3434b4291da0/go.mod h1:Y3D9Z26LpAuzAySemrOxnQDmt6h8r/ui12E9CtdKLCc=
-github.com/SlothNinja/tammany v0.0.0-20200321043109-888c7c991463 h1:/jcXU10rsxRv5+b15V/ktHAiKZlZu/aygzazAijlIC8=
-github.com/SlothNinja/tammany v0.0.0-20200321043109-888c7c991463/go.mod h1:CltS5VKgjyqSnXNflcusBuUfpfY9C7XZQq5/ko17AvA=
+github.com/SlothNinja/tammany v0.0.0-20200321163728-f4833ef664f8 h1:1KMXYsjeQmxzlSd8I6SoY5N5AN5KY7woBvZ+VKlW1+g=
+github.com/SlothNinja/tammany v0.0.0-20200321163728-f4833ef664f8/go.mod h1:Ux1RGIVk/nCJ5rbBUCcjwZQM1/82XHW+UmDIR/Tw9ls=
 github.com/SlothNinja/type v0.0.0-20200229193321-83a182ab5697/go.mod h1:9SvSNZQIKtv68lMBMZzuPeZwFO6Q4GvfhD25IJq+v1s=
 github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3 h1:X0bAoa+ExSITcvWwuNOzlCiGp7Vdw21vOWUMG0vfG4I=
 github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3/go.mod h1:HsikToln1Vu7kMemZnMu79SejeLoPFwXHMi0hiAecoE=
@@ -371,6 +371,8 @@ golang.org/x/sys v0.0.0-20200317113312-5766fd39f98d h1:62ap6LNOjDU6uGmKXHJbSfciM
 golang.org/x/sys v0.0.0-20200317113312-5766fd39f98d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200320181252-af34d8274f85 h1:fD99hd4ciR6T3oPhr2EkmuKe9oHixHx9Hj/hND89j3g=
 golang.org/x/sys v0.0.0-20200320181252-af34d8274f85/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20200321134203-328b4cd54aae h1:3tcmuaB7wwSZtelmiv479UjUB+vviwABz7a133ZwOKQ=
+golang.org/x/sys v0.0.0-20200321134203-328b4cd54aae/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

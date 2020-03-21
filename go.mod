@@ -11,7 +11,7 @@ require (
 	github.com/SlothNinja/rating v0.0.0-20200319041223-e4d234b4c689
 	github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2
 	github.com/SlothNinja/sn v0.0.0-20200319230317-a899e08418dc
-	github.com/SlothNinja/tammany v0.0.0-20200321043109-888c7c991463
+	github.com/SlothNinja/tammany v0.0.0-20200321163728-f4833ef664f8
 	github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3
 	github.com/SlothNinja/user v0.0.0-20200318220453-ddf5c131881a
 	github.com/SlothNinja/user-controller v0.0.0-20200318220648-959569518adf
