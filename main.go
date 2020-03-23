@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"net/http"
 	"time"
 
 	"cloud.google.com/go/datastore"
@@ -25,7 +24,6 @@ import (
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
-	"google.golang.org/appengine"
 )
 
 const (
@@ -96,8 +94,9 @@ func main() {
 	// Confucius
 	confucius.Register(gtype.Confucius, r)
 
-	http.Handle(rootPath, r)
-	appengine.Main()
+	r.Run()
+	// http.Handle(rootPath, r)
+	// appengine.Main()
 }
 
 type secrets struct {
