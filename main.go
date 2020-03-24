@@ -46,6 +46,11 @@ func main() {
 		gin.SetMode(gin.DebugMode)
 	}
 
+	db, err := datastore.NewClient(context.Background(), "")
+	if err != nil {
+		panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
+	}
+
 	s, err := getSecrets()
 	if err != nil {
 		panic(err.Error())
@@ -61,9 +66,6 @@ func main() {
 	r.Use(
 		sessions.Sessions(sessionName, store),
 		restful.AddTemplates(renderer.Templates),
-		// restful.CTXHandler(),
-		// restful.TemplateHandler(r),
-		// user.GetGUserHandler,
 		user.GetCUserHandler,
 	)
 
@@ -83,7 +85,7 @@ func main() {
 	atf.Register(gtype.ATF, r)
 
 	// Guild of Thieves
-	got.Register(gtype.GOT, r)
+	r = got.NewClient(db).Register(gtype.GOT, r)
 
 	// Tammany Hall
 	tammany.Register(gtype.Tammany, r)
