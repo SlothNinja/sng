@@ -82,7 +82,7 @@ func main() {
 	rating.AddRoutes(ratingPrefix, r)
 
 	// After The Flood
-	atf.Register(gtype.ATF, r)
+	r = atf.NewClient(db).Register(gtype.ATF, r)
 
 	// Guild of Thieves
 	r = got.NewClient(db).Register(gtype.GOT, r)
@@ -91,14 +91,12 @@ func main() {
 	r = tammany.NewClient(db).Register(gtype.Tammany, r)
 
 	// Indonesia
-	indonesia.Register(gtype.Indonesia, r)
+	r = indonesia.NewClient(db).Register(gtype.Indonesia, r)
 
 	// Confucius
 	r = confucius.NewClient(db).Register(gtype.Confucius, r)
 
 	r.Run()
-	// http.Handle(rootPath, r)
-	// appengine.Main()
 }
 
 type secrets struct {
