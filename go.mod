@@ -3,7 +3,7 @@ module github.com/SlothNinja/sng
 require (
 	cloud.google.com/go/datastore v1.1.0
 	github.com/SlothNinja/atf v0.0.0-20200321201621-e6b56b92dc32
-	github.com/SlothNinja/confucius v0.0.0-20200321201854-852c72e74d80
+	github.com/SlothNinja/confucius v0.0.0-20200325035023-8b8b3b0acc08
 	github.com/SlothNinja/game v0.0.0-20200321040413-d51ae22f32e0
 	github.com/SlothNinja/got v0.0.0-20200325015732-519b3da067d1
 	github.com/SlothNinja/indonesia v0.0.0-20200321202127-13cc72c0a243

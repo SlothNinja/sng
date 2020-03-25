@@ -50,8 +50,8 @@ github.com/SlothNinja/color v0.0.0-20200316011031-586fe3c95fae h1:8UuZrBK5gCXGqx
 github.com/SlothNinja/color v0.0.0-20200316011031-586fe3c95fae/go.mod h1:n2aVe+0I0CguyHaEbpwdHCcx7mAiI2o6kbeYqQ2UbMI=
 github.com/SlothNinja/confucius v0.0.0-20200317231415-f88d2a1f7df7 h1:DchyMA1MFe6R4XXi4OSVrkZb5d+7OQwA+ZXPXH03400=
 github.com/SlothNinja/confucius v0.0.0-20200317231415-f88d2a1f7df7/go.mod h1:1wKPnMm4EmNdNFS8alU/39/XEa1zF0fiBCfMYAK6Zxs=
-github.com/SlothNinja/confucius v0.0.0-20200321201854-852c72e74d80 h1:hCxeAFWYPe6SW6WoYQXbZwBJk/XICgaRn6TIhc1Hi5M=
-github.com/SlothNinja/confucius v0.0.0-20200321201854-852c72e74d80/go.mod h1:fgK6NUHgUI4lp7xoK+zh8V5pGdIl252L+TMJREt5MUo=
+github.com/SlothNinja/confucius v0.0.0-20200325035023-8b8b3b0acc08 h1:GmFh+KJpbOhSKrGtusrdrXUdyJwC/4qlRBxIl1QsowE=
+github.com/SlothNinja/confucius v0.0.0-20200325035023-8b8b3b0acc08/go.mod h1:fgK6NUHgUI4lp7xoK+zh8V5pGdIl252L+TMJREt5MUo=
 github.com/SlothNinja/contest v0.0.0-20200229200745-a8fad3343291/go.mod h1:YDTb12bsU1h+QN7lpT8eU1jwgQoTuwAnUX0okj4Z/rk=
 github.com/SlothNinja/contest v0.0.0-20200316005344-c79242ea0e22 h1:0xg2U4Un7qlZre9/NvJBhIzPE7cENuKHXiATEBq9Nm0=
 github.com/SlothNinja/contest v0.0.0-20200316005344-c79242ea0e22/go.mod h1:JSwLASMD5zQYccFq8c7ruIxluvSNyHPusnW/g88Fu1Y=

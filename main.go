@@ -94,7 +94,7 @@ func main() {
 	indonesia.Register(gtype.Indonesia, r)
 
 	// Confucius
-	confucius.Register(gtype.Confucius, r)
+	r = confucius.NewClient(db).Register(gtype.Confucius, r)
 
 	r.Run()
 	// http.Handle(rootPath, r)
