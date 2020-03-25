@@ -88,7 +88,7 @@ func main() {
 	r = got.NewClient(db).Register(gtype.GOT, r)
 
 	// Tammany Hall
-	tammany.Register(gtype.Tammany, r)
+	r = tammany.NewClient(db).Register(gtype.Tammany, r)
 
 	// Indonesia
 	indonesia.Register(gtype.Indonesia, r)
