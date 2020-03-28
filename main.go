@@ -76,10 +76,10 @@ func main() {
 	game.AddRoutes(gamesPrefix, r)
 
 	// User Routes
-	r = user_controller.NewClient(db).AddRoutes(userPrefix, r)
+	user_controller.AddRoutes(userPrefix, r)
 
 	// Rating Routes
-	r = rating.NewClient(db).AddRoutes(ratingPrefix, r)
+	rating.AddRoutes(ratingPrefix, r)
 
 	// After The Flood
 	r = atf.NewClient(db).Register(gtype.ATF, r)
