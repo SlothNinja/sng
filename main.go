@@ -66,7 +66,7 @@ func main() {
 	r.Use(
 		sessions.Sessions(sessionName, store),
 		restful.AddTemplates(renderer.Templates),
-		user.GetCUserHandler,
+		user.GetCUserHandler(db),
 	)
 
 	// Welcome Page (index.html) route
@@ -76,7 +76,7 @@ func main() {
 	game.AddRoutes(gamesPrefix, r)
 
 	// User Routes
-	user_controller.AddRoutes(userPrefix, r)
+	user_controller.NewClient(db).AddRoutes(userPrefix, r)
 
 	// Rating Routes
 	rating.AddRoutes(ratingPrefix, r)
