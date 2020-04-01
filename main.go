@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"cloud.google.com/go/datastore"
-	"cloud.google.com/go/profiler"
 	"github.com/SlothNinja/atf"
 	"github.com/SlothNinja/confucius"
 	"github.com/SlothNinja/game"
@@ -41,12 +40,6 @@ const (
 )
 
 func main() {
-	err := profiler.Start(profiler.Config{})
-	if err != nil {
-		log.Errorf(err.Error())
-		panic("unable to start profiler")
-	}
-
 	if sn.IsProduction() {
 		gin.SetMode(gin.ReleaseMode)
 	} else {

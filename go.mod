@@ -1,7 +1,6 @@
 module github.com/SlothNinja/sng
 
 require (
-	cloud.google.com/go v0.55.0
 	cloud.google.com/go/datastore v1.1.0
 	github.com/SlothNinja/atf v0.0.0-20200328192046-508158d5a694
 	github.com/SlothNinja/confucius v0.0.0-20200328191132-182bf188d389
