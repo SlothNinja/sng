@@ -64,6 +64,8 @@ github.com/SlothNinja/got v0.0.0-20200328190809-c279d64a9c1a h1:D+0sp/yt6n7O+WdG
 github.com/SlothNinja/got v0.0.0-20200328190809-c279d64a9c1a/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
 github.com/SlothNinja/got v0.0.0-20200329163040-c750347e85d1 h1:7jUhZUabfAE/Oe1bMub/0MTrA/+rv4OerVhAcWaOKis=
 github.com/SlothNinja/got v0.0.0-20200329163040-c750347e85d1/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
+github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5 h1:pa9FaciO1rOapw7eUsE7WAbC9Rh+yeRNGuCv553hMQA=
+github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af h1:TcW7EhXC34xsj8vne/FqyEg5nU5sl2bEsfCPId/+eTU=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af/go.mod h1:G/Q7zbLpvsCUv5MPiIkBdj42gph63MP2L2ZObvNFqhE=
 github.com/SlothNinja/indonesia v0.0.0-20200328190106-4188c006f611 h1:PSn8NGE/k1l1ERuFAihS5OI/uegE2Fed4u/LQD+Ujss=
