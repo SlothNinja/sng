@@ -54,6 +54,8 @@ github.com/SlothNinja/game v0.0.0-20200321040413-d51ae22f32e0 h1:bhrLp3LIosVSB+e
 github.com/SlothNinja/game v0.0.0-20200321040413-d51ae22f32e0/go.mod h1:CRp0Bfl86YYyjphku9J9j1yQZDy5Um6Zj6aJzUNLYyg=
 github.com/SlothNinja/game v0.0.0-20200328031753-e4c7fad5b9a9 h1:NI0AmQwjcPCqJzCG2FeMTjGbtdpYa/R3HPt1tNEXlJ0=
 github.com/SlothNinja/game v0.0.0-20200328031753-e4c7fad5b9a9/go.mod h1:bGYcipMKVchoJwifZ0mRETs6FUuitGgB9o91ALeTDLU=
+github.com/SlothNinja/game v0.0.0-20200402003323-6c3a4303cace h1:SdMRw3HZ6Tj0wAa9pLSPtT1dHZklkLKKxBLTp8ERsV8=
+github.com/SlothNinja/game v0.0.0-20200402003323-6c3a4303cace/go.mod h1:/SCG8HMcCeGrlKDXKO7Qg4osp7U4d8A9vZKcZWsz0hw=
 github.com/SlothNinja/gin-render v0.0.0-20200211051850-fbcc24764f62 h1:v9rQxAHRVujHIRnEt4jMsVNbrR9aSh9UMmEPt1/6XEo=
 github.com/SlothNinja/gin-render v0.0.0-20200211051850-fbcc24764f62/go.mod h1:Aby+/1P+1GWPN2+O+YRzr++dnRUOJtUl4/1ySkBYFrg=
 github.com/SlothNinja/glicko v0.0.0-20200212023639-f1ccdd954e0a h1:Q3KYPblyWuNmtV61DuCX+h9jsQUj4I5hVvP9IqjHzns=
@@ -66,6 +68,8 @@ github.com/SlothNinja/got v0.0.0-20200329163040-c750347e85d1 h1:7jUhZUabfAE/Oe1b
 github.com/SlothNinja/got v0.0.0-20200329163040-c750347e85d1/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
 github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5 h1:pa9FaciO1rOapw7eUsE7WAbC9Rh+yeRNGuCv553hMQA=
 github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
+github.com/SlothNinja/got v0.0.0-20200402004503-787a36c37811 h1:13BdaNup8+6lSyo3WN/zIIUPRRQPtM0YxEfCcAbwMO4=
+github.com/SlothNinja/got v0.0.0-20200402004503-787a36c37811/go.mod h1:BaxhK2Z/jgAttH+M1nwsFtsMlB3kdvBDqzgwyJPmeuI=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af h1:TcW7EhXC34xsj8vne/FqyEg5nU5sl2bEsfCPId/+eTU=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af/go.mod h1:G/Q7zbLpvsCUv5MPiIkBdj42gph63MP2L2ZObvNFqhE=
 github.com/SlothNinja/indonesia v0.0.0-20200328190106-4188c006f611 h1:PSn8NGE/k1l1ERuFAihS5OI/uegE2Fed4u/LQD+Ujss=
@@ -86,6 +90,8 @@ github.com/SlothNinja/rating v0.0.0-20200321184620-3c544e573b3b h1:5oHXvoTw7CTdB
 github.com/SlothNinja/rating v0.0.0-20200321184620-3c544e573b3b/go.mod h1:1uQlDR7fHJ0fblTf3iHlBhuGamxwV9m0jHZ7bfeali4=
 github.com/SlothNinja/rating v0.0.0-20200329202853-a3fe53d7c4e9 h1:aDUvBaO+jQgvcLYYOskx6hyOhvfzOqOS5/8LiwvpkfA=
 github.com/SlothNinja/rating v0.0.0-20200329202853-a3fe53d7c4e9/go.mod h1:C9SrNSOAMLawtf0T2HKG3ItmLSdfV3jAXWefL20qbSY=
+github.com/SlothNinja/rating v0.0.0-20200402000143-d750ecc77bc4 h1:9vRSxQ565dJKWiZ+Eu0h224n4SDpuSFvuCn3BkiyrTw=
+github.com/SlothNinja/rating v0.0.0-20200402000143-d750ecc77bc4/go.mod h1:C9SrNSOAMLawtf0T2HKG3ItmLSdfV3jAXWefL20qbSY=
 github.com/SlothNinja/restful v0.0.0-20200305160031-2685dc5cffcd/go.mod h1:b07n+6HfLMGNHNZjYkohQmnADku9IA55shlWvcnFRJ8=
 github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2 h1:a4wKtln4/3p5CC4i+JvCdGSmiaPzAz58YO00m4l2ImM=
 github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2/go.mod h1:w86gbfR6DZfCVhqmqkZ1ZbcVtHq9yO3abM13t1Wb9vg=
@@ -109,6 +115,8 @@ github.com/SlothNinja/user v0.0.0-20200328030804-db52ba432132 h1:m4oaOul6HMVAgQf
 github.com/SlothNinja/user v0.0.0-20200328030804-db52ba432132/go.mod h1:GPpnJHPmU+fdzcIZyBWAP5zqGrBxqQkdzQ08t+Tu9KQ=
 github.com/SlothNinja/user-controller v0.0.0-20200328172354-ff664c7126e0 h1:YXx6Rmi9ncvCq6rLUeH1hOPf8dkltJMzcTIrllcipYg=
 github.com/SlothNinja/user-controller v0.0.0-20200328172354-ff664c7126e0/go.mod h1:5pxafyhtcTnAXwBAmURTvoaaKxDhKhCSLFzF0GsfPkk=
+github.com/SlothNinja/user-controller v0.0.0-20200402005221-4e166d0174d0 h1:gq/lucOZRSLUxzRsKqNlCbr0NrEI0FzGmdj0uMg2v1Y=
+github.com/SlothNinja/user-controller v0.0.0-20200402005221-4e166d0174d0/go.mod h1:01T6VS08NqsqV2aSPLkpeJFN2cL0CQP1gaazFgNl8HE=
 github.com/SlothNinja/user-name v0.0.0-20200316004316-cb938e1f6eb0 h1:k/WWe/zZ+C2Zh3KBYGPMSsiigwUXYWr8UVOL6tdfBAY=
 github.com/SlothNinja/user-name v0.0.0-20200316004316-cb938e1f6eb0/go.mod h1:UCfCRxUBxuRjF8aoV3rT6JK/o5Y8o5dV7d8PIuwwIus=
 github.com/SlothNinja/user-stats v0.0.0-20200316003629-dfe63e057543/go.mod h1:X799W01EI1rXQVO+jtZ/FPa+xwBkT/A0zFeAANTLeTY=
