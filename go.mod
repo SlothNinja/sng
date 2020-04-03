@@ -2,8 +2,8 @@ module github.com/SlothNinja/sng
 
 require (
 	cloud.google.com/go/datastore v1.1.0
-	github.com/SlothNinja/atf v0.0.0-20200403030021-a6866b95877e
-	github.com/SlothNinja/confucius v0.0.0-20200403025204-7c268d7b48a6
+	github.com/SlothNinja/atf v0.0.0-20200403151149-2f402f7d3842
+	github.com/SlothNinja/confucius v0.0.0-20200403150956-fb175fa49dd1
 	github.com/SlothNinja/game v0.0.0-20200403024413-6ec55c722e60
 	github.com/SlothNinja/got v0.0.0-20200403025415-3f339d5e6786
 	github.com/SlothNinja/indonesia v0.0.0-20200403025623-77ca3bbf8e5c
@@ -19,4 +19,5 @@ require (
 	github.com/gin-contrib/sessions v0.0.3
 	github.com/gin-gonic/gin v1.6.2
 	github.com/gorilla/securecookie v1.1.1
+	google.golang.org/genproto v0.0.0-20200403120447-c50568487044 // indirect
 )
