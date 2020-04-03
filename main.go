@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"net/http"
 	"time"
 
 	"cloud.google.com/go/datastore"
@@ -95,6 +96,11 @@ func main() {
 
 	// Confucius
 	r = confucius.NewClient(db).Register(gtype.Confucius, r)
+
+	// warmup
+	r.GET("_ah/warmup", func(c *gin.Context) {
+		c.Status(http.StatusOK)
+	})
 
 	r.Run()
 }
