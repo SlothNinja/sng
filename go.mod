@@ -2,19 +2,19 @@ module github.com/SlothNinja/sng
 
 require (
 	cloud.google.com/go/datastore v1.1.0
-	github.com/SlothNinja/atf v0.0.0-20200402235523-decd755746fa
-	github.com/SlothNinja/confucius v0.0.0-20200402231621-21359e1730ae
-	github.com/SlothNinja/game v0.0.0-20200402024946-c54abc9cef2c
-	github.com/SlothNinja/got v0.0.0-20200402233320-74496d3dbd5c
-	github.com/SlothNinja/indonesia v0.0.0-20200402040900-25fc96f400c6
+	github.com/SlothNinja/atf v0.0.0-20200403030021-a6866b95877e
+	github.com/SlothNinja/confucius v0.0.0-20200403025204-7c268d7b48a6
+	github.com/SlothNinja/game v0.0.0-20200403024413-6ec55c722e60
+	github.com/SlothNinja/got v0.0.0-20200403025415-3f339d5e6786
+	github.com/SlothNinja/indonesia v0.0.0-20200403025623-77ca3bbf8e5c
 	github.com/SlothNinja/log v0.0.2
-	github.com/SlothNinja/rating v0.0.0-20200402000143-d750ecc77bc4
-	github.com/SlothNinja/restful v0.0.0-20200317231650-e1a2eb3f56b2
-	github.com/SlothNinja/sn v0.0.0-20200319230317-a899e08418dc
-	github.com/SlothNinja/tammany v0.0.0-20200402032337-4e18a6552d0f
-	github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3
-	github.com/SlothNinja/user v0.0.0-20200328030804-db52ba432132
-	github.com/SlothNinja/user-controller v0.0.0-20200402025115-8d02593cce31
+	github.com/SlothNinja/rating v0.0.0-20200403023927-a24c126421db
+	github.com/SlothNinja/restful v0.0.0-20200403022024-abb885a6b8d5
+	github.com/SlothNinja/sn v0.0.0-20200403022311-afbce7856c9b
+	github.com/SlothNinja/tammany v0.0.0-20200403025832-27aa9b93577b
+	github.com/SlothNinja/type v0.0.0-20200403022455-ef6041387d33
+	github.com/SlothNinja/user v0.0.0-20200403020411-2414eaa992cc
+	github.com/SlothNinja/user-controller v0.0.0-20200403024227-92cf05c27842
 	github.com/SlothNinja/welcome v0.0.0-20200319232610-a662cd0feb82
 	github.com/gin-contrib/sessions v0.0.3
 	github.com/gin-gonic/gin v1.6.2
