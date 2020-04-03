@@ -73,10 +73,10 @@ func main() {
 	welcome.AddRoutes(r)
 
 	// Games Routes
-	game.AddRoutes(gamesPrefix, r)
+	r = game.NewClient(db).AddRoutes(gamesPrefix, r)
 
 	// User Routes
-	user_controller.NewClient(db).AddRoutes(userPrefix, r)
+	r = user_controller.NewClient(db).AddRoutes(userPrefix, r)
 
 	// Rating Routes
 	r = rating.NewClient(db).AddRoutes(ratingPrefix, r)

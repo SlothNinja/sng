@@ -38,6 +38,8 @@ github.com/SlothNinja/atf v0.0.0-20200328172709-53039590cf4e h1:uJ4pI41GJi5wPCXX
 github.com/SlothNinja/atf v0.0.0-20200328172709-53039590cf4e/go.mod h1:JoVA42Y227jrTT5UG53IR+7xBnuWCmHO7wtqnDlGSQg=
 github.com/SlothNinja/atf v0.0.0-20200328192046-508158d5a694 h1:3pA/hVgw9VICp4MNFSnOYxh235rrLB91kWxIYLcTAsM=
 github.com/SlothNinja/atf v0.0.0-20200328192046-508158d5a694/go.mod h1:k/perXeT3ItAeeZ4UO2e0sgPuMtxLCcrji859As3PbQ=
+github.com/SlothNinja/atf v0.0.0-20200402235523-decd755746fa h1:Fv8jZSaLlZy/6ljDgBTtghSJJFHkoceTrhoJwPNcTtI=
+github.com/SlothNinja/atf v0.0.0-20200402235523-decd755746fa/go.mod h1:I7lWQWlbVmfxkqJXE8zJ3R0nCazVkj4r849YWLehd8E=
 github.com/SlothNinja/codec v0.0.0-20200229214548-e3da7deddffb h1:cmijJjwd73XRE4muVM9R51oDSAjxbm4IEHYZ/kSbuaE=
 github.com/SlothNinja/codec v0.0.0-20200229214548-e3da7deddffb/go.mod h1:WY/iaymNavjXFKyXZMiYOoKvtFZYNghufHIB4lT7ZCA=
 github.com/SlothNinja/color v0.0.0-20200316011031-586fe3c95fae h1:8UuZrBK5gCXGqxe6gJW6feVRHZvdYLilaO16cQjUhSI=
@@ -46,6 +48,8 @@ github.com/SlothNinja/confucius v0.0.0-20200328173149-71b4c33001d0 h1:nNsDy2iPUg
 github.com/SlothNinja/confucius v0.0.0-20200328173149-71b4c33001d0/go.mod h1:JKuTLBFc2PYKsXo9OKOt1KaHCHktwhJDs1PirXapNcg=
 github.com/SlothNinja/confucius v0.0.0-20200328191132-182bf188d389 h1:vI8py2R9DRW1vWfmir3He5nbfX5RM8wDV+J8WOL7vCY=
 github.com/SlothNinja/confucius v0.0.0-20200328191132-182bf188d389/go.mod h1:452px9vO5mSRHl9YcMjB5qFdlYyyiESz9Tb7Br89QVI=
+github.com/SlothNinja/confucius v0.0.0-20200402231621-21359e1730ae h1:j7sxhXcXkxtxEQmc5xbEIcvgQaf065e4RW4oOJjTh9U=
+github.com/SlothNinja/confucius v0.0.0-20200402231621-21359e1730ae/go.mod h1:HTlMEuv9sUGKb9vpOCJ5apdPlSpheVSy+DRSwoPm+2Q=
 github.com/SlothNinja/contest v0.0.0-20200319032446-29b690351b81 h1:vrvtEezlBbmkxoWzu9M/nVy5J2eQdZyMsGhYg8JYkoo=
 github.com/SlothNinja/contest v0.0.0-20200319032446-29b690351b81/go.mod h1:xWuD/slikRLW4jy3Q9qEWBeT1h1oPvpWC14mqaCEwpA=
 github.com/SlothNinja/contest v0.0.0-20200326205205-9c14973aeaac h1:apKC6hM9t14pViHnTT3NhoacnXJT6cgiznk7+Gh3/Vw=
@@ -56,6 +60,10 @@ github.com/SlothNinja/game v0.0.0-20200328031753-e4c7fad5b9a9 h1:NI0AmQwjcPCqJzC
 github.com/SlothNinja/game v0.0.0-20200328031753-e4c7fad5b9a9/go.mod h1:bGYcipMKVchoJwifZ0mRETs6FUuitGgB9o91ALeTDLU=
 github.com/SlothNinja/game v0.0.0-20200402003323-6c3a4303cace h1:SdMRw3HZ6Tj0wAa9pLSPtT1dHZklkLKKxBLTp8ERsV8=
 github.com/SlothNinja/game v0.0.0-20200402003323-6c3a4303cace/go.mod h1:/SCG8HMcCeGrlKDXKO7Qg4osp7U4d8A9vZKcZWsz0hw=
+github.com/SlothNinja/game v0.0.0-20200402022917-11cdcb90d6d5 h1:M1tizm5I9CX5/cQYk1eMEl6DKRSoPxnoHy2v7SxGkzo=
+github.com/SlothNinja/game v0.0.0-20200402022917-11cdcb90d6d5/go.mod h1:/SCG8HMcCeGrlKDXKO7Qg4osp7U4d8A9vZKcZWsz0hw=
+github.com/SlothNinja/game v0.0.0-20200402024946-c54abc9cef2c h1:35d2ZQhd0vbAs0rASIIi48ly05RpYhg+hADv9Jurd8A=
+github.com/SlothNinja/game v0.0.0-20200402024946-c54abc9cef2c/go.mod h1:/SCG8HMcCeGrlKDXKO7Qg4osp7U4d8A9vZKcZWsz0hw=
 github.com/SlothNinja/gin-render v0.0.0-20200211051850-fbcc24764f62 h1:v9rQxAHRVujHIRnEt4jMsVNbrR9aSh9UMmEPt1/6XEo=
 github.com/SlothNinja/gin-render v0.0.0-20200211051850-fbcc24764f62/go.mod h1:Aby+/1P+1GWPN2+O+YRzr++dnRUOJtUl4/1ySkBYFrg=
 github.com/SlothNinja/glicko v0.0.0-20200212023639-f1ccdd954e0a h1:Q3KYPblyWuNmtV61DuCX+h9jsQUj4I5hVvP9IqjHzns=
@@ -70,10 +78,14 @@ github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5 h1:pa9FaciO1rOapw7e
 github.com/SlothNinja/got v0.0.0-20200401225510-fd66d1ab5ad5/go.mod h1:Uh0zZIyLCl2fG8b03F1Llo47onIjRkBxR6VnMEwOcoM=
 github.com/SlothNinja/got v0.0.0-20200402004503-787a36c37811 h1:13BdaNup8+6lSyo3WN/zIIUPRRQPtM0YxEfCcAbwMO4=
 github.com/SlothNinja/got v0.0.0-20200402004503-787a36c37811/go.mod h1:BaxhK2Z/jgAttH+M1nwsFtsMlB3kdvBDqzgwyJPmeuI=
+github.com/SlothNinja/got v0.0.0-20200402233320-74496d3dbd5c h1:9hihXbdM9kX9AKnTks5tTnLQHFVDLPc8oD8bxFmcOOw=
+github.com/SlothNinja/got v0.0.0-20200402233320-74496d3dbd5c/go.mod h1:g3HG/NN8F+dPGOw4tQj/ZUGDDbRmX5haMIIce3xZCvE=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af h1:TcW7EhXC34xsj8vne/FqyEg5nU5sl2bEsfCPId/+eTU=
 github.com/SlothNinja/indonesia v0.0.0-20200328173441-24be3558d0af/go.mod h1:G/Q7zbLpvsCUv5MPiIkBdj42gph63MP2L2ZObvNFqhE=
 github.com/SlothNinja/indonesia v0.0.0-20200328190106-4188c006f611 h1:PSn8NGE/k1l1ERuFAihS5OI/uegE2Fed4u/LQD+Ujss=
 github.com/SlothNinja/indonesia v0.0.0-20200328190106-4188c006f611/go.mod h1:ezIDU4SOc8t+Co5IH1WDosgtFAT0hJdrGAtagb5HRwM=
+github.com/SlothNinja/indonesia v0.0.0-20200402040900-25fc96f400c6 h1:JFWvLwtcr3l68wzPWBYLeJoxkhaMYKpANTWe0SOpWv0=
+github.com/SlothNinja/indonesia v0.0.0-20200402040900-25fc96f400c6/go.mod h1:dtkfLbz8YEyhDPK/8anBQ/NNdmXL1Hw2gjGpPgEWC2I=
 github.com/SlothNinja/inflect v0.0.0-20200211050914-63201fc6a283 h1:DYkqRVg87muCa8Ch3y6UERC75CzaI68tTSt3gzwnzJc=
 github.com/SlothNinja/inflect v0.0.0-20200211050914-63201fc6a283/go.mod h1:hA608De9lI8hH66aqdoXm8lBK/HeNd+wMLOEJAXKaHU=
 github.com/SlothNinja/log v0.0.2 h1:h7o40CuoXxXOB1BbXWMJoCDkJGXgJgu4LZVO2vmh5fo=
@@ -105,6 +117,8 @@ github.com/SlothNinja/tammany v0.0.0-20200328173825-3064f368e21c h1:uGsHnx+ER0Bk
 github.com/SlothNinja/tammany v0.0.0-20200328173825-3064f368e21c/go.mod h1:o/6aCUzsyzqdEENsTd+Id0o+CRdH4hIDfCMADROiLWU=
 github.com/SlothNinja/tammany v0.0.0-20200328185742-28852a71598b h1:Nw0T33XhyZgGyIKgVYkjIHIg7CjO79cv6OaAW7+RNEk=
 github.com/SlothNinja/tammany v0.0.0-20200328185742-28852a71598b/go.mod h1:/AWdYj+Tw+Z4gzCgu4o/4y5/3O2rUstdfWu/Lz+DSnA=
+github.com/SlothNinja/tammany v0.0.0-20200402032337-4e18a6552d0f h1:2RT5N4oa6Js9kb1gmgWar3ZduRYzsnGEUDcTh/xZk6c=
+github.com/SlothNinja/tammany v0.0.0-20200402032337-4e18a6552d0f/go.mod h1:ULGnKzP97X0U8KMmhqd0dTomCrUHRycMtwSSBTtZkH0=
 github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3 h1:X0bAoa+ExSITcvWwuNOzlCiGp7Vdw21vOWUMG0vfG4I=
 github.com/SlothNinja/type v0.0.0-20200316011604-5ac825cb08e3/go.mod h1:HsikToln1Vu7kMemZnMu79SejeLoPFwXHMi0hiAecoE=
 github.com/SlothNinja/user v0.0.0-20200316001319-fa6de0ac8141 h1:zVR+fztVSKV/L4TBni/qr/YkmfT8rOZ2ZlYtc4qbtcQ=
@@ -117,6 +131,10 @@ github.com/SlothNinja/user-controller v0.0.0-20200328172354-ff664c7126e0 h1:YXx6
 github.com/SlothNinja/user-controller v0.0.0-20200328172354-ff664c7126e0/go.mod h1:5pxafyhtcTnAXwBAmURTvoaaKxDhKhCSLFzF0GsfPkk=
 github.com/SlothNinja/user-controller v0.0.0-20200402005221-4e166d0174d0 h1:gq/lucOZRSLUxzRsKqNlCbr0NrEI0FzGmdj0uMg2v1Y=
 github.com/SlothNinja/user-controller v0.0.0-20200402005221-4e166d0174d0/go.mod h1:01T6VS08NqsqV2aSPLkpeJFN2cL0CQP1gaazFgNl8HE=
+github.com/SlothNinja/user-controller v0.0.0-20200402023507-165b0616a891 h1:Zo2v9qDezg/i0zHv+hPjMDixeBzlnxmaCVAXjgQrgOk=
+github.com/SlothNinja/user-controller v0.0.0-20200402023507-165b0616a891/go.mod h1:wiwOiY2Tvj/hkcUHpRMbQKwvUmbiSYNJ5IuidPhd8j8=
+github.com/SlothNinja/user-controller v0.0.0-20200402025115-8d02593cce31 h1:rq+f8a6pY7Fd83xK50wvJ7a84bhLQYZSxHq3XMGd1Nw=
+github.com/SlothNinja/user-controller v0.0.0-20200402025115-8d02593cce31/go.mod h1:ANYtoaGbY9ljFSmi2Xyj5DCAi+9EECU+Vi+hTpzlHPs=
 github.com/SlothNinja/user-name v0.0.0-20200316004316-cb938e1f6eb0 h1:k/WWe/zZ+C2Zh3KBYGPMSsiigwUXYWr8UVOL6tdfBAY=
 github.com/SlothNinja/user-name v0.0.0-20200316004316-cb938e1f6eb0/go.mod h1:UCfCRxUBxuRjF8aoV3rT6JK/o5Y8o5dV7d8PIuwwIus=
 github.com/SlothNinja/user-stats v0.0.0-20200316003629-dfe63e057543/go.mod h1:X799W01EI1rXQVO+jtZ/FPa+xwBkT/A0zFeAANTLeTY=
