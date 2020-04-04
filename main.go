@@ -25,6 +25,7 @@ import (
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
+	"github.com/patrickmn/go-cache"
 )
 
 const (
@@ -51,6 +52,8 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
 	}
+
+	mcache := cache.New(30*time.Minute, 10*time.Minute)
 
 	s, err := getSecrets()
 	if err != nil {
@@ -83,19 +86,19 @@ func main() {
 	r = rating.NewClient(db).AddRoutes(ratingPrefix, r)
 
 	// After The Flood
-	r = atf.NewClient(db).Register(gtype.ATF, r)
+	r = atf.NewClient(db, mcache).Register(gtype.ATF, r)
 
 	// Guild of Thieves
-	r = got.NewClient(db).Register(gtype.GOT, r)
+	r = got.NewClient(db, mcache).Register(gtype.GOT, r)
 
 	// Tammany Hall
-	r = tammany.NewClient(db).Register(gtype.Tammany, r)
+	r = tammany.NewClient(db, mcache).Register(gtype.Tammany, r)
 
 	// Indonesia
-	r = indonesia.NewClient(db).Register(gtype.Indonesia, r)
+	r = indonesia.NewClient(db, mcache).Register(gtype.Indonesia, r)
 
 	// Confucius
-	r = confucius.NewClient(db).Register(gtype.Confucius, r)
+	r = confucius.NewClient(db, mcache).Register(gtype.Confucius, r)
 
 	// warmup
 	r.GET("_ah/warmup", func(c *gin.Context) {
