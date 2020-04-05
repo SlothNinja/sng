@@ -6,7 +6,7 @@ require (
 	github.com/SlothNinja/confucius v0.0.0-20200404201942-dabde58acae3
 	github.com/SlothNinja/game v0.0.0-20200403024413-6ec55c722e60
 	github.com/SlothNinja/got v0.0.0-20200404195711-47829e08ae81
-	github.com/SlothNinja/indonesia v0.0.0-20200405012818-e03176760bea
+	github.com/SlothNinja/indonesia v0.0.0-20200405181619-90157a61e09e
 	github.com/SlothNinja/log v0.0.2
 	github.com/SlothNinja/rating v0.0.0-20200403023927-a24c126421db
 	github.com/SlothNinja/restful v0.0.0-20200403022024-abb885a6b8d5
