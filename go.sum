@@ -59,6 +59,8 @@ github.com/SlothNinja/glicko v0.0.0-20200212023639-f1ccdd954e0a h1:Q3KYPblyWuNmt
 github.com/SlothNinja/glicko v0.0.0-20200212023639-f1ccdd954e0a/go.mod h1:DFRVsCveAxhGeAiWW+b6JEsKopmD5jWcghia29GWfvY=
 github.com/SlothNinja/got v0.0.0-20200408235209-8115eafae3ae h1:r76tPKvWJb/OK3ntCYYy0ceSpXuApGrSqQm38bTqBOw=
 github.com/SlothNinja/got v0.0.0-20200408235209-8115eafae3ae/go.mod h1:n0qaoEodxo4o277ZtYdMAYrvHH/X6BbBJUlovQ+ooIk=
+github.com/SlothNinja/got v0.0.0-20200409000453-9c773c3f0ad3 h1:ZDNswnuYWJVtWWfeIakHYqRZuZrVZUQ3akBSaFeRhB8=
+github.com/SlothNinja/got v0.0.0-20200409000453-9c773c3f0ad3/go.mod h1:n0qaoEodxo4o277ZtYdMAYrvHH/X6BbBJUlovQ+ooIk=
 github.com/SlothNinja/indonesia v0.0.0-20200408235321-c50b4b023f42 h1:+jFucIFaFyrzWvuUrL2N5ZrvrEOdmJTWZwEHqNJoAAg=
 github.com/SlothNinja/indonesia v0.0.0-20200408235321-c50b4b023f42/go.mod h1:NntMeRqd+ozNoeUfFhHZTHzSlxXIdhmvHfKoHN+nQZw=
 github.com/SlothNinja/inflect v0.0.0-20200211050914-63201fc6a283 h1:DYkqRVg87muCa8Ch3y6UERC75CzaI68tTSt3gzwnzJc=

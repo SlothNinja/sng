@@ -5,7 +5,7 @@ require (
 	github.com/SlothNinja/atf v0.0.0-20200408234956-eb3732f63168
 	github.com/SlothNinja/confucius v0.0.0-20200408235102-9322d9251efd
 	github.com/SlothNinja/game v0.0.0-20200408234815-10c3f37bc380
-	github.com/SlothNinja/got v0.0.0-20200408235209-8115eafae3ae
+	github.com/SlothNinja/got v0.0.0-20200409000453-9c773c3f0ad3
 	github.com/SlothNinja/indonesia v0.0.0-20200408235321-c50b4b023f42
 	github.com/SlothNinja/log v0.0.2
 	github.com/SlothNinja/rating v0.0.0-20200407222832-be1c763ddfce
