@@ -45,15 +45,6 @@
                         </select>
                 </div>
                 <div>
-                        <label for="admin-winners">Winners:</label>
-                        <select id="admin-winners" name="Header.WinnerIDS" multiple="multiple">
-                                <option value="-1" {{if len $game.Winners | zero}}selected="selected"{{end}}>None</option>
-                                {{range $index, $player := $game.Players}}
-                                <option value="{{$player.ID}}" {{if $player.IsWinner}}selected="selected"{{end}}>{{$player.Name}}</option>
-                                {{end}}
-                        </select>
-                </div>
-                <div>
                         <label for="admin-status">Status</label>
                         <select id="admin-status" name="Header.Status">
                                 {{range $i, $s := $.Game.Statuses}}
