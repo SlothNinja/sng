@@ -23,7 +23,7 @@
                                 <label for="bid">Bid:</label>
                                 <select id="bid" name="bid">
                                         {{if $cp.CanBidNone}}
-                                        <option value="none">None</option>
+                                        <option value="none">Pass</option>
                                         {{end}}
                                         {{range $v := $merger.BidsFor $cp}}
                                         <option value="{{$v}}">{{$v}}</option>

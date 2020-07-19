@@ -105,6 +105,8 @@ func main() {
 		c.Status(http.StatusOK)
 	})
 
+	r = staticRoutes(r)
+
 	r.Run()
 }
 
@@ -179,4 +181,19 @@ func (s *secrets) Save() ([]datastore.Property, error) {
 func (s *secrets) LoadKey(k *datastore.Key) error {
 	s.Key = k
 	return nil
+}
+
+// staticHandler for local development since app.yaml is ignored
+// static files are handled via app.yaml routes when deployed
+func staticRoutes(r *gin.Engine) *gin.Engine {
+	if sn.IsProduction() {
+		return r
+	}
+	r.StaticFile("/favicon.ico", "public/favicon.ico")
+	r.Static("/images", "public/images")
+	r.Static("/javascripts", "public/javascripts")
+	r.Static("/js", "public/js")
+	r.Static("/stylesheets", "public/stylesheets")
+	r.Static("/rules", "public/rules")
+	return r
 }
