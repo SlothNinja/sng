@@ -78,6 +78,8 @@ github.com/SlothNinja/indonesia v1.0.5 h1:PTmTKn8KoZRCmdQBkbBXjAX8wuLWz15meV8UnC
 github.com/SlothNinja/indonesia v1.0.5/go.mod h1:lrdYZRWV2kRIBLv1+cEwsZjppjfr3dxHTZP0XYZSKrU=
 github.com/SlothNinja/indonesia v1.0.6 h1:5SPReB/aBJA84opKl0fUdtZRmbX950X7wI5a5MkRFyg=
 github.com/SlothNinja/indonesia v1.0.6/go.mod h1:lrdYZRWV2kRIBLv1+cEwsZjppjfr3dxHTZP0XYZSKrU=
+github.com/SlothNinja/indonesia v1.0.7 h1:GMGKRoRGiUYdFxdyVBMDxxRSsmIxSNwIQ033rM9gXXA=
+github.com/SlothNinja/indonesia v1.0.7/go.mod h1:lrdYZRWV2kRIBLv1+cEwsZjppjfr3dxHTZP0XYZSKrU=
 github.com/SlothNinja/inflect v0.0.0-20200211050914-63201fc6a283 h1:DYkqRVg87muCa8Ch3y6UERC75CzaI68tTSt3gzwnzJc=
 github.com/SlothNinja/inflect v0.0.0-20200211050914-63201fc6a283/go.mod h1:hA608De9lI8hH66aqdoXm8lBK/HeNd+wMLOEJAXKaHU=
 github.com/SlothNinja/inflect v1.0.0 h1:OURYwqV6Cx93vtTscpWtMfh1N6s8CHs1wrNQmvrpXUU=
