@@ -1,29 +1,32 @@
 module github.com/SlothNinja/sng
 
+go 1.14
+
 require (
-	cloud.google.com/go/datastore v1.2.0
-	github.com/SlothNinja/atf v1.0.1
-	github.com/SlothNinja/confucius v1.0.2
-	github.com/SlothNinja/game v1.0.0
-	github.com/SlothNinja/got v1.0.3
-	github.com/SlothNinja/indonesia v1.0.7
+	cloud.google.com/go/datastore v1.3.0
+	github.com/SlothNinja/atf v1.0.5
+	github.com/SlothNinja/confucius v1.0.5
+	github.com/SlothNinja/game v1.0.4
+	github.com/SlothNinja/got v1.0.6
+	github.com/SlothNinja/indonesia v1.0.10
 	github.com/SlothNinja/log v0.0.2
-	github.com/SlothNinja/rating v1.0.0
+	github.com/SlothNinja/rating v1.0.4
 	github.com/SlothNinja/restful v1.0.0
 	github.com/SlothNinja/sn v1.0.0
-	github.com/SlothNinja/tammany v1.0.1
-	github.com/SlothNinja/type v1.0.0
-	github.com/SlothNinja/user v1.0.0
-	github.com/SlothNinja/user-controller v1.0.0
-	github.com/SlothNinja/welcome v1.0.0
+	github.com/SlothNinja/tammany v1.0.4
+	github.com/SlothNinja/type v1.0.1
+	github.com/SlothNinja/welcome v1.0.1
+	github.com/fatih/color v1.10.0 // indirect
 	github.com/gin-contrib/sessions v0.0.3
 	github.com/gin-gonic/gin v1.6.3
-	github.com/google/go-cmp v0.5.1 // indirect
 	github.com/gorilla/securecookie v1.1.1
+	github.com/hashicorp/go-hclog v0.15.0 // indirect
+	github.com/hashicorp/go-retryablehttp v0.6.8
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	golang.org/x/sys v0.0.0-20200727154430-2d971f7391a4 // indirect
-	golang.org/x/tools v0.0.0-20200727215259-7b4c4ad3dc39 // indirect
-	google.golang.org/genproto v0.0.0-20200726014623-da3ae01ef02d // indirect
+	google.golang.org/api v0.35.0
+	google.golang.org/grpc v1.33.2
 )
 
-go 1.13
+replace github.com/SlothNinja/user => ./user
+
+replace github.com/SlothNinja/game => ./game

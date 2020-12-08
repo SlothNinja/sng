@@ -17,12 +17,10 @@
                                 <div class="greeting">
                                         {{if $.CUser}}
                                         Hello {{$.CUser.Link}}
-                                        {{LogoutURL $.Context "/" "(Logout)"}}
+                                        <a href='/logout'>(Logout)</a>
                                         {{else}}
                                         Hello Guest
-                                        {{$req := $.Context.Value 0}}
-                                        {{$path := $req.URL.String}}
-                                        {{LoginURL $.Context $path "(Login)"}}
+                                        <a href='/login'>(Login)</a>
                                         {{end}}
                                 </div> 
                         </div> 

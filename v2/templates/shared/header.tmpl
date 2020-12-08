@@ -20,9 +20,12 @@
                                         {{LogoutURL $.Context "/" "(Logout)"}}
                                         {{else}}
                                         Hello Guest
+                                        <a href='/login'>(Login)</a>
+                                        <!--
                                         {{$req := $.Context.Value 0}}
                                         {{$path := $req.URL.String}}
                                         {{LoginURL $.Context $path "(Login)"}}
+                                        -->
                                         {{end}}
                                 </div> 
                         </div> 
