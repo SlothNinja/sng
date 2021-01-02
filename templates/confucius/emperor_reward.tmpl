@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Emperor Reward Form --> 
-{{if $g.EnableEmperorReward $ctx}}
+{{if $g.EnableEmperorReward $.CUser}}
 <div class="actions" id="emperor-reward-action"> 
         <fieldset> 
                 <legend>Emperor's Reward</legend> 

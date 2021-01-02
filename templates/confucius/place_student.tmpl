@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Place Student Action Form --> 
-{{if $g.EnablePlaceStudent $ctx}}
+{{if $g.EnablePlaceStudent $.CUser}}
 <div class="actions" id="place-student-action"> 
         <fieldset> 
                 <legend>Place Student</legend> 

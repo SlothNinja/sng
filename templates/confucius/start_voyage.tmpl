@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Start Voyage Form --> 
-{{if $g.EnableStartVoyage $ctx}}
+{{if $g.EnableStartVoyage $.CUser}}
 <div class="actions" id="start-voyage-action"> 
         <fieldset> 
                 <legend>Start Voyage</legend> 

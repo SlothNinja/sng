@@ -13,7 +13,7 @@
                         {{template "shared/header" .}}
                         <div id="upper-content">
                                 {{template "confucius/status_box" .}}
-                                {{if .Admin}}
+                                {{if $.CUser.IsAdmin}}
                                 {{template "confucius/admin/box" .}}
                                 {{else}}
                                 {{template "confucius/command_box" .}}

@@ -1,7 +1,5 @@
 *.swp
 sng
-app-dev.yaml
-app-prod.yaml
+app.yaml
 commands
 gin-bin
-indonesia

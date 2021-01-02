@@ -1,21 +1,20 @@
 {{$p := .p}}
-{{$admin := .admin}}
-{{$isAdmin := .isAdmin}}
 {{$g := .g}}
 {{$ctx := .ctx }}
+{{$cu := .cu}}
 
 <tr id="player-row-{{$p.ID}}">
         <td class="player">
                 <div class="gravatar">
                         {{$g.GravatarFor $p}}
                 </div>
-                {{if $admin}}
+                {{if $cu.IsAdmin}}
                 <div id="admin-player-{{$p.ID}}" class="mybutton top-padding clickable">
                         Admin Player
                 </div>
                 {{end}}
                 <div>
-                        {{$g.PlayerLinkByID $ctx $p.ID}}
+                        {{$g.PlayerLinkByID $cu $p.ID}}
                 </div>
                 <div class="left-padding top-padding" style="width:100px;text-align:left">
                 <div class="rupiah">
@@ -37,8 +36,8 @@
         <td class="last-action">
                 {{template "shared/last_actions_list3" data "g" $g "p" $p "ctx" $ctx}}
         </td>
-        {{template "indonesia/player_slots" data "p" $p "admin" $admin "isAdmin" $isAdmin "ctx" $ctx}}
+        {{template "indonesia/player_slots" data "p" $p "ctx" $ctx}}
         <td class="city-cards">
-                {{template "indonesia/player_hand" data "p" $p "admin" $admin "isAdmin" $isAdmin "ctx" $ctx}}
+                {{template "indonesia/player_hand" data "p" $p "cu" $cu}}
         </td>
 </tr>

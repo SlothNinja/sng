@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Buy Junks Form --> 
-{{if $g.EnableBuyJunks $ctx}}
+{{if $g.EnableBuyJunks $.CUser}}
 <div class="actions" id="buy-junks-action"> 
         <fieldset> 
                 <legend>Buy Junks</legend> 

@@ -1,6 +1,5 @@
 {{$g := $.Game}}
 {{$cu := $.CUser}}
-{{$ctx := $.Context}}
 
 <!-- Status Box --> 
 <div id="status-box">
@@ -18,9 +17,9 @@
                                 <strong>Game ID:</strong> {{$g.ID}}
                         </div>
                         <div class="current-players"> 
-                                <strong>{{$g.CurrentPlayerLabel}}:</strong> {{$g.CurrentPlayerLinks $ctx}}
+                                <strong>{{$g.CurrentPlayerLabel}}:</strong> {{$g.CurrentPlayerLinks $cu}}
                         </div> 
-                        {{if $.Admin}}
+                        {{if $.CUser.IsAdmin}}
                         <div class="clickable mybutton top-padding" id="admin-header">
                                 Admin Header
                         </div>

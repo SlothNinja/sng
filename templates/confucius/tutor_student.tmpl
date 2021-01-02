@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Tutor Student Form --> 
-{{if $g.EnableTutorStudent $ctx}}
+{{if $g.EnableTutorStudent $.CUser}}
 <div class="actions" id="tutor-student-action"> 
         <fieldset> 
                 <legend>Tutor Student</legend> 

@@ -1,5 +1,5 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
+{{$cu := $.CUser}}
 {{$cp := $g.CurrentPlayer}}
 <div id="areas">
         {{with $grid := $g.Grid}}
@@ -26,7 +26,7 @@
                         </div>
                 </div>
                 {{range $a := $row}}
-                {{template "got/area" data "g" $g "ctx" $ctx "cp" $cp "a" $a}}
+                {{template "got/area" data "g" $g "cu" $cu "cp" $cp "a" $a}}
                 {{end}}
                 <div class="pull-left" style="height:90px;width:3em">
                         <div class="center" style="color:yellow;position:relative;top:40px">

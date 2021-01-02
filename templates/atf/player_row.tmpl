@@ -1,11 +1,10 @@
 {{$p := .p}}
 {{$g := .g}}
-{{$admin := .admin}}
-{{$ctx := .ctx}}
+{{$cu := .cu}}
 
 <tr id="player-row-{{$p.ID}}">
         <td class="player">
-                {{if $admin}}
+                {{if $cu.IsAdmin}}
                 <div id="admin-player-row-{{$p.ID}}" class="mybutton clickable">
                         Admin Player
                 </div>
@@ -14,7 +13,7 @@
                         {{$g.GravatarFor $p}}
                 </div>
                 <div>
-                        {{$g.PlayerLinkByID $ctx $p.ID}}
+                        {{$g.PlayerLinkByID $cu $p.ID}}
                 </div>
                 <td class="last-action">
                         {{template "shared/last_actions_list" $p}}

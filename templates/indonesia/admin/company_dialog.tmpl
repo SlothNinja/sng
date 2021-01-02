@@ -1,5 +1,5 @@
 {{$game := $.Game}}
-{{if $.IsAdmin}}
+{{if $.CUser.IsAdmin}}
 {{$company := $game.SelectedCompany}}
 {{$player := $game.SelectedPlayer}}
 <div id="dialog" title="Admin Company of {{$player.Name}} in Slot {{$company.Slot}}">

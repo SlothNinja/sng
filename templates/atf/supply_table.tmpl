@@ -1,6 +1,6 @@
 {{$game := $.Game}}
 <div id="supply-table">
-        {{if $.Admin}}
+        {{if $.CUser.IsAdmin}}
         <div id="admin-supply-table" class="mybutton clickable">
                 Admin Supply
         </div>

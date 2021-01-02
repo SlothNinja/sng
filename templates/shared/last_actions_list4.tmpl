@@ -1,0 +1,13 @@
+{{$g := .g}}
+{{$p := .p}}
+{{$ctx := .ctx}}
+{{$cu := .cu}}
+<div id="player-last-actions-list-{{$p.ID}}">
+        <ul>
+        {{range $index, $action := $p.Log}}
+                <li>
+                        {{$action.HTML $ctx $g $cu}}
+                </li>
+        {{end}}
+        </ul>
+</div>

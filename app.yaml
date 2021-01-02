@@ -1,4 +1,4 @@
-runtime: go111
+runtime: go114
 instance_class: F1
 automatic_scaling:
   max_idle_instances: 1
@@ -9,10 +9,18 @@ automatic_scaling:
 default_expiration: "7d"
 
 env_variables:
-  HOST: "https://dev-slothninja-games.appspot.com"
-  DATASTORE_PROJECT_ID: "dev-slothninja-games"
-  CLIENT_ID: 
-  CLIENT_SECRET: 
+  HOST: "https://www.slothninja.com"
+  DS_PROJECT_ID: "go-slothninja-games"
+  DS_HOST: "www.slothninja.com"
+  USER_PROJECT_ID: "user-slothninja-games"
+  DS_USER_HOST: "user.slothninja.com"
+  CLIENT_ID: "672111572490-cq4vgrlatrtds46ajako0qrijbf1nkq8n.apps.gooleusercontent.com" 
+  CLIENT_SECRET: "QrSbRG4f876G79WPvm95mr5f"
+  NODE_ENV: "production"
+  MJ_API_KEY_PUB: "0b66e3cf5d4b5a5c536ef1a289b58d79"
+  MJ_API_KEY_PRIV: "e4ba83076c32f4732e84a1b05cb4e3e5"
+  COOKIE_URL: "https://user.slothninja.com/cookie"
+  LOGIN_HOST: "https://user.slothninja.com"
 
 inbound_services:
 - warmup
@@ -48,4 +56,6 @@ handlers:
   upload: public/robots\.txt
 
 - url: /.*
+  secure: always
+  redirect_http_response_code: 301
   script: auto

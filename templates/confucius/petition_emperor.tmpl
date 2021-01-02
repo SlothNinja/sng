@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Peition Emperor Form --> 
-{{if $g.EnablePetitionEmperor $ctx}}
+{{if $g.EnablePetitionEmperor $.CUser}}
 <div class="actions" id="petition-emperor-action"> 
         <fieldset> 
                 <legend>Petition Emperor</legend> 

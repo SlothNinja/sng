@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Secure Official Action Form --> 
-{{if $g.EnableSecureOfficial $ctx}}
+{{if $g.EnableSecureOfficial $.CUser}}
 <div class="actions" id="secure-official-action"> 
         <fieldset> 
                 <legend>Secure Official</legend> 

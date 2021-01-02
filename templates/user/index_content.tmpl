@@ -23,7 +23,7 @@
                                                         <th>
                                                                 Updated
                                                         </th>
-                                                        {{if and $.Admin $.IsAdmin}}
+                                                        {{if $.CUser.IsAdmin}}
                                                         <th>
                                                                 Email
                                                         </th>
@@ -53,13 +53,13 @@
                                                         <td>
                                                                 {{$user.UpdatedAt}}
                                                         </td>
-                                                        {{if and $.Admin $.IsAdmin}}
+                                                        {{if $.CUser.IsAdmin}}
                                                         <td>
                                                                 {{$user.Email}}
                                                         </td>
                                                         {{end}}
                                                         <td>
-                                                        {{if $user.IsCurrent $.Context | or $.IsAdmin}}
+                                                        {{if $user.IsCurrent $.Context | or $.CUser.IsAdmin}}
                                                                 <a class="mybutton" href="/user/{{$user.ID}}/edit">Edit</a>
                                                         {{end}}
                                                         </td>

@@ -16,7 +16,7 @@
                                 <div class="bottom-padding">Confederacy</div>
                                 <div class="gravatar" data-bind="html: gravatar"></div>
                                 <div data-bind="html: link"></div>
-                                {{if $.Admin}}
+                                {{if $.CUser.IsAdmin}}
                                 <div class="top-padding">
                                         <button data-bind="jqButton: true, click: function(){$root.put({'action': 'admin', 'subAction': 'getDialog', 'target': 'confederate-player', 'json': true})}">Admin Player</button>
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="bottom-padding">Union</div>
                                 <div class="gravatar" data-bind="html: gravatar"></div>
                                 <div data-bind="html: link"></div>
-                                {{if $.Admin}}
+                                {{if $.CUser.IsAdmin}}
                                 <div class="top-padding">
                                         <button data-bind="jqButton: true, click: function(){$root.put({'action': 'admin', 'subAction': 'getDialog', 'target': 'union-player', 'json': true})}">Admin Player</button>
                                 </div>

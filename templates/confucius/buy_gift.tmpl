@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Buy Gift Action Form --> 
-{{if $g.EnableBuyGift $ctx}}
+{{if $g.EnableBuyGift $.CUser}}
 <div class="actions" id="buy-gift-action"> 
         <fieldset> 
                 <legend>Buy Gift</legend> 

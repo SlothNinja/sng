@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Transfer Influence Form --> 
-{{if $g.EnableTransferInfluence $ctx}}
+{{if $g.EnableTransferInfluence $.CUser}}
 <div class="actions" id="transfer-influence-action"> 
         <fieldset> 
                 <legend>Transfer Influence</legend> 

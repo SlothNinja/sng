@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Bribe Official Action Form --> 
-{{if $g.EnableBribeOfficial $ctx}}
+{{if $g.EnableBribeOfficial $.CUser}}
 <div class="actions" id="bribe-official-action"> 
         <fieldset> 
                 <legend>Bribe Official</legend> 

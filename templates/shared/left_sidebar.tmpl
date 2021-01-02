@@ -25,7 +25,7 @@
                                         <div class="menu-item"><a href="/games/recruiting">All</a></div> 
                                         <div class="menu-item"><a href="/atf/games/recruiting">After The Flood</a></div> 
                                         <div class="menu-item"><a href="/confucius/games/recruiting">Confucius</a></div> 
-                                        {{if $.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <div class="menu-item"><a href="http://{{$.Host.Gettysburg}}/games/recruiting">Gettysburg</a></div> 
                                         {{end}}
                                         <div class="menu-item"><a href="/got/games/recruiting">Guild of Thieves</a></div> 
@@ -39,7 +39,7 @@
                                 <div> 
                                         <div class="menu-item"><a href="/ratings/show/atf">After The Flood</a></div> 
                                         <div class="menu-item"><a href="/ratings/show/confucius">Confucius</a></div> 
-                                        {{if $.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <div class="menu-item"><a href="http://{{$.Host.Gettysburg}}/ratings/show">Gettysburg</a></div> 
                                         {{end}}
                                         <div class="menu-item"><a href="/ratings/show/got">Guild of Thieves</a></div> 
@@ -53,7 +53,7 @@
                                 <div> 
                                         <div class="menu-item"><a href="/atf/game/new">After The Flood</a></div> 
                                         <div class="menu-item"><a href="/confucius/game/new">Confucius</a></div> 
-                                        {{if $.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <div class="menu-item"><a href="http://{{$.Host.Gettysburg}}/game/new">Gettysburg</a></div> 
                                         {{end}}
                                         <div class="menu-item"><a href="/got/game/new">Guild of Thieves</a></div> 
@@ -68,7 +68,7 @@
                                         <div class="menu-item"><a href="/games/running">All</a></div> 
                                         <div class="menu-item"><a href="/atf/games/running">After The Flood</a></div> 
                                         <div class="menu-item"><a href="/confucius/games/running">Confucius</a></div> 
-                                        {{if $.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <div class="menu-item"><a href="http://{{$.Host.Gettysburg}}/games/running">Gettysburg</a></div> 
                                         {{end}}
                                         <div class="menu-item"><a href="/got/games/running">Guild of Thieves</a></div> 
@@ -82,7 +82,7 @@
                                         <div class="menu-item"><a href="/games/completed">All</a></div> 
                                         <div class="menu-item"><a href="/atf/games/completed">After The Flood</a></div> 
                                         <div class="menu-item"><a href="/confucius/games/completed">Confucius</a></div> 
-                                        {{if $.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <div class="menu-item"><a href="http://{{$.Host.Gettysburg}}/games/completed">Gettysburg</a></div> 
                                         {{end}}
                                         <div class="menu-item"><a href="/got/games/completed">Guild of Thieves</a></div> 

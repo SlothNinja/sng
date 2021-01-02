@@ -38,13 +38,13 @@
                                         </div>
                                         <div class="player-office">
                                                 <div class="player">
-                                                        {{$g.PlayerLinkByID $ctx .ID}}
+                                                        {{$g.PlayerLinkByID $cu .ID}}
                                                 </div>
                                                 {{template "tammany/player_office" .}}
                                         </div>
                                 </td>
                                 <td class="last-action">
-                                        {{template "shared/last_actions_list3" data "g" $g "p" . "ctx" $.Context}}
+                                        {{template "shared/last_actions_list4" data "g" $g "p" . "ctx" $.Context "cu" $.CUser}}
                                 </td>
                                 <td>
                                         {{.Score}}

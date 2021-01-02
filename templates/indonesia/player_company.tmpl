@@ -1,11 +1,10 @@
 {{$c := .company}}
-{{$g := $c.Game}}
+{{$g := .game}}
 {{$cp := $g.CurrentPlayer}}
-{{$ctx := .ctx}}
-{{$isAdmin := .isAdmin}}
+{{$cu := .cu}}
 
 {{if $cp}}
-        {{ $isAdminOrCurrent := $cp.IsCurrentUser $ctx | or $isAdmin }}
+        {{ $isAdminOrCurrent := $cp.IsCurrentUser $cu | or $cu.IsAdmin }}
         {{ $canSelect := $cp.CanSelectCompany $c }}
         {{ $clickable := and $isAdminOrCurrent $canSelect }}
         <div id="player-{{$c.OwnerID}}-company-{{$c.Slot}}" {{if $clickable}}class="clickable"{{end}}>

@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Recruit Army Form  --> 
-{{if $g.EnableRecruitArmy $ctx}}
+{{if $g.EnableRecruitArmy $.CUser}}
 <div class="actions" id="recruit-army-action"> 
         <fieldset> 
                 <legend>Recruit Army</legend> 

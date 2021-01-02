@@ -1,5 +1,5 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
+{{$cu := $.CUser}}
 
 <div id="players-table">
         <table class='strippedDataTable'>
@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                         {{range $p := $g.Players}}
-                        {{template "atf/player_row" data "g" $g "p" $p "admin" $.Admin "ctx" $ctx}}
+                        {{template "atf/player_row" data "g" $g "p" $p "cu" $cu}}
                         {{end}}
                 </tbody>
         </table>

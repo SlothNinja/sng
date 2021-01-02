@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Tax Income Action Form --> 
-{{if $g.EnableTaxIncome $ctx}}
+{{if $g.EnableTaxIncome $.CUser}}
 <div class="actions" id="tax-income-action"> 
 <fieldset> 
     <legend>Tax Income</legend> 

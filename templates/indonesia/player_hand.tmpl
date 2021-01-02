@@ -1,9 +1,7 @@
 {{$p := .p}}
-{{$ctx := .ctx}}
-{{$isCurrent := $p.IsCurrentUser $ctx}}
-{{$isAdmin := .isAdmin }}
+{{$cu := .cu}}
 
-{{if $p.IsCurrentUser $ctx | or $isAdmin}}
+{{if $p.IsCurrentUser $cu | or $cu.IsAdmin}}
         {{$p.DisplayHand}}
 {{else}}
         <div>

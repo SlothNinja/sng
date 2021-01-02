@@ -13,7 +13,7 @@
                         {{template "shared/header" .}}
                         <div id="upper-content">
                                 {{template "tammany/status_box" .}}
-                                {{if $.Admin}}
+                                {{if $.CUser.IsAdmin}}
                                 {{template "tammany/admin/box" .}}
                                 {{end}}
                         </div> 
@@ -25,7 +25,7 @@
                         </div>
                         <div id="lower-content">
                                 <div class="left-column">
-                                        {{template "shared/gamelog3" .}}
+                                        {{template "shared/gamelog4" .}}
                                 </div> 
                                 <div class="right-column">
                                         {{template "shared/messagelog" .}}

@@ -1,18 +1,18 @@
 {{$e := .entry}}
 {{$g := .g}}
 {{$p := $g.PlayerByID $e.PlayerID}}
-{{$ctx := .ctx}}
+{{$cu := .cu}}
 
 {{if not $p}}
         <div>
                 No one won the election in ward {{$e.WardID}}.
         </div>
-        {{template "tammany/election_details" data "g" $g "entry" $e "ctx" $ctx}}
+        {{template "tammany/election_details" data "g" $g "entry" $e "cu" $cu}}
 {{else if $e.Contested}}
         <div>
                 {{$p.Name}} won the election in ward {{$.WardID}}.
         </div>
-        {{template "tammany/election_details" data "g" $g "entry" $e "ctx" $ctx}}
+        {{template "tammany/election_details" data "g" $g "entry" $e "cu" $cu}}
 {{else}}
         {{$p.Name}} won the uncontested election in ward {{$e.WardID}}
 {{end}}

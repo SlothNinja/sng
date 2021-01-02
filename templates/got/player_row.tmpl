@@ -1,16 +1,16 @@
 {{$p := .p}}
-{{$admin := .admin}}
-{{$ctx := .ctx}}
+{{$cu := .cu}}
 {{$g := .g}}
+
 <tr id="player-row-{{$p.ID}}">
         <td class="player">
                 <div class="gravatar">
                         {{$g.GravatarFor $p}}
                 </div>
                 <div>
-                        {{$g.PlayerLinkByID $ctx $p.ID}}
+                        {{$g.PlayerLinkByID $cu $p.ID}}
                 </div>
-                {{if $.admin}}
+                {{if $cu.IsAdmin}}
                 <div id="admin-player-row-{{$p.ID}}" class="mybutton top-padding clickable">
                         Admin Player
                 </div>
@@ -23,7 +23,7 @@
                 {{template "got/player_score" $p}}
         </td>
         <td>
-                {{template "got/player_hand" data "g" $g "p" $p "ctx" $ctx}}
+                {{template "got/player_hand" data "g" $g "p" $p "cu" $cu}}
         </td>
         <td>
                 {{template "got/player_draw" $p}}

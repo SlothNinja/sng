@@ -5,8 +5,8 @@
         <div class="dialog-content">
                 <div id="tabs">
                         <ul>
-                                {{if $.Admin}}
-                                        {{if $.IsAdmin}}
+                                {{if $.CUser.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <li><a href="#tabs-admin">Admin</a></li>
                                         {{end}}
                                 {{else}}
@@ -29,8 +29,8 @@
                                         <li><a href="#tabs-finish">Undo/Finish</a></li>
                                 {{end}}
                         </ul>
-                        {{if $.Admin}}
-                                {{if $.IsAdmin }}
+                        {{if $.CUser.IsAdmin}}
+                                {{if $.CUser.IsAdmin }}
                                 {{template "atf/admin/worker_box_form" $}}
                                 {{end}}
                         {{else}}

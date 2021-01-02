@@ -1,7 +1,7 @@
 {{$game := $.Game}}
 {{$cp := $game.CurrentPlayer}}
 {{$area := $game.SelectedArea}}
-{{if $.IsAdmin}}
+{{if $.CUser.IsAdmin}}
 <div id="tabs-admin">
         <form action="/atf/game/admin/{{$game.ID}}" method="post">
                 <div style="margin:0;padding:0;display:inline">

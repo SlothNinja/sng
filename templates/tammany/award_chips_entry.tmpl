@@ -1,6 +1,6 @@
 {{$e := .entry}}
 {{$g := .g}}
-{{$ctx := .ctx}} 
+{{$cu := .cu}} 
 
 <table class="strippedDataTable">
 
@@ -17,7 +17,7 @@
                                         {{$g.GravatarFor $p}}
                                 </div>
                                 <div>
-                                        {{$g.PlayerLinkByID $ctx $p.ID}}
+                                        {{$g.PlayerLinkByID $cu $p.ID}}
                                 </div>
                         </td>
                         <td style="width:170px">

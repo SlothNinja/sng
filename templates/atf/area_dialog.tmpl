@@ -5,8 +5,8 @@
         <div class="dialog-content">
                 <div id="tabs">
                         <ul>
-                                {{if $.Admin}}
-                                        {{if $.IsAdmin}}
+                                {{if $.CUser.IsAdmin}}
+                                        {{if $.CUser.IsAdmin}}
                                         <li><a href="#tabs-admin">Admin</a></li>
                                         {{end}}
                                 {{else}}
@@ -61,7 +61,7 @@
                                         <li><a href="#tabs-finish">Undo/Finish</a></li>
                                 {{end}}
                         </ul>
-                        {{if $.Admin}}
+                        {{if $.CUser.IsAdmin}}
                                 {{if $area.IsSumer }}
                                 {{template "atf/admin/sumer_area_form" $}}
                                 {{end}}

@@ -1,5 +1,6 @@
 {{$g := $.Game}}
 {{$ctx := $.Context}}
+{{$cu := $.CUser}}
 
 <div id="players-table"> 
         <table class='strippedDataTable'>
@@ -31,14 +32,14 @@
                 </thead>
                 <tbody>
                         {{range $p := $g.Players}}
-                                {{ $isCurrent := $p.IsCurrentUser $.Context}}
+                                {{ $isCurrent := $p.IsCurrentUser $cu}}
                         <tr>
                                 <td class="player">
                                         <div class="gravatar">
                                                 {{$g.GravatarFor $p}}
                                         </div>
                                         <div>
-                                                {{$g.PlayerLinkByID $ctx $p.ID}}
+                                                {{$g.PlayerLinkByID $cu $p.ID}}
                                         </div>
                                         <div>
                                                 [{{$p.Score}}]
@@ -84,7 +85,7 @@
                                         </div>
                                         <div>
                                         {{range $card := $p.ConCardHand}}
-                                        {{if and $card.Revealed $isCurrent | or $.IsAdmin }}
+                                        {{if and $card.Revealed $isCurrent | or $.CUser.IsAdmin }}
                                         <img src="/images/confucius/confucius-card-{{$card.Coins}}.jpg" alt="{{$card.Coins}} Coin Confucius Card"/>
                                         {{else}}
                                         <img src="/images/confucius/confucius-card-back.jpg" alt="Confucius Card Back Face" />
@@ -94,7 +95,7 @@
                                 </td> 
                                 <td class="emperor-reward-cards">
                                         {{range $card := $p.EmperorHand}}
-                                        {{if and $card.Revealed $isCurrent | or $.IsAdmin }}
+                                        {{if and $card.Revealed $isCurrent | or $.CUser.IsAdmin }}
                                         <img class="emperorcard{{$card.Type}}" src="/images/confucius/emperors-reward-card-{{$card.Type}}.jpg" alt="Emperor Card"/>
                                         <div class="emperorcard{{$card.Type}}" title="{{$card.Title}}">
                                                 {{$card.Description}}

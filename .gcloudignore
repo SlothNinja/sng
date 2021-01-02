@@ -24,6 +24,10 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
+sng
 queue.yaml
+commands
+gin-bin
+README.md
+tools
 v2
-got/v2

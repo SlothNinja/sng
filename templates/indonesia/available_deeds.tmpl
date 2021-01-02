@@ -1,11 +1,12 @@
 {{$g := $.Game}}
 {{$cp := $g.CurrentPlayer}}
+{{$cu := $.CUser}}
 <div id="available-deeds">
         <div class="container">
                 {{range $i, $deed := $g.AvailableDeeds}}
                 {{$klass := $deed.IDString}}
                 {{if $cp}}
-                        {{$isAdminOrCurrent := $cp.IsCurrentUser $.Context | or $.IsAdmin}}
+                        {{$isAdminOrCurrent := $cp.IsCurrentUser $cu | or $cu.IsAdmin}}
                 <div id="available-deed-{{$i}}" class="{{$klass}} {{if and $isAdminOrCurrent $cp.CanAcquireCompany}}clickable{{end}}" data-deedtip='{{$deed.Tip}}'>
                         <img class="deed" src="/images/indonesia/{{$klass}}.png" />
                 </div>

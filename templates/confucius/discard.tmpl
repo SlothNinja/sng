@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Discard Form --> 
-{{if $g.EnableDiscard $ctx}}
+{{if $g.EnableDiscard $.CUser}}
 <div class="actions" id="discard-action"> 
         <fieldset> 
                 <legend>Discard Cards</legend> 

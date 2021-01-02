@@ -37,7 +37,7 @@
                                 </span>
                         </div>
                 </div> 
-                {{if $.Admin}}
+                {{if $.CUser.IsAdmin}}
                 <div class="top-padding">
                         <button data-bind="jqButton: true, click: function(){put({'action': 'admin', 'subAction': 'getDialog', 'target': 'header', 'json': true})}">Admin Header</button>
                 </div>
@@ -95,7 +95,7 @@
                                 :
                                 <span style="vertical-align:middle" data-bind="text: entrenchmentSticks"><span>
                         </div>
-                        {{if $.Admin}}
+                        {{if $.CUser.IsAdmin}}
                         <div class="top-padding">
                                 <button data-bind="jqButton: true, click: function(){put({'action': 'admin', 'subAction': 'save', 'json': true})}">Admin Save</button>
                         </div>

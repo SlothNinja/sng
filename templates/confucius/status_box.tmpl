@@ -1,6 +1,5 @@
 {{$g := $.Game}}
 {{$cu := $.CUser}}
-{{$ctx := $.Context}} 
 
 <!-- Status Box --> 
 <div id="status-box"> 
@@ -19,9 +18,9 @@
                                 <strong>Admiral Variant:</strong> {{if $g.AdmiralVariant}}Yes{{else}}No{{end}}
                         </div>
                         <div class="current-players"> 
-                                <strong>{{$g.CurrentPlayerLabel}}:</strong> {{$g.CurrentPlayerLinks $ctx}}
+                                <strong>{{$g.CurrentPlayerLabel}}:</strong> {{$g.CurrentPlayerLinks $cu}}
                         </div> 
-                        {{if $.Admin}}
+                        {{if $.CUser.IsAdmin}}
                         <div>
                                 <form action="/{{$g.Stub}}/game/admin/{{$g.ID}}/endround" id="end-round" method="post">
                                         <input class="mybutton" name="commit" type="submit" value="End Round" /> 

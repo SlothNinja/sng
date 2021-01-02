@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- No Action Form -->
-{{if $g.EnableNoAction $ctx}}
+{{if $g.EnableNoAction $.CUser}}
 <div class="actions" id="no-action-action"> 
         <fieldset> 
                 <legend>No Action</legend> 

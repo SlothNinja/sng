@@ -17,7 +17,7 @@
                 </thead>
                 <tbody>
                         {{range $p := $g.Players}}
-                        {{template "indonesia/player_row" data "g" $g "p" $p "admin" $.Admin "isAdmin" $.IsAdmin "ctx" $.Context}}
+                        {{template "indonesia/player_row" data "g" $g "p" $p "ctx" $.Context "cu" $.CUser}}
                         {{end}}
                 </tbody>
         </table>

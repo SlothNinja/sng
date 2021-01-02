@@ -2,7 +2,7 @@
 {{$cu := $.CUser}}
 <img src="/images/atf/map.jpg" width="1190" height="1029" border="0" id="board-image" class="clickmap" usemap="#board-image" style="z-index:1000" />
 <map name="board-image">
-        {{if $.Admin}}
+        {{if $.CUser.IsAdmin}}
         <area href="#" shape="rect" key="admin-empire-akkad-1" coords="130,1210,215,1280" />
         <area href="#" shape="rect" key="admin-empire-guti-1" coords="215,1210,300,1280" />
         <area href="#" shape="rect" key="admin-empire-sumer-1" coords="300,1210,385,1280" />

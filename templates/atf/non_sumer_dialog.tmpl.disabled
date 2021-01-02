@@ -5,7 +5,7 @@
         <div class="dialog-content">
                 <div id="tabs">
                         <ul>
-                                {{with $admin := $.Admin}}
+                                {{with $admin := $.CUser.IsAdmin}}
                                         {{if and $admin $.CUser.IsAdmin}}
                                         <li><a href="#tabs-admin">Admin</a></li>
                                         {{end}}
@@ -45,7 +45,7 @@
                                         <li><a href="#tabs-finish">Undo/Finish</a></li>
                                 {{end}}
                         </ul>
-                        {{with $admin := $.Admin}}
+                        {{with $admin := $.CUser.IsAdmin}}
                                 {{if and $admin $.CUser.IsAdmin}}
                                 {{template "atf/admin/non_sumer_area_form" $}}
                                 {{end}}

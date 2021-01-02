@@ -16,7 +16,7 @@
                                         <div>
                                                 <strong>Name:</strong> <span>{{$u.Name}}</span>
                                         </div>
-                                        {{if $u.IsCurrent $.Context | or $.IsAdmin}}
+                                        {{if $u.IsCurrent $.Context | or $.CUser.IsAdmin}}
                                         <div> 
                                                 <strong>Email:</strong> <span>{{$u.Email}}</span>
                                         </div>
@@ -43,12 +43,12 @@
                                 </div>
                         </div>
                         <div class="content" style="height:3em">
-                                {{if $u.IsCurrent $.Context | or $.IsAdmin}}
+                                {{if $u.IsCurrent $.Context | or $.CUser.IsAdmin}}
                                 <div style="float:left;padding:2px 0px 0px 10px">
                                         <a class="mybutton" href="/user/edit/{{$uid}}">Edit</a>
                                 </div>
                                 {{end}}
-                                {{if $.IsAdmin}}
+                                {{if $.CUser.IsAdmin}}
                                 <div class="left-padding" style="float:left">
                                         <form action="/ratings/userUpdate/{{$uid}}" id="ratings_update" method="post">
                                                 <div>

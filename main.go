@@ -22,6 +22,7 @@ import (
 	"github.com/SlothNinja/sn"
 	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
+	"github.com/SlothNinja/user"
 	"google.golang.org/api/option"
 	"google.golang.org/grpc"
 
@@ -36,41 +37,46 @@ import (
 )
 
 const (
-	NODE_ENV         = "NODE_ENV"
-	UserProjectID    = "UserProjectID"
-	production       = "production"
-	userPrefix       = "user"
-	gamesPrefix      = "games"
-	ratingPrefix     = "rating"
-	mailPrefix       = "mail"
-	rootPath         = "/"
-	hashKeyLength    = 64
-	blockKeyLength   = 32
-	sessionName      = "sng-oauth"
-	EmulatorUserHost = "EmulatorUserHost"
-	msgEnter         = "Entering"
-	msgExit          = "Exiting"
+	// Environment Variables
+	NODE_ENV        = "NODE_ENV"
+	DS_PROJECT_ID   = "DS_PROJECT_ID"
+	USER_PROJECT_ID = "USER_PROJECT_ID"
+	COOKIE_URL      = "COOKIE_URL"
+	LOGIN_HOST      = "LOGIN_HOST"
+	DS_HOST         = "DS_HOST"
+	DS_USER_HOST    = "DS_USER_HOST"
+
+	production     = "production"
+	userPrefix     = "user"
+	gamesPrefix    = "games"
+	ratingPrefix   = "rating"
+	mailPrefix     = "mail"
+	rootPath       = "/"
+	hashKeyLength  = 64
+	blockKeyLength = 32
+	sessionName    = "sng-oauth"
+	msgEnter       = "Entering"
+	msgExit        = "Exiting"
 )
 
 func main() {
 	setGinMode()
-	userClient := getUserClient()
 
-	db, err := datastore.NewClient(context.Background(), "")
-	if err != nil {
-		panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
-	}
+	dsClient := getDSClient()
+	// db, err := datastore.NewClient(context.Background(), "")
+	// if err != nil {
+	// 	panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
+	// }
 
 	mcache := cache.New(30*time.Minute, 10*time.Minute)
+	userClient := getUserDSClient(mcache)
 
 	s, err := getSecrets()
 	if err != nil {
 		panic(err.Error())
 	}
 
-	store := cookie.NewStore(s.HashKey, s.BlockKey)
-	// store := sessions.NewCookieStore([]byte("secret123"))
-
+	store := createCookieStore(s)
 	r := gin.Default()
 	renderer := restful.ParseTemplates("templates/", ".tmpl")
 	r.HTMLRender = renderer
@@ -82,31 +88,31 @@ func main() {
 	)
 
 	// Welcome Page (index.html) route
-	welcome.AddRoutes(r)
+	r = welcome.NewClient(userClient).AddRoutes(r)
 
 	// Games Routes
-	r = game.NewClient(db).AddRoutes(gamesPrefix, r)
+	r = game.NewClient(userClient, dsClient).AddRoutes(gamesPrefix, r)
 
 	// User Routes
 	// r = ucon.NewClient(db).AddRoutes(userPrefix, r)
 
 	// Rating Routes
-	r = rating.NewClient(userClient, db).AddRoutes(ratingPrefix, r)
+	r = rating.NewClient(userClient, dsClient).AddRoutes(ratingPrefix, r)
 
 	// After The Flood
-	r = atf.NewClient(db, userClient, mcache).Register(gtype.ATF, r)
+	r = atf.NewClient(dsClient, userClient, mcache).Register(gtype.ATF, r)
 
 	// Guild of Thieves
-	r = got.NewClient(db, userClient, mcache).Register(gtype.GOT, r)
+	r = got.NewClient(dsClient, userClient, mcache).Register(gtype.GOT, r)
 
 	// Tammany Hall
-	r = tammany.NewClient(db, userClient, mcache).Register(gtype.Tammany, r)
+	r = tammany.NewClient(dsClient, userClient, mcache).Register(gtype.Tammany, r)
 
 	// Indonesia
-	r = indonesia.NewClient(db, userClient, mcache).Register(gtype.Indonesia, r)
+	r = indonesia.NewClient(dsClient, userClient, mcache).Register(gtype.Indonesia, r)
 
 	// Confucius
-	r = confucius.NewClient(db, userClient, mcache).Register(gtype.Confucius, r)
+	r = confucius.NewClient(dsClient, userClient, mcache).Register(gtype.Confucius, r)
 
 	// warmup
 	r.GET("_ah/warmup", func(c *gin.Context) {
@@ -140,27 +146,27 @@ func setGinMode() {
 	return
 }
 
-func getUserClient() *datastore.Client {
+func getUserDSClient(mcache *cache.Cache) user.Client {
 	log.Debugf(msgEnter)
 	defer log.Debugf(msgExit)
 
 	if sn.IsProduction() {
 		log.Debugf("production")
-		userClient, err := datastore.NewClient(
+		dsClient, err := datastore.NewClient(
 			context.Background(),
-			os.Getenv(UserProjectID),
+			os.Getenv(USER_PROJECT_ID),
 		)
 		if err != nil {
 			panic(fmt.Sprintf("unable to connect to user database: %v", err.Error()))
 		}
-		return userClient
+		return user.NewClient(dsClient, mcache)
 
 	}
 	log.Debugf("development")
-	userClient, err := datastore.NewClient(
+	dsClient, err := datastore.NewClient(
 		context.Background(),
-		os.Getenv(UserProjectID),
-		option.WithEndpoint(os.Getenv(EmulatorUserHost)),
+		os.Getenv(USER_PROJECT_ID),
+		option.WithEndpoint(os.Getenv(DS_USER_HOST)),
 		option.WithoutAuthentication(),
 		option.WithGRPCDialOption(grpc.WithInsecure()),
 		option.WithGRPCConnectionPool(50),
@@ -168,27 +174,69 @@ func getUserClient() *datastore.Client {
 	if err != nil {
 		panic(fmt.Sprintf("unable to connect to user database: %v", err.Error()))
 	}
-	return userClient
+	return user.NewClient(dsClient, mcache)
 }
 
-func getSecrets() (*secrets, error) {
-	resp, err := retryablehttp.Get("http://luser.slothninja.com:8087/cookie")
+func getDSClient() *datastore.Client {
+	log.Debugf(msgEnter)
+	defer log.Debugf(msgExit)
+
+	if sn.IsProduction() {
+		log.Debugf("production")
+		dsClient, err := datastore.NewClient(
+			context.Background(),
+			os.Getenv(DS_PROJECT_ID),
+		)
+		if err != nil {
+			panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
+		}
+		return dsClient
+
+	}
+	log.Debugf("development")
+	dsClient, err := datastore.NewClient(
+		context.Background(),
+		os.Getenv(DS_PROJECT_ID),
+		option.WithEndpoint(os.Getenv(DS_HOST)),
+		option.WithoutAuthentication(),
+		option.WithGRPCDialOption(grpc.WithInsecure()),
+		option.WithGRPCConnectionPool(50),
+	)
+	if err != nil {
+		panic(fmt.Sprintf("unable to connect to database: %v", err.Error()))
+	}
+	return dsClient
+}
+
+func getCookieURL() string {
+	return os.Getenv(COOKIE_URL)
+}
+
+func getLoginHost() string {
+	return os.Getenv(LOGIN_HOST)
+}
+
+func getSecrets() (secrets, error) {
+	s := secrets{
+		Key: secretsKey(),
+	}
+
+	resp, err := retryablehttp.Get(getCookieURL())
 
 	if err != nil {
-		return nil, err
+		return s, err
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 
 	if err != nil {
-		return nil, err
+		return s, err
 	}
 
-	s := new(secrets)
 	err = json.Unmarshal(body, &s)
 	if err != nil {
-		return nil, err
+		return s, err
 	}
 
 	return s, nil
@@ -283,7 +331,7 @@ func login(c *gin.Context) {
 	log.Debugf("referer: %v", referer)
 	encodedReferer := base64.StdEncoding.EncodeToString([]byte(referer))
 
-	c.Redirect(http.StatusSeeOther, "http://luser.slothninja.com:8087/login?redirect="+encodedReferer)
+	c.Redirect(http.StatusSeeOther, getLoginHost()+"/login?redirect="+encodedReferer)
 }
 
 func logout(c *gin.Context) {
@@ -293,5 +341,24 @@ func logout(c *gin.Context) {
 	referer := c.Request.Referer()
 	encodedReferer := base64.StdEncoding.EncodeToString([]byte(referer))
 
-	c.Redirect(http.StatusSeeOther, "http://luser.slothninja.com:8087/logout?redirect="+encodedReferer)
+	c.Redirect(http.StatusSeeOther, getLoginHost()+"/logout?redirect="+encodedReferer)
+}
+
+func createCookieStore(s secrets) cookie.Store {
+	if !sn.IsProduction() {
+		log.Debugf("hashKey: %s\nblockKey: %s",
+			base64.StdEncoding.EncodeToString(s.HashKey),
+			base64.StdEncoding.EncodeToString(s.BlockKey),
+		)
+	}
+	store := cookie.NewStore(s.HashKey, s.BlockKey)
+	opts := sessions.Options{
+		Domain: "slothninja.com",
+		Path:   "/",
+	}
+	if sn.IsProduction() {
+		opts.Secure = true
+	}
+	store.Options(opts)
+	return store
 }

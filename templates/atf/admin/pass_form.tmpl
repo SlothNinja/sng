@@ -1,6 +1,6 @@
 {{$game := $.Game}}
 {{$p := $game.SelectedPlayer}}
-{{if $.IsAdmin}}
+{{if $.CUser.IsAdmin}}
 <div id="tabs-admin">
         <form action="/atf/admin/{{$game.ID}}" method="post">
                 <input name="_method" type="hidden" value="PUT" />

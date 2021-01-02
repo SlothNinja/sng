@@ -1,6 +1,6 @@
 {{$g := $.Game}}
 {{$w := $g.CurrentWard}}
-{{$ctx := $.Context}}
+{{$cu := $.CUser}}
 
 {{if $g.InElectionsPhase}}
 <div id="dialog" title="Election for Ward {{$w.ID}}">
@@ -33,7 +33,7 @@
                                                                 {{$g.GravatarFor $p}}
                                                         </div>
                                                         <div class="player">
-                                                                {{$g.PlayerLinkByID $ctx $p.ID}}
+                                                                {{$g.PlayerLinkByID $cu $p.ID}}
                                                         </div>
                                                 </td>
                                                 <td>

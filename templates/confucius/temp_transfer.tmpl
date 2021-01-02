@@ -1,8 +1,6 @@
 {{$g := $.Game}}
-{{$ctx := $.Context}}
-
 <!-- Transfer Influence Form --> 
-{{if $g.EnableTempTransfer $ctx}}
+{{if $g.EnableTempTransfer $.CUser}}
 <div class="actions" id="temp-transfer-action"> 
         <fieldset> 
                 <legend>Temporary Transfer of Influence</legend> 
