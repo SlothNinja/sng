@@ -3,6 +3,7 @@
 {{$cp := $g.CurrentPlayer}}
 {{$company := $g.SelectedCompany}}
 {{$ctx := $.Context}}
+{{$cu := $.CUser}}
 <div>
         {{template "shared/flashbox" $}}
         {{template "shared/gamelog3" $}}
@@ -10,6 +11,6 @@
         {{template "indonesia/area" $area}}
         {{template "indonesia/player_rupiah" $cp}}
         {{template "indonesia/player_score" $cp}}
-        {{template "indonesia/player_company" data "company" $company "admin" $.CUser.IsAdmin "ctx" $.Context}}
+        {{template "indonesia/player_company" data "company" $company "g" $g "cu" $cu}}
 </div>
 {{template "indonesia/completed_expansion_dialog" $}}

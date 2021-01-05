@@ -9,7 +9,7 @@
         {{template "shared/gamelog3" $}}
         {{template "shared/last_actions_list3" data "g" $g "p" $cp "ctx" $ctx}}
         {{range $c := $g.Companies}}
-        {{template "indonesia/player_company" data "company" $c "game" $g "cu" $cu}}
+        {{template "indonesia/player_company" data "company" $c "g" $g "cu" $cu}}
         {{end}}
 </div>
 {{template "indonesia/merger_bid_dialog" $}}

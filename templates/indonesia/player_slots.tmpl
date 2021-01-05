@@ -1,7 +1,6 @@
 {{$p := .p}}
-{{$admin := .admin}}
-{{$ctx := .ctx}}
-{{$isAdmin := .isAdmin}}
+{{$cu := .cu}}
+{{$g := .g}}
 
 {{range $i, $slot := $p.Slots}}
 <td id="company-{{$p.ID}}-{{inc $i}}" class="slot">
@@ -9,13 +8,13 @@
                 {{if $slot.Empty}}
                         <div>Empty</div>
                 {{else}}
-                        {{if $admin}}
+                        {{if $cu.IsAdmin}}
                                 <div id="admin-company-{{$p.ID}}-{{inc $i}}" class="mybutton bottom-padding clickable">
                                         Admin Company
                                 </div>
                         {{end}}
 
-                        {{template "indonesia/player_company" data "company" $slot.Company "isAdmin" $isAdmin "ctx" $ctx}}
+                        {{template "indonesia/player_company" data "company" $slot.Company "g" $g "cu" $cu}}
                 {{end}}
         {{else}}
                 <div>Not Developed</div>
