@@ -7,7 +7,7 @@
 {{$card := $a.Card}}
 <div {{if $card}}data-tip="{{$card.ToolTip}}"{{end}} class="board-space {{if $card}}{{$card.IDString}}{{end}} pull-left {{if $cp}}{{if $g.CanClick $cu $cp $a}}clickable{{end}}{{end}}" id="area-{{$rid}}-{{$cid}}">
         {{with $p := $g.PlayerByID $a.Thief}}
-        {{$color := $p.Color}}
+        {{$color := $g.Color $p $cu}}
         <div class="thief {{$color}}"></div>
         {{end}}
 </div>
