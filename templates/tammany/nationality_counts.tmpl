@@ -1,4 +1,5 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
 <div id="nationality-counts">
         {{range $n := $g.Nationalities}}
         <div id="{{$n.LString}}-count">
@@ -6,8 +7,8 @@
                         {{range $p := $g.Players}}
                         {{with $count := $g.ControlledBy $p $n}}
                         <div class="player-{{$p.ID}}">
-                                {{$p.BossImage}}
-                                <div class="text {{$p.Color}}">{{$count}}</div>
+                                {{$g.BossImage $p $cu}}
+                                <div class="text {{$g.Color $p $cu}}">{{$count}}</div>
                         </div>
                         {{end}}
                         {{end}}

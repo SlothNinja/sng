@@ -1,10 +1,12 @@
+{{$g := $.Game}}
+{{$cu := $.CUser}}
 <div id="city-offices">
         <div class="content">
-                {{range $index, $office := $.Game.AssignableOffices}}
+                {{range $index, $office := $g.AssignableOffices}}
                 <div id={{$office.IDString}}>
-                        {{with $player := $.Game.PlayerByOffice $office}}
+                        {{with $p := $g.PlayerByOffice $office}}
                         <div class="content">
-                                {{$player.BossImage}}
+                                {{$g.BossImage $p $cu}}
                         </div>
                         {{end}}
                 </div>

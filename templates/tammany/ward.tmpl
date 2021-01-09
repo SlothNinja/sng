@@ -1,5 +1,6 @@
 {{$g := .g}}
 {{$w := .w}}
+{{$cu := .cu}}
 <div id="ward-{{$w.ID}}" class="ward">
         {{range $n, $cnt := $w.Immigrants}}
                 {{if $cnt}}
@@ -13,8 +14,8 @@
                 {{with $p := $g.PlayerByID $pid}}
                         {{if $cnt}}
                                 <div class="boss-{{$pid}}">
-                                        {{$p.BossImage}}
-                                        <div class="text {{$p.Color}}">{{$cnt}}</div>
+                                        {{$g.BossImage $p $cu}}
+                                        <div class="text {{$g.Color $p $cu}}">{{$cnt}}</div>
                                 </div>
                         {{end}}
                 {{end}}

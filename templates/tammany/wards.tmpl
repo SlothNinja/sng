@@ -1,4 +1,5 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
 {{range $.Game.ActiveWards}}
-        {{template "tammany/ward" data "g" $g "w" .}}
+        {{template "tammany/ward" data "g" $g "cu" $cu "w" .}}
 {{end}}

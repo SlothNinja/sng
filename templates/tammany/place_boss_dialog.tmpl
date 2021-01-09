@@ -1,4 +1,6 @@
-{{with $player := $.Resource.CurrentPlayer}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{with $p := $.Resource.CurrentPlayer}}
 <div>
         <div class="ward-{{$.Ward}}">
                 <div class="left-column">
@@ -8,7 +10,7 @@
                                                 Place
                                         </div>
                                         <div class="icon">
-                                                {{$player.BossImage}}
+                                                {{$g.BossImage $p $cu}}
                                         </div>
                                 </div>
                         </div>

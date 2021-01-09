@@ -10,10 +10,10 @@
                 </div>
         </div>
         <div id="points-track">
-                {{range $index, $player := $g.Players}}
-                <div id="points-{{$player.Score}}">
-                        <div id="player-{{$player.ID}}">
-                                <img alt="{{$player.Color}}-ward-boss" src="/images/tammany/{{$player.Color}}-ward-boss.png" />
+                {{range $index, $p := $g.Players}}
+                <div id="points-{{$p.Score}}">
+                        <div id="player-{{$p.ID}}">
+                                <img alt="{{$g.Color $p $cu}}-ward-boss" src="/images/tammany/{{$g.Color $p $cu}}-ward-boss.png" />
                         </div>
                 </div>
                 {{end}}

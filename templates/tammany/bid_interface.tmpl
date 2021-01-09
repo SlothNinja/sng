@@ -1,4 +1,6 @@
+{{$g := .g}}
 {{$p := .p}}
+{{$cu := .cu}}
 {{$w := .w}}
 {{$index := 0}}
 <td>
@@ -6,8 +8,8 @@
 </td>
 <td>
         <div class="boss">
-                {{$p.BossImage}}
-                <div class="text {{$p.Color}}">{{$w.BossesFor $p}}</div>
+                {{$g.BossImage $p $cu}}
+                <div class="text {{$g.Color $p $cu}}">{{$w.BossesFor $p}}</div>
         </div>
 </td>
 <td>

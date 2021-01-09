@@ -14,7 +14,7 @@
                                         Place
                                 </div>
                                 <div class="icon">
-                                        {{$cp.BossImage}}
+                                        {{$g.BossImage $cp $cu}}
                                 </div>
                         </div>
                 </form>
@@ -27,8 +27,8 @@
                                         Place
                                 </div>
                                 <div class="icon">
-                                        {{$.Game.CurrentPlayer.BossImage}}
-                                        {{$.Game.CurrentPlayer.BossImage}}
+                                        {{$g.BossImage $cp $cu}}
+                                        {{$g.BossImage $cp $cu}}
                                 </div>
                         </div>
                 </form>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="icon">
                                         <img alt="{{$nationality.LString}}-cube" src="{{$nationality.CubeImage}}" />
-                                        {{$.Game.CurrentPlayer.BossImage}}
+                                        {{$g.BossImage $cp $cu}}
                                 </div>
                         </div>
                 </form>

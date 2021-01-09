@@ -25,11 +25,11 @@
                 <label for="slandered-player">To Slander:</label>
                 <div class="radio" id="slandered-player">
                         {{range $id, $cnt := $w.OtherBosses $cp}}
-                        {{with $player := $g.PlayerByID $id}}
+                        {{with $p := $g.PlayerByID $id}}
                         <input type="radio" id="slandered-player-{{$id}}" name="slandered-player" value="{{$id}}"/>
                         <label for="slandered-player-{{$id}}">
                                 <div class="icon">
-                                        {{$player.BossImage}}
+                                        {{$g.BossImage $p $cu}}
                                 </div>
                         </label>
                         {{end}}
