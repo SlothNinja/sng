@@ -5,7 +5,7 @@
 {{$cu := $.CUser}}
 <div>
 {{if $w}}
-{{template "tammany/ward" data "g" $g "w" $w}}
+{{template "tammany/ward" data "g" $g "cu" $cu "w" $w}}
 {{end}}
 {{template "shared/flashbox" .}}
 {{template "shared/gamelog4" $}}

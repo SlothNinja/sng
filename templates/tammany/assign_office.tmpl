@@ -1,7 +1,9 @@
+{{$g := $.Game}}
+{{$cu := $.CUser}}
 <div>
 {{template "shared/flashbox" .}}
-{{template "shared/gamelog_entry4" data "g" $.Game "entry" $.Game.Log.Last "ctx" $.Context "cu" $.CUser}}
-{{template "shared/last_actions_list4" data "g" $.Game "p" $.Game.CurrentPlayer "ctx" $.Context "cu" $.CUser}}
+{{template "shared/gamelog_entry4" data "g" $g "entry" $g.Log.Last "ctx" $.Context "cu" $.CUser}}
+{{template "shared/last_actions_list4" data "g" $g "p" $g.CurrentPlayer "ctx" $.Context "cu" $.CUser}}
 {{template "tammany/offices" .}}
 {{template "tammany/player_office" $.Player}}
 </div>

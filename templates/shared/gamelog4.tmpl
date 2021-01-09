@@ -1,11 +1,12 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
 {{$ctx := $.Context}}
 <!-- Game Log -->
 <div id="gamelog">
         <div class="heading">Game Log:</div> 
         <div class="content">
                 {{range $entry := $g.Log}}
-                {{template "shared/gamelog_entry4" data "g" $g "entry" $entry "ctx" $ctx "cu" $.CUser}}
+                {{template "shared/gamelog_entry4" data "g" $g "cu" $cu "entry" $entry "ctx" $ctx "cu" $.CUser}}
                 {{end}}
         </div> 
 </div> 

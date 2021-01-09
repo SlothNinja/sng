@@ -13,7 +13,7 @@ require (
 	github.com/SlothNinja/rating v1.0.5
 	github.com/SlothNinja/restful v1.0.0
 	github.com/SlothNinja/sn v1.0.1
-	github.com/SlothNinja/tammany v1.0.12
+	github.com/SlothNinja/tammany v1.0.13
 	github.com/SlothNinja/type v1.0.1
 	github.com/SlothNinja/user v1.0.14
 	github.com/SlothNinja/welcome v1.0.2
