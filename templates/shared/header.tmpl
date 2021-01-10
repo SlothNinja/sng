@@ -1,3 +1,5 @@
+{{$cu := $.CUser}}
+
 <!-- Header -->
 <div id="header"> 
         <div id="banner-logo"> 
@@ -15,8 +17,8 @@
                 <div class="left"> 
                         <div class="content">
                                 <div class="greeting">
-                                        {{if $.CUser}}
-                                        Hello {{$.CUser.Link}}
+                                        {{if $cu}}
+                                        Hello {{$cu.Link}}
                                         <a href='/logout'>(Logout)</a>
                                         {{else}}
                                         Hello Guest
@@ -27,23 +29,15 @@
                 </div> 
                 <div class="center"> 
                         <div class="content">
-                                {{with $user := $.CUser}}
                                 <a href="/">Home</a> 
+                                {{if $cu}}
                                 &nbsp;&loz;&nbsp;
-                                <a href="/games/running/user/{{$user.ID}}">Your Games</a> 
-                                &nbsp;&loz;&nbsp;
-                                <a href="http://groups.google.com/group/slothninja">Forum</a> 
-                                &nbsp;&loz;&nbsp;
-                                <a href="/user/show/{{$user.ID}}">Your Account</a> 
-                                &nbsp;&loz;&nbsp;
-                                <a href="mailto:webmaster@slothninja.com">Contact</a>
-                                {{else}}
-                                <a href="/">Home</a> 
-                                &nbsp;&loz;&nbsp;
-                                <a href="http://groups.google.com/group/slothninja">Forum</a> 
-                                &nbsp;&loz;&nbsp;
-                                <a href="mailto:webmaster@slothninja.com">Contact</a>
+                                <a href="/games/running/user/{{$cu.ID}}">Your Games</a> 
                                 {{end}}
+                                &nbsp;&loz;&nbsp;
+                                <a href="http://groups.google.com/group/slothninja">Forum</a> 
+                                &nbsp;&loz;&nbsp;
+                                <a href="mailto:webmaster@slothninja.com">Contact</a>
                         </div>
                 </div> 
                 <div class="right"> 
