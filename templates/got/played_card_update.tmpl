@@ -1,11 +1,11 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
 {{$cp := $g.CurrentPlayer}}
-{{$ctx := $.Context}}
 <div>
-        {{template "shared/flashbox" .}}
+        {{template "shared/flashbox" $}}
         {{template "shared/gamelog2" $}}
         {{template "shared/last_actions_list2" data "g" $g "p" $cp}}
-        {{template "got/player_hand" data "g" $g "p" $cp "ctx" $ctx}}
+        {{template "got/player_hand" data "g" $g "p" $cp "cu" $cu}}
         {{template "got/player_discard" $cp}}
         {{template "got/phase_update" $}}
         {{template "got/areas" $}}
