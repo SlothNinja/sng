@@ -20,7 +20,7 @@
                         <div class="current-players"> 
                                 <strong>{{$g.CurrentPlayerLabel}}:</strong> {{$g.CurrentPlayerLinks $cu}}
                         </div> 
-                        {{if $.CUser.IsAdmin}}
+                        {{if $cu.IsAdmin}}
                         <div>
                                 <form action="/{{$g.Stub}}/game/admin/{{$g.ID}}/endround" id="end-round" method="post">
                                         <input class="mybutton" name="commit" type="submit" value="End Round" /> 

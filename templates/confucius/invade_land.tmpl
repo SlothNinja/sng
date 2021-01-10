@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Invade Land Form --> 
-{{if $g.EnableInvadeLand $.CUser}}
+{{if $g.EnableInvadeLand $cu}}
 <div class="actions" id="invade-land-action"> 
         <fieldset> 
                 <legend>Invade Land</legend> 

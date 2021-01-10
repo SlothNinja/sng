@@ -1,6 +1,7 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
 <!-- Pass Form --> 
-{{if $g.EnablePass $.CUser}}
+{{if $g.EnablePass $cu}}
     <div class="actions" id="pass-action"> 
         <fieldset> 
             <legend>Pass</legend> 

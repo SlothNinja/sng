@@ -1,9 +1,12 @@
-{{range $index, $land := .ForeignLands}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{range $index, $land := $g.ForeignLands}}
 <!-- {{$land.Name}} State Form -->
 <div class="actions" id="admin-{{$land.Name}}-action">
         <fieldset>
                 <legend>Foreign Land: {{$land.Name}}</legend>
-                <form action="/{{$.Stub}}/admin/{{$.ID}}" method="post">
+                <form action="/{{$g.Stub}}/admin/{{$g.ID}}" method="post">
                         <div style="margin:0;padding:0;display:inline">
                                 <input name="_method" type="hidden" value="PUT" />
                                 <input name="action" type="hidden" value="foreign-land" />

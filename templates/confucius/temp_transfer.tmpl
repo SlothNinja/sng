@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Transfer Influence Form --> 
-{{if $g.EnableTempTransfer $.CUser}}
+{{if $g.EnableTempTransfer $cu}}
 <div class="actions" id="temp-transfer-action"> 
         <fieldset> 
                 <legend>Temporary Transfer of Influence</legend> 
@@ -13,8 +15,8 @@
                                 <div> 
                                         <label for="player">Player:</label> 
                                         <select id="temp-transfer-player" name="temp-transfer-player">
-                                                {{range $index, $player := $g.CurrentPlayer.TempPlayers}}
-                                                <option value="{{$player.ID}}">{{$player.Name}} ({{$player.Color}})</option>
+                                                {{range $index, $p := $g.CurrentPlayer.TempPlayers}}
+                                                <option value="{{$p.ID}}">{{$p.Name}} ({{$g.Color $p $cu}})</option>
                                                 {{end}}
                                         </select> 
                                 </div> 

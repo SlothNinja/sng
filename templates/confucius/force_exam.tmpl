@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Force Exam Form --> 
-{{if $g.EnableForceExam $.CUser}}
+{{if $g.EnableForceExam $cu}}
 <div class="actions" id="force-exam-action"> 
         <fieldset> 
                 <legend>Force Examination</legend> 

@@ -1,12 +1,15 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 <div id="score-track">
         <div class="content">
                 {{range $score := ints 0 30}}
                 <div id="score-box-{{$score}}">
                         <div class="content">
-                                {{range $index, $player := $.Players}}
-                                {{if equal $score $player.ScoreTrack}}
+                                {{range $index, $p := $g.Players}}
+                                {{if equal $score $p.ScoreTrack}}
                                 <div class="position-{{$index}}">
-                                        <img src="/images/confucius/{{$player.Color}}-barrel-shadowed.png" alt="{{$player.Color}} Marker" />
+                                        <img src="/images/confucius/{{$g.Color $p $cu}}-barrel-shadowed.png" alt="{{$g.Color $p $cu}} Marker" />
                                 </div>
                                 {{end}}
                                 {{end}}

@@ -9,31 +9,31 @@
         <div class="right-column">
                 {{with $player := $g.CurrentPlayer}}
                         {{if not $player.PerformedAction}}
-                                {{if $g.EnableActions $.CUser}}
-                                        {{if $g.EnableBribeOfficial $.CUser}}{{template "confucius/bribe_official" $}}{{end}}
-                                        {{if $g.EnableSecureOfficial $.CUser}}{{template "confucius/secure_official" $}}{{end}}
-                                        {{if $g.EnableNominateStudent $.CUser}}{{template "confucius/nominate_student" $}}{{end}}
-                                        {{if $g.EnableForceExam $.CUser}}{{template "confucius/force_exam" $}}{{end}}
-                                        {{if $g.EnableBuyJunks $.CUser}}{{template "confucius/buy_junks" $}}{{end}}
-                                        {{if $g.EnableStartVoyage $.CUser}}{{template "confucius/start_voyage" $}}{{end}}
-                                        {{if $g.EnableRecruitArmy $.CUser}}{{template "confucius/recruit_army" $}}{{end}}
-                                        {{if $g.EnableInvadeLand $.CUser}}{{template "confucius/invade_land" $}}{{end}}
-                                        {{if $g.EnableBuyGift $.CUser}}{{template "confucius/buy_gift" $}}{{end}}
-                                        {{if $g.EnableGiveGift $.CUser}}{{template "confucius/give_gift" $}}{{end}}
-                                        {{if $g.EnableTransferInfluence $.CUser}}{{template "confucius/transfer_influence" $}}{{end}}
-                                        {{if $g.EnableCommercial $.CUser}}{{template "confucius/commercial" $}}{{end}}
-                                        {{if $g.EnableTaxIncome $.CUser}}{{template "confucius/tax_income" $}}{{end}}
-                                        {{if $g.EnableNoAction $.CUser}}{{template "confucius/no_action" $}}{{end}}
-                                        {{if $g.EnablePass $.CUser}}{{template "confucius/pass" $}}{{end}}
-                                        {{if $g.EnableEmperorReward $.CUser}}{{template "confucius/emperor_reward" $}}{{end}}
-                                        {{if $g.EnablePetitionEmperor $.CUser}}{{template "confucius/petition_emperor" $}}{{end}}
+                                {{if $g.EnableActions $cu}}
+                                        {{if $g.EnableBribeOfficial $cu}}{{template "confucius/bribe_official" $}}{{end}}
+                                        {{if $g.EnableSecureOfficial $cu}}{{template "confucius/secure_official" $}}{{end}}
+                                        {{if $g.EnableNominateStudent $cu}}{{template "confucius/nominate_student" $}}{{end}}
+                                        {{if $g.EnableForceExam $cu}}{{template "confucius/force_exam" $}}{{end}}
+                                        {{if $g.EnableBuyJunks $cu}}{{template "confucius/buy_junks" $}}{{end}}
+                                        {{if $g.EnableStartVoyage $cu}}{{template "confucius/start_voyage" $}}{{end}}
+                                        {{if $g.EnableRecruitArmy $cu}}{{template "confucius/recruit_army" $}}{{end}}
+                                        {{if $g.EnableInvadeLand $cu}}{{template "confucius/invade_land" $}}{{end}}
+                                        {{if $g.EnableBuyGift $cu}}{{template "confucius/buy_gift" $}}{{end}}
+                                        {{if $g.EnableGiveGift $cu}}{{template "confucius/give_gift" $}}{{end}}
+                                        {{if $g.EnableTransferInfluence $cu}}{{template "confucius/transfer_influence" $}}{{end}}
+                                        {{if $g.EnableCommercial $cu}}{{template "confucius/commercial" $}}{{end}}
+                                        {{if $g.EnableTaxIncome $cu}}{{template "confucius/tax_income" $}}{{end}}
+                                        {{if $g.EnableNoAction $cu}}{{template "confucius/no_action" $}}{{end}}
+                                        {{if $g.EnablePass $cu}}{{template "confucius/pass" $}}{{end}}
+                                        {{if $g.EnableEmperorReward $cu}}{{template "confucius/emperor_reward" $}}{{end}}
+                                        {{if $g.EnablePetitionEmperor $cu}}{{template "confucius/petition_emperor" $}}{{end}}
                                 {{else}}
-                                        {{if $g.EnableTempTransfer $.CUser}}{{template "confucius/temp_transfer" $}}{{end}}
-                                        {{if $g.EnableDiscard $.CUser}}{{template "confucius/discard" $}}{{end}}
-                                        {{if $g.EnablePlaceStudent $.CUser}}{{template "confucius/place_student" $}}{{end}}
+                                        {{if $g.EnableTempTransfer $cu}}{{template "confucius/temp_transfer" $}}{{end}}
+                                        {{if $g.EnableDiscard $cu}}{{template "confucius/discard" $}}{{end}}
+                                        {{if $g.EnablePlaceStudent $cu}}{{template "confucius/place_student" $}}{{end}}
                                 {{end}}
-                                {{if $g.EnableChooseChiefMinister $.CUser}}{{template "confucius/choose_chief_minister" $}}{{end}}
-                                {{if $g.EnableTutorStudent $.CUser}}{{template "confucius/tutor_student" $}}{{end}}
+                                {{if $g.EnableChooseChiefMinister $cu}}{{template "confucius/choose_chief_minister" $}}{{end}}
+                                {{if $g.EnableTutorStudent $cu}}{{template "confucius/tutor_student" $}}{{end}}
                         {{end}}
                 {{end}}
         </div> 

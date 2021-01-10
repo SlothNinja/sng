@@ -1,15 +1,18 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 <div> 
         <label for="official">Official:</label> 
         <select id="official" name="official">
                 <option value="None">None</option>
-                {{range $index, $ministry := $.Ministries}}
+                {{range $index, $ministry := $g.Ministries}}
                 <optgroup label="{{$ministry.Name}}">
                         {{range $index2, $official := $ministry.Officials}}
                         {{if $official.Variant}}
                         {{if $official.Player}}
                         {{else}}
                         <option value="{{$ministry.Name}}-{{$index2}}">
-                        Official {{$official.Seniority}} ({{$.CurrentPlayer.CostFor $official}} Coins)
+                        Official {{$official.Seniority}} ({{$g.CurrentPlayer.CostFor $official}} Coins)
                         </option>
                         {{end}}
                         {{end}}

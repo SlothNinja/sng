@@ -55,8 +55,8 @@ github.com/SlothNinja/codec v1.0.0 h1:GaEgegrCQ5KVajxVdg7al7AlH6gN/Vl1xBHX/HLWtf
 github.com/SlothNinja/codec v1.0.0/go.mod h1:85bvY1YrXLdqlwWhRb59bKiabKnQdLai6LRVMm5jZWI=
 github.com/SlothNinja/color v1.0.0 h1:f9Arct4YQAUv7c1V85D/kfWVkfMVNk7oh8yd1egVvHo=
 github.com/SlothNinja/color v1.0.0/go.mod h1:IaWrwdL2faYT6S3a/5TnznlnD8/oKeQS3zNK2ijujro=
-github.com/SlothNinja/confucius v1.0.8 h1:XjIXIpTPRpqLFAGm//snfTsd4n4qavTntb1ZbdHORrQ=
-github.com/SlothNinja/confucius v1.0.8/go.mod h1:d7DQK1K8kL4BCkyr303eN6XhkPWCQ8b5qaKkN+wPV4U=
+github.com/SlothNinja/confucius v1.0.10 h1:1ulRxkHmCvJD5D3PXB2A2CZmNvN/vZMDp9Um3Q8xDIs=
+github.com/SlothNinja/confucius v1.0.10/go.mod h1:u2AgMkSu/FLD0P/zJheIlrF0s6OfcVj4VBD7H0SMlo8=
 github.com/SlothNinja/contest v1.0.0 h1:fIrtf5fEcujlfGUjJctgLklJlwMOi42IMoXXXgpdGJ4=
 github.com/SlothNinja/contest v1.0.0/go.mod h1:kZni4M2k7cm4j69WkUIGOgJX/js+H02Bg3KpHGe5a5Y=
 github.com/SlothNinja/game v1.0.8 h1:SAt7e9KsAMuv0K0RrzezoohkI/t5JVBRGpJqT7b6+QY=

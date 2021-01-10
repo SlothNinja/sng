@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Recruit Army Form  --> 
-{{if $g.EnableRecruitArmy $.CUser}}
+{{if $g.EnableRecruitArmy $cu}}
 <div class="actions" id="recruit-army-action"> 
         <fieldset> 
                 <legend>Recruit Army</legend> 

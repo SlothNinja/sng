@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Choose Chief Minister Form --> 
-{{if $g.EnableChooseChiefMinister $.CUser}}
+{{if $g.EnableChooseChiefMinister $cu}}
 <div class="actions" id="choose-chief-minister-action"> 
         <fieldset> 
                 <legend>Choose Chief Minister</legend> 
@@ -14,9 +16,9 @@
                                 <div> 
                                         <label for="player">Player:</label> 
                                         <select id="player" name="player">
-                                                {{range $index, $player := $g.Players}}
-                                                {{if equal $player.ID $g.CurrentPlayer.ID | not}}
-                                                <option value="{{$player.ID}}">{{$player.User.Name}} ({{$player.Color}})</option>
+                                                {{range $index, $p := $g.Players}}
+                                                {{if equal $p.ID $g.CurrentPlayer.ID | not}}
+                                                <option value="{{$p.ID}}">{{$p.User.Name}} ({{$g.Color $p $cu}})</option>
                                                 {{end}}
                                                 {{end}}
                                         </select> 

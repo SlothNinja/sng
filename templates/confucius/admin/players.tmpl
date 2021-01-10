@@ -1,24 +1,26 @@
-{{range $index, $player := .Players}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{range $index, $p := $g.Players}}
 <!-- {{.Name}} Player State Form -->
 <div class="actions" id="player-{{$index}}-action">
         <fieldset>
                 <legend>Player: {{.Name}}</legend>
-                <form action="/{{$.Stub}}/game/admin/{{$.ID}}" method="post">
+                <form action="/{{$g.Stub}}/game/admin/{{$g.ID}}" method="post">
                         <div style="margin:0;padding:0;display:inline">
                                 <input name="action" type="hidden" value="player" />
-                                <input name="pid" type="hidden" value="{{$player.ID}}" />
+                                <input name="pid" type="hidden" value="{{$p.ID}}" />
                         </div>
                         <div class="upper-content">
                                 <div class="left-column">
                                         <div>
                                                 <label for="id-{{$index}}">ID</label>
-                                                <input id="id-{{$index}}" name="id" type="text" value="{{$player.ID}}" />
+                                                <input id="id-{{$index}}" name="id" type="text" value="{{$p.ID}}" />
                                         </div>
                                         <div>
                                                 <label for="score-{{$index}}">Score</label>
                                                 <select id="score-{{$index}}" name="score">
                                                         {{range $value := ints 0 60}}
-                                                        <option value="{{.}}" {{if equal . $player.Score}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.Score}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -26,7 +28,7 @@
                                                 <label for="actioncubes-{{$index}}">ActionCubes</label>
                                                 <select id="actioncubes-{{$index}}" name="actioncubes">
                                                         {{range $value := ints 0 5}}
-                                                        <option value="{{.}}" {{if equal . $player.ActionCubes}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.ActionCubes}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -34,7 +36,7 @@
                                                 <label for="giftsgiven-{{$index}}">GiftsGiven</label>
                                                 <select id="giftsgiven-{{$index}}" name="giftsgiven">
                                                         {{range $value := ints 0 5}}
-                                                        <option value="{{$value}}" {{if equal $value $player.GiftsGiven}}selected="selected"{{end}}>{{$value}}</option>
+                                                        <option value="{{$value}}" {{if equal $value $p.GiftsGiven}}selected="selected"{{end}}>{{$value}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -42,7 +44,7 @@
                                                 <label for="junks-{{$index}}">Junks</label>
                                                 <select id="junks-{{$index}}" name="junks">
                                                         {{range $value := ints 0 25}}
-                                                        <option value="{{.}}" {{if equal . $player.Junks}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.Junks}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -50,7 +52,7 @@
                                                 <label for="onvoyage-{{$index}}">OnVoyage</label>
                                                 <select id="onvoyage-{{$index}}" name="onvoyage">
                                                         {{range $value := ints 0 25}}
-                                                        <option value="{{.}}" {{if equal . $player.OnVoyage}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.OnVoyage}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -58,7 +60,7 @@
                                                 <label for="armies-{{$index}}">Armies</label>
                                                 <select id="armies-{{$index}}" name="armies">
                                                         {{range $value := ints 0 6}}
-                                                        <option value="{{.}}" {{if equal . $player.Armies}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.Armies}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -66,7 +68,7 @@
                                                 <label for="recruitedarmies-{{$index}}">RecruitedArmies</label>
                                                 <select id="recruitedarmies-{{$index}}" name="recruitedarmies">
                                                         {{range $value := ints 0 6}}
-                                                        <option value="{{.}}" {{if equal . $player.RecruitedArmies}}selected="selected"{{end}}>{{.}}</option>
+                                                        <option value="{{.}}" {{if equal . $p.RecruitedArmies}}selected="selected"{{end}}>{{.}}</option>
                                                         {{end}}
                                                 </select>
                                         </div>
@@ -112,7 +114,7 @@
                                                 <label for="addemperorcard-{{$index}}">Add Emperor Card</label>
                                                 <select id="addemperorcard-{{$index}}" name="addemperorcard">
                                                         <option value="none">None</option>
-                                                        {{range $index, $card := $.EmperorDeck}}
+                                                        {{range $index, $card := $g.EmperorDeck}}
                                                         <option value="{{$card.Type}}">{{$card.Title}}</option>
                                                         {{end}}
                                                 </select>
@@ -121,7 +123,7 @@
                                                 <label for="removeemperorcard-{{$index}}">Remove Emperor Card</label>
                                                 <select id="removeemperorcard-{{$index}}" name="removeemperorcard">
                                                         <option value="none">None</option>
-                                                        {{range $index, $card := $player.EmperorHand}}
+                                                        {{range $index, $card := $p.EmperorHand}}
                                                         <option value="{{$index}}">{{$card.Title}}</option>
                                                         {{end}}
                                                 </select>
@@ -130,7 +132,7 @@
                                                 <label for="addboughtgift-{{$index}}">Add Bought Gift</label>
                                                 <select id="addboughtgift-{{$index}}" name="addboughtgift">
                                                         <option value="none">None</option>
-                                                        {{range $value := $.GiftCardValues}}
+                                                        {{range $value := $g.GiftCardValues}}
                                                         <option value="{{$value.Int}}">{{$value}}</option>
                                                         {{end}}
                                                 </select>
@@ -148,7 +150,7 @@
                                                 <label for="addavailablegift-{{$index}}">Add Available Gift</label>
                                                 <select id="addavailablegift-{{$index}}" name="addavailablegift">
                                                         <option value="none">None</option>
-                                                        {{range $index, $name := $.GiftCardNames}}
+                                                        {{range $index, $name := $g.GiftCardNames}}
                                                         <option value="{{$index}}">{{$name}}</option>
                                                         {{end}}
                                                 </select>
@@ -166,9 +168,9 @@
                                                 <label for="addreceivedgift-{{$index}}">Add Received Gift</label>
                                                 <select id="addreceivedgift-{{$index}}" name="addreceivedgift">
                                                         <option value="none">None</option>
-                                                        {{range $index, $name := $.GiftCardNames}}
-                                                        {{range $pindex, $player := $.Players}}
-                                                        <option value="{{$index}}-{{$player.ID}}">{{$name}} ({{$player.Color}})</option>
+                                                        {{range $index, $name := $g.GiftCardNames}}
+                                                        {{range $pindex, $p := $g.Players}}
+                                                        <option value="{{$index}}-{{$p.ID}}">{{$name}} ({{$g.Color $p $cu}})</option>
                                                         {{end}}
                                                         {{end}}
                                                 </select>
@@ -178,8 +180,8 @@
                                                 <select id="removereceivedgift-{{$index}}" name="removereceivedgift">
                                                         <option value="none">None</option>
                                                         {{range $index, $card := .GiftsReceived}}
-                                                        {{with $player := $.PlayerByID $card.PlayerID}}
-                                                        <option value="{{$index}}">{{$card.Name}} ({{$player.Color}})</option>
+                                                        {{with $p := $g.PlayerByID $card.PlayerID}}
+                                                        <option value="{{$index}}">{{$card.Name}} ({{$g.Color $p $cu}})</option>
                                                         {{end}}
                                                         {{end}}
                                                 </select>
@@ -197,7 +199,7 @@
                                                 <label for="removeconcard-{{$index}}">Remove Confucius Card</label>
                                                 <select id="removeconcard-{{$index}}" name="removeconcard">
                                                         <option value="none">None</option>
-                                                        {{range $index, $card := $player.ConCardHand}}
+                                                        {{range $index, $card := $p.ConCardHand}}
                                                         <option value="{{$index}}">{{$card.Coins}} Coin</option>
                                                         {{end}}
                                                 </select>

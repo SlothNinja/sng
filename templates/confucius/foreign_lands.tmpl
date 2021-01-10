@@ -1,3 +1,6 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 {{range $i, $land := .ForeignLands}}
 <div id="foreign-land-{{$i}}">
         <div class="content">
@@ -8,10 +11,10 @@
                 {{end}}
                 {{range $j, $box := $land.Boxes}}
                 <div id="{{$land.LString}}-box-{{$j}}">
-                        {{with $player := $box.Player}}
-                        <img src="/images/confucius/{{$player.Color}}-army-shadowed.png" alt="{{$player.Color}} Army" />
+                        {{with $p := $box.Player}}
+                        <img src="/images/confucius/{{$g.Color $p $cu}}-army-shadowed.png" alt="{{$g.Color $p $cu}} Army" />
                         {{if $land.Resolved | not }}
-                        <div class="text {{$player.TextColor}}">
+                        <div class="text {{$p.TextColor}}">
                                 {{$box.Points}}VP
                         </div>
                         {{end}}

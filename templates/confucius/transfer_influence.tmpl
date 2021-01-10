@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Transfer Influence Form --> 
-{{if $g.EnableTransferInfluence $.CUser}}
+{{if $g.EnableTransferInfluence $cu}}
 <div class="actions" id="transfer-influence-action"> 
         <fieldset> 
                 <legend>Transfer Influence</legend> 
@@ -11,7 +13,7 @@
                                         <input name="action" type="hidden" value="transfer-influence" />
                                 </div>
                                 {{$g.YourOfficialOptions "transfer-influence-official" "Official:"}}
-                                {{$g.OtherPlayerOptions "transfer-influence-player" "Player:"}}
+                                {{$g.OtherPlayerOptions $cu "transfer-influence-player" "Player:"}}
                                 <div class="button">
                                         <input class="mybutton" name="commit" type="submit" value="Transfer Influence" />
                                 </div> 

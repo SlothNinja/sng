@@ -5,7 +5,7 @@ go 1.14
 require (
 	cloud.google.com/go/datastore v1.3.0
 	github.com/SlothNinja/atf v1.0.8
-	github.com/SlothNinja/confucius v1.0.8
+	github.com/SlothNinja/confucius v1.0.10
 	github.com/SlothNinja/game v1.0.9
 	github.com/SlothNinja/got v1.0.10
 	github.com/SlothNinja/indonesia v1.0.13

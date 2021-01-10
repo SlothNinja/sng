@@ -1,10 +1,13 @@
-{{range $index1, $land := .ForeignLands}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{range $index1, $land := $g.ForeignLands}}
 {{range $index2, $box := $land.Boxes}}
 <!-- {{$land.Name}} Foreign Land Box {{$index2}} State Form -->
 <div class="actions" id="admin-{{$land.Name}}-box-{{$index2}}-action">
         <fieldset>
                 <legend>{{$land.Name}} Foreign Land Box {{$index2}}</legend>
-                <form action="/{{$.Stub}}/admin/{{$.ID}}" method="post">
+                <form action="/{{$g.Stub}}/admin/{{$g.ID}}" method="post">
                         <div style="margin:0;padding:0;display:inline">
                                 <input name="_method" type="hidden" value="PUT" />
                                 <input name="action" type="hidden" value="foreign-land-box" />
@@ -32,7 +35,7 @@
                                         <label for="playerid-{{$index1}}-{{$index2}}">Player</label>
                                         <select id="playerid-{{$index1}}-{{$index2}}" name="playerid">
                                                 <option value="none" {{if $box.Player}}{{else}}selected="selected"{{end}}>None</option>
-                                                {{range $player := $.Players}}
+                                                {{range $player := $g.Players}}
                                                 <option value="{{$player.ID}}" {{if $box.Player}}{{if $player.Equal $box.Player}}selected="selected"{{end}}{{end}}>{{$player.Name}}</option>
                                                 {{end}}
                                         </select>

@@ -1,16 +1,19 @@
-{{range $index, $actionSpace := $.ActionSpaces}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{range $index, $actionSpace := $g.ActionSpaces}}
 <!-- {{$actionSpace.Name}} State Form -->
 <div class="actions" id="admin-{{$actionSpace.Name}}-action">
         <fieldset>
                 <legend>{{$actionSpace.Name}}</legend>
-                <form action="/{{$.Stub}}/admin/{{$.ID}}" method="post">
+                <form action="/{{$g.Stub}}/admin/{{$g.ID}}" method="post">
                         <div style="margin:0;padding:0;display:inline">
                                 <input name="_method" type="hidden" value="PUT" />
                                 <input name="action" type="hidden" value="action-space" />
                                 <input name="sid" type="hidden" value="{{$actionSpace.ID.Int}}" />
                         </div>
                         <div class="left-column">
-                                {{range $player := $.Players }}
+                                {{range $player := $g.Players }}
                                 <div class="name">
                                         <label for="{{$actionSpace.Name}}-player-{{$player.ID}}">{{$player.Name}}</label>
                                         <select id="{{$actionSpace.Name}}-player-{{$player.ID}}" name="player-{{$player.ID}}-cubes">

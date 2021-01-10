@@ -1,23 +1,26 @@
-{{range $key, $ministry := .Ministries}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{range $key, $ministry := $g.Ministries}}
 <div id="{{$ministry.Name}}">
         <div class="content">
-                {{range $index, $official := .Officials}}
+                {{range $index, $official := $ministry.Officials}}
                 <div class="ministry-box-{{$official.Seniority}}">
                         <div class="content">
                                 <img src="/images/confucius/official-tile-{{$official.Variant}}-{{$official.Cost}}.jpg" alt="{{$official.Cost}} Cost Official Tile"/>
-                                {{with $player := $official.Player}}
+                                {{with $p := $official.Player}}
                                 <div class="marker">
                                         {{if $official.Secured}}
-                                        {{$player.DisplaySecuredBarrel}}
+                                        {{$g.DisplaySecuredBarrel $p $cu}}
                                         {{else}}
-                                        {{$player.DisplayBarrel}}
+                                        {{$g.DisplayBarrel $p $cu}}
                                         {{end}}
                                 </div>
                                 {{with $tempplayer := $official.TempPlayer}}
-                                {{if $player.Equal $tempplayer}}
+                                {{if $p.Equal $tempplayer}}
                                 {{else}}
                                 <div class="temp-marker">
-                                        {{$tempplayer.DisplayTempBarrel}}
+                                        {{$g.DisplayTempBarrel $tempplayer $cu}}
                                 </div>
                                 {{end}}
                                 {{end}}
@@ -25,12 +28,12 @@
                         </div>
                 </div>
                 {{end}}
-                {{with $player := $ministry.Minister}}
+                {{with $p := $ministry.Minister}}
                 <div class="minister-player">
                         <div class="marker">
-                                <img src="/images/confucius/{{$player.Color}}-barrel-shadowed.png" alt="{{$player.Color}} Barrel" />
+                                <img src="/images/confucius/{{$g.Color $p $cu}}-barrel-shadowed.png" alt="{{$g.Color $p $cu}} Barrel" />
                         </div>
-                        <div class="text {{$player.TextColor}}">
+                        <div class="text {{$p.TextColor}}">
                                 S
                         </div>
                 </div>
@@ -41,12 +44,12 @@
                         {{end}}
                 </div>
                 {{end}}
-                {{with $player := $ministry.Secretary}}
+                {{with $p := $ministry.Secretary}}
                 <div class="secretary-player">
                         <div class="marker">
-                                <img src="/images/confucius/{{$player.Color}}-barrel-shadowed.png" alt="{{$player.Color}} Barrel" />
+                                <img src="/images/confucius/{{$g.Color $p $cu}}-barrel-shadowed.png" alt="{{$g.Color $p $cu}} Barrel" />
                         </div>
-                        <div class="text {{$player.TextColor}}">
+                        <div class="text {{$p.TextColor}}">
                                 S
                         </div>
                 </div>

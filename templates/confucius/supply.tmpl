@@ -1,3 +1,6 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 <div id="supply"> 
         <div class="content">
                 <table>
@@ -12,7 +15,7 @@
                                                 <img src="/images/confucius/junk.png" alt="Junk"/>
                                         </div>
                                         <div>
-                                                {{$.Junks}}
+                                                {{$g.Junks}}
                                         </div>
                                 </td> 
                                 <td class="confucius-cards">
@@ -20,7 +23,7 @@
                                                 <img class="confucius-cards-draw" src="/images/confucius/confucius-card-back.jpg" alt="Confucius Card Back Face" />
                                         </div>
                                         <div>
-                                                {{len $.ConDeck}} / {{len $.ConDiscardPile}}
+                                                {{len $g.ConDeck}} / {{len $g.ConDiscardPile}}
                                         </div>
                                 </td> 
                                 <td class="emperors-reward-cards">
@@ -28,7 +31,7 @@
                                                 <img src="/images/confucius/emperors-reward-card-back.jpg" alt="Emperors Reward Card Back Face" />
                                         </div>
                                         <div>
-                                                {{len $.EmperorDeck}} / {{len $.EmperorDiscard}}
+                                                {{len $g.EmperorDeck}} / {{len $g.EmperorDiscard}}
                                         </div>
                                 </td> 
                         </tr>

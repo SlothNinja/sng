@@ -1,4 +1,6 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <div id="dialog" title="Join Game" data-modal="true">
         <div class="dialog-content" style="width:200px">
                 <form class="top-padding" action="/{{$g.Stub}}/game/accept/{{$g.ID}}" method="post">

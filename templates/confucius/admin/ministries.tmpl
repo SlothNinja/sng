@@ -1,9 +1,12 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 {{range $id, $ministry := .Ministries}}
 <!-- {{$ministry.Name}} Ministry State Form -->
 <div class="actions" id="ministry-{{$id}}-action">
         <fieldset>
                 <legend>Ministry: {{$ministry.Name}}</legend>
-                <form action="/{{$.Stub}}/admin/{{$.ID}}" method="post">
+                <form action="/{{$g.Stub}}/admin/{{$g.ID}}" method="post">
                         <div style="margin:0;padding:0;display:inline">
                                 <input name="_method" type="hidden" value="PUT" />
                                 <input name="action" type="hidden" value="ministry" />
@@ -30,7 +33,7 @@
                                         <label for="{{$ministry.Name}}-minister-playerid">Minister Player</label>
                                         <select id="{{$ministry.Name}}-minister-playerid" name="minister-playerid">
                                                 <option value="none" {{if $ministry.Minister}}{{else}}selected="selected"{{end}}>None</option>
-                                                {{range $player := $.Players}}
+                                                {{range $player := $g.Players}}
                                                 <option value="{{$player.ID}}" {{if $ministry.Minister}}{{if $player.Equal $ministry.Minister}}selected="selected"{{end}}{{end}}>{{$player.Name}}</option>
                                                 {{end}}
                                         </select>
@@ -55,7 +58,7 @@
                                         <label for="{{$ministry.Name}}-secretary-playerid">Secretary Player</label>
                                         <select id="{{$ministry.Name}}-secretary-playerid" name="secretary-playerid">
                                                 <option value="none" {{if $ministry.Secretary}}{{else}}selected="selected"{{end}}>None</option>
-                                                {{range $player := $.Players}}
+                                                {{range $player := $g.Players}}
                                                 <option value="{{$player.ID}}" {{if $ministry.Secretary}}{{if $player.Equal $ministry.Secretary}}selected="selected"{{end}}{{end}}>{{$player.Name}}</option>
                                                 {{end}}
                                         </select>

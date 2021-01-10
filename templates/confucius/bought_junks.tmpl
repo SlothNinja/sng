@@ -1,11 +1,14 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 <div id="bought-junks">
         <div class="content">
-                {{range $index, $player := $.Players}}
-                {{if $player.Junks}}
-                <div class="{{$player.Color}}-junks">
+                {{range $index, $p := $g.Players}}
+                {{if $p.Junks}}
+                <div class="{{$g.Color $p $cu}}-junks">
                         <img src="/images/confucius/junk.png" alt="Junk" />
                         <div class="text">
-                                {{$player.Junks}}
+                                {{$p.Junks}}
                         </div>
                 </div>
                 {{end}}

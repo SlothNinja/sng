@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Tutor Student Form --> 
-{{if $g.EnableTutorStudent $.CUser}}
+{{if $g.EnableTutorStudent $cu}}
 <div class="actions" id="tutor-student-action"> 
         <fieldset> 
                 <legend>Tutor Student</legend> 
@@ -14,9 +16,9 @@
                                         <label for="tutor-player">Player:</label> 
                                         <select id="tutor-player" name="player">
                                                 {{len $g.CurrentPlayer.TutorPlayers}}
-                                                {{range $index, $player := $g.CurrentPlayer.TutorPlayers}}
-                                                <option value="{{$player.ID}}" {{if equal $player.ID $g.CurrentPlayer.ID}}selected="selected"{{end}}>
-                                                {{$player.Name}} ({{$player.Color}})
+                                                {{range $index, $p := $g.CurrentPlayer.TutorPlayers}}
+                                                <option value="{{$p.ID}}" {{if equal $p.ID $g.CurrentPlayer.ID}}selected="selected"{{end}}>
+                                                {{$p.Name}} ({{$g.Color $p $cu}})
                                                 </option>
                                                 {{end}}
                                         </select> 

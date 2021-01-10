@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- No Action Form -->
-{{if $g.EnableNoAction $.CUser}}
+{{if $g.EnableNoAction $cu}}
 <div class="actions" id="no-action-action"> 
         <fieldset> 
                 <legend>No Action</legend> 

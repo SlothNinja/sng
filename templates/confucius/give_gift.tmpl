@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Give Gift Action Form --> 
-{{if $g.EnableGiveGift $.CUser}}
+{{if $g.EnableGiveGift $cu}}
 <div class="actions" id="give-gift-action"> 
         <fieldset> 
                 <legend>Give Gift</legend> 
@@ -11,7 +13,7 @@
                                         <input name="action" type="hidden" value="give-gift" />
                                 </div>
                                 {{$g.GiveGiftCardOptions "give-gift" "Gift:"}}
-                                {{$g.OtherPlayerOptions "give-gift-player" "Player:"}}
+                                {{$g.OtherPlayerOptions $cu "give-gift-player" "Player:"}}
                                 <div class="button">
                                         <input class="mybutton" name="commit" type="submit" value="Give Gift" />
                                 </div> 

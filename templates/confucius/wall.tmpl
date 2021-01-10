@@ -1,6 +1,9 @@
+{{$g := .g}}
+{{$cu := .cu}}
+
 <div id="wall">
         <div class="content">
-                {{range $index := ints 1 $.Wall}}
+                {{range $index := ints 1 $g.Wall}}
                 <div id="wall-{{$index}}">
                         <img src="/images/confucius/turn_marker.png" alt="Turn Marker" />
                 </div>

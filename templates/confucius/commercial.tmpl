@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Commercial Income Form --> 
-{{if $g.EnableCommercial $.CUser}}
+{{if $g.EnableCommercial $cu}}
 <div class="actions" id="commercial-action"> 
         <fieldset> 
                 <legend>Commercial Income</legend> 

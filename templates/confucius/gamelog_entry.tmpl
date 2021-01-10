@@ -1,0 +1,14 @@
+{{$g := .g}}
+{{$cu := .cu}}
+{{$entry := .entry}}
+
+<div class="gamelog-entry {{if $entry.Player}}{{$g.Color $entry.Player $cu}}{{else}}default{{end}}">
+        <div class="header">
+                {{$entry.PhaseName}}
+                {{with $createdAt := $entry.CreatedAt}} @ {{Time $createdAt}} on {{Date $createdAt}} {{end}}
+        </div>
+        <hr/>
+        <div class="action">
+                {{$entry.HTML}}
+        </div>
+</div>

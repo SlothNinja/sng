@@ -1,18 +1,20 @@
+{{$g := $.Game}}
+{{$cu := $.CUser}}
 <!-- Board --> 
-{{with $.Game}}
+{{with $g}}
 <div id="board"> 
         <!-- Board Map --> 
         <img id="map" src="/images/confucius/confucius-board.jpg" alt="Confucius-board" />
-        {{template "confucius/player_aid" .}}
-        {{template "confucius/supply" .}}
-        {{template "confucius/ministry" .}}
-        {{template "confucius/distant_lands" .}}
-        {{template "confucius/foreign_lands" .}}
-        {{template "confucius/action_spaces" .}}
-        {{template "confucius/score_track" .}}
-        {{template "confucius/bought_junks" .}}
-        {{template "confucius/wall" .}}
-        {{template "confucius/students" .}}
-        {{.GiftTracker}}
+        {{template "confucius/player_aid" data "g" $g "cu" $cu }}
+        {{template "confucius/supply" data "g" $g "cu" $cu }}
+        {{template "confucius/ministry" data "g" $g "cu" $cu }}
+        {{template "confucius/distant_lands" data "g" $g "cu" $cu }}
+        {{template "confucius/foreign_lands" data "g" $g "cu" $cu }}
+        {{template "confucius/action_spaces" data "g" $g "cu" $cu }}
+        {{template "confucius/score_track" data "g" $g "cu" $cu }}
+        {{template "confucius/bought_junks" data "g" $g "cu" $cu }}
+        {{template "confucius/wall" data "g" $g "cu" $cu }}
+        {{template "confucius/students" data "g" $g "cu" $cu }}
+        {{$g.GiftTracker $cu}}
 </div>
 {{end}}

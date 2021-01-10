@@ -1,6 +1,8 @@
 {{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <!-- Nominate Student Form --> 
-{{if $g.EnableNominateStudent $.CUser}}
+{{if $g.EnableNominateStudent $cu}}
 <div class="actions" id="nominate-student-action"> 
         <fieldset> 
                 <legend>Nominate Student</legend> 
