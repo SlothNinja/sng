@@ -1,5 +1,6 @@
 {{$g := $.Game}}
-{{$area := $g.SelectedArea}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
 {{$cp := $g.CurrentPlayer}}
 {{$company := $g.SelectedCompany}}
 {{$ctx := $.Context}}
@@ -11,8 +12,8 @@
         {{template "indonesia/phase_update" $}}
         {{range $zone := $company.Zones}}
         {{range $id := $zone.AreaIDS}}
-        {{$area := index $g.Areas $id}}
-        {{template "indonesia/area" $area}}
+        {{$a := index $g.Areas $id}}
+        {{template "indonesia/area" data "g" $g "cu" $cu "a" $a}}
         {{end}}
         {{end}}
         {{template "indonesia/image_map" $}}

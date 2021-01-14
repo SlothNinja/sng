@@ -1,14 +1,14 @@
 {{$g := $.Game}}
-{{$area := $g.SelectedArea}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
 {{$cp := $g.CurrentPlayer}}
 {{$company := $g.SelectedCompany}}
 {{$ctx := $.Context}}
-{{$cu := $.CUser}}
 <div>
         {{template "shared/flashbox" $}}
         {{template "indonesia/gamelog3" $}}
         {{template "shared/last_actions_list3" data "g" $g "p" $cp "ctx" $ctx}}
-        {{template "indonesia/area" $area}}
+        {{template "indonesia/area" data "g" $g "cu" $cu "a" $a}}
         {{template "indonesia/player_rupiah" $cp}}
         {{template "indonesia/player_score" $cp}}
         {{template "indonesia/player_company" data "company" $company "g" $g "cu" $cu}}

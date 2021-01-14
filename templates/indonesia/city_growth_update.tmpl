@@ -1,13 +1,12 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
-{{$cp := $game.CurrentPlayer}}
-{{$company := $game.SelectedCompany}}
-{{$area := $game.SelectedArea}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$cp := $g.CurrentPlayer}}
+{{$company := $g.SelectedCompany}}
 <div>
         {{template "shared/flashbox" .}}
         {{template "indonesia/gamelog3" $}}
-        {{range $i, $city := $game.Cities}}
-        {{template "indonesia/area" $city.Area}}
+        {{range $i, $city := $g.Cities}}
+        {{template "indonesia/area" data "g" $g "cu" $cu "a" $city.Area}}
         {{end}}
 </div>
 {{template "indonesia/finish_turn_dialog" $}}
