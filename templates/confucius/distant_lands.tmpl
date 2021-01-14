@@ -31,7 +31,7 @@
                         {{if $p.RecruitedArmies}}
                         <div id="{{$g.Color $p $cu}}-recruited-armies">
                                 <img src="/images/confucius/{{$g.Color $p $cu}}-army-shadowed.png" alt="{{$g.Color $p $cu}} Army" />
-                                <div class="text {{$p.TextColor}}">{{$p.RecruitedArmies}}</div>
+                                <div class="text {{$g.TextColor $p $cu}}">{{$p.RecruitedArmies}}</div>
                         </div>
                         {{end}}
                 {{end}}
@@ -43,7 +43,7 @@
                 <img src="/images/confucius/emperors-reward-card-9.jpg" alt="Emperor Avenged" />
                 <div id="army-box">
                         <img src="/images/confucius/{{$g.Color $p $cu}}-army-shadowed.png" alt="{{$g.Color $p $cu}} Army" />
-                        <div class="text {{$p.TextColor}}">2VP</div>
+                        <div class="text {{$g.TextColor $p $cu}}">2VP</div>
                 </div>
         </div>
         {{end}}

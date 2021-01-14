@@ -14,7 +14,7 @@
                         {{with $p := $box.Player}}
                         <img src="/images/confucius/{{$g.Color $p $cu}}-army-shadowed.png" alt="{{$g.Color $p $cu}} Army" />
                         {{if $land.Resolved | not }}
-                        <div class="text {{$p.TextColor}}">
+                        <div class="text {{$g.TextColor $p $cu}}">
                                 {{$box.Points}}VP
                         </div>
                         {{end}}

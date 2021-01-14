@@ -8,7 +8,7 @@ require (
 	github.com/SlothNinja/confucius v1.0.12
 	github.com/SlothNinja/game v1.0.11
 	github.com/SlothNinja/got v1.0.12
-	github.com/SlothNinja/indonesia v1.0.16
+	github.com/SlothNinja/indonesia v1.0.17
 	github.com/SlothNinja/log v0.0.2
 	github.com/SlothNinja/rating v1.0.5
 	github.com/SlothNinja/restful v1.0.0
@@ -32,5 +32,3 @@ require (
 	google.golang.org/genproto v0.0.0-20210113195801-ae06605f4595 // indirect
 	google.golang.org/grpc v1.35.0
 )
-
-replace github.com/SlothNinja/indonesia => ./private/indonesia

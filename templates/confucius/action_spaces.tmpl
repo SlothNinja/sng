@@ -10,7 +10,7 @@
                         <div class="content">
                                 {{with $p := $g.PlayerByID $pid}}
                                 <img src="/images/confucius/{{$g.Color $p $cu}}-action-cube-shadowed.png" alt="{{.Color}} Action Cube" />
-                                <div class="text {{.TextColor}}">
+                                <div class="text {{$g.TextColor $p $cu}}">
                                         {{$cubes}}
                                 </div>
                                 {{end}}
