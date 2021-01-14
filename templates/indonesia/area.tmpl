@@ -1,7 +1,11 @@
-{{$area := .}}
-{{if $area.IsLand}}
-        {{template "indonesia/land_area" $area}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{$a := .a}}
+
+{{if $a.IsLand}}
+        {{template "indonesia/land_area" data "g" $g "cu" $cu "a" $a}}
 {{end}}
-{{if $area.IsSea}}
-        {{template "indonesia/sea_area" $area}}
+
+{{if $a.IsSea}}
+        {{template "indonesia/sea_area" data "g" $g "cu" $cu "a" $a}}
 {{end}}

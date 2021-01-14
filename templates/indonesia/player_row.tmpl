@@ -6,7 +6,7 @@
 <tr id="player-row-{{$p.ID}}">
         <td class="player">
                 <div class="gravatar">
-                        {{$g.GravatarFor $p}}
+                        {{$g.GravatarFor $p $cu}}
                 </div>
                 {{if $cu.IsAdmin}}
                 <div id="admin-player-{{$p.ID}}" class="mybutton top-padding clickable">

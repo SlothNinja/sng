@@ -5,7 +5,7 @@
 {{$area := $game.SelectedArea}}
 <div>
         {{template "shared/flashbox" .}}
-        {{template "shared/gamelog3" $}}
+        {{template "indonesia/gamelog3" $}}
         {{range $i, $city := $game.Cities}}
         {{template "indonesia/area" $city.Area}}
         {{end}}

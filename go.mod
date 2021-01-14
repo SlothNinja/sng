@@ -8,7 +8,7 @@ require (
 	github.com/SlothNinja/confucius v1.0.12
 	github.com/SlothNinja/game v1.0.11
 	github.com/SlothNinja/got v1.0.12
-	github.com/SlothNinja/indonesia v1.0.15
+	github.com/SlothNinja/indonesia v1.0.16
 	github.com/SlothNinja/log v0.0.2
 	github.com/SlothNinja/rating v1.0.5
 	github.com/SlothNinja/restful v1.0.0
@@ -24,6 +24,13 @@ require (
 	github.com/hashicorp/go-hclog v0.15.0 // indirect
 	github.com/hashicorp/go-retryablehttp v0.6.8
 	github.com/patrickmn/go-cache v2.1.0+incompatible
+	github.com/stretchr/testify v1.7.0 // indirect
+	golang.org/x/oauth2 v0.0.0-20210113205817-d3ed898aa8a3 // indirect
+	golang.org/x/sys v0.0.0-20210113181707-4bcb84eeeb78 // indirect
+	golang.org/x/tools v0.0.0-20210113180300-f96436850f18 // indirect
 	google.golang.org/api v0.36.0
-	google.golang.org/grpc v1.34.1
+	google.golang.org/genproto v0.0.0-20210113195801-ae06605f4595 // indirect
+	google.golang.org/grpc v1.35.0
 )
+
+replace github.com/SlothNinja/indonesia => ./private/indonesia

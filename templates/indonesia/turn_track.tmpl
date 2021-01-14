@@ -1,9 +1,11 @@
-{{$game := $.Game}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <div id="turn-track">
         <div class="container">
-                {{range $i, $p := $game.Players}}
+                {{range $i, $p := $g.Players}}
                 <div id="turn-track-player-{{$i}}">
-                        <img src="/images/indonesia/{{$p.Color}}-disc.png" />
+                        <img src="/images/indonesia/{{$g.Color $p $cu}}-disc.png" />
                 </div>
                 {{end}}
         </div>

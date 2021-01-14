@@ -1,8 +1,10 @@
-{{$game := $.Game}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <div id="areas">
         <div class="container">
-                {{range $area := $game.Areas }}
-                {{template "indonesia/area" $area}}
+                {{range $a := $g.Areas }}
+                {{template "indonesia/area" data "g" $g "cu" $cu "a" $a}}
                 {{end}}
         </div>
 </div>

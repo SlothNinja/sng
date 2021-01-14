@@ -1,11 +1,13 @@
-{{$game := $.Game}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <div id="tech-track">
         <div class="container">
-                {{range $p := $game.Players}}
+                {{range $p := $g.Players}}
                 {{range $tech, $value := $p.Technologies}}
                 {{$id := $tech.IDString}}
                 <div id="tech-{{$id}}-{{$value}}-{{$p.ID}}">
-                        <img src="/images/indonesia/{{$p.Color}}-disc.png" />
+                        <img src="/images/indonesia/{{$g.Color $p $cu}}-disc.png" />
                 </div>
                 {{end}}
                 {{range $company := $p.Companies}}
