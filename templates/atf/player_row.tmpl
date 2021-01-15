@@ -10,7 +10,7 @@
                 </div>
                 {{end}}
                 <div class="gravatar">
-                        {{$g.GravatarFor $p}}
+                        {{$g.GravatarFor $p $cu}}
                 </div>
                 <div>
                         {{$g.PlayerLinkByID $cu $p.ID}}
@@ -27,16 +27,16 @@
                         {{template "atf/player_resources" $p}}
                 </td>
                 <td>
-                        {{template "atf/player_armies" $p}}
+                        {{template "atf/player_armies" data "g" $g "cu" $cu "p" $p}}
                 </td>
                 <td>
-                        {{template "atf/player_workers" $p}}
+                        {{template "atf/player_workers" data "g" $g "cu" $cu "p" $p}}
                 </td>
                 <td>
-                        {{template "atf/player_city_bases" $p}}
+                        {{template "atf/player_city_bases" data "g" $g "cu" $cu "p" $p}}
                 </td>
                 <td>
-                        {{template "atf/player_city_expansions" $p}}
+                        {{template "atf/player_city_expansions" data "g" $g "cu" $cu "p" $p}}
                 </td>
         </td>
 </tr>

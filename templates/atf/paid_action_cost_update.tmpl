@@ -1,12 +1,13 @@
-{{$game := $.Game}}
-{{$cp := $game.CurrentPlayer}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$cp := $g.CurrentPlayer}}
 <div>
 {{template "shared/flashbox" .}}
-{{template "shared/gamelog" .}}
+{{template "atf/gamelog" .}}
 {{template "shared/last_actions_list" $cp}}
-{{template "atf/player_armies" $cp}}
-{{template "atf/supply_workers" $game.Players}}
+{{template "atf/player_armies" data "g" $g "cu" $cu "p" $cp}}
+{{template "atf/supply_workers" $g.Players}}
 {{template "atf/player_resources" $cp}}
-{{template "atf/player_workers" $cp}}
+{{template "atf/player_workers" data "g" $g "cu" $cu "p" $cp}}
 {{template "atf/supply_resources_update" $}}
 </div>

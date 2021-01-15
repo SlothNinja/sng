@@ -1,4 +1,6 @@
-{{$game := $.Game}}
-{{range $p := $game.Players}}
-{{template "atf/passed_resources_for" $p}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
+{{range $p := $g.Players}}
+{{template "atf/passed_resources_for" data "g" $g "cu" $cu "p" $p}}
 {{end}}

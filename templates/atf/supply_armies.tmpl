@@ -1,6 +1,9 @@
-{{$player := .}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{$p := .p}}
+
 <td>
-        <div id="player-supply-armies-{{$player.ID}}">
-                <img src="/images/atf/{{$player.Color}}_army.png" alt="Army" /> {{$player.ArmySupply}}
+        <div id="player-supply-armies-{{$p.ID}}">
+                <img src="/images/atf/{{$g.Color $p $cu}}_army.png" alt="Army" /> {{$p.ArmySupply}}
         </div>
 </td>

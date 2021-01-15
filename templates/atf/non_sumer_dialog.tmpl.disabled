@@ -1,53 +1,54 @@
-{{$game := $.Game}}
-{{$cp := $game.CurrentPlayer}}
-{{$area := $game.SelectedArea}}
-<div id="dialog" title="Actions For {{$.Game.SelectedArea.Name}}">
+{{$g := $.Game}}
+{{$cp := $g.CurrentPlayer}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
+<div id="dialog" title="Actions For {{$g.SelectedArea.Name}}">
         <div class="dialog-content">
                 <div id="tabs">
                         <ul>
-                                {{with $admin := $.CUser.IsAdmin}}
-                                        {{if and $admin $.CUser.IsAdmin}}
+                                {{with $admin := $cu.IsAdmin}}
+                                        {{if and $admin $cu.IsAdmin}}
                                         <li><a href="#tabs-admin">Admin</a></li>
                                         {{end}}
                                 {{else}}
-                                        {{if $cp.CanPayActionCost $area}}
+                                        {{if $cp.CanPayActionCost $a}}
                                         <li><a href="#tabs-pay-action-cost">Pay Action Cost</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanPlaceWorkersIn $area}}
+                                        {{if $cp.CanPlaceWorkersIn $a}}
                                         <li><a href="#tabs-place-workers">Place Workers</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanStartEmpireIn $area}}
+                                        {{if $cp.CanStartEmpireIn $a}}
                                         <li><a href="#tabs-start-empire">Start Empire</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanBuyArmiesForArmyIn $area}}
+                                        {{if $cp.CanBuyArmiesForArmyIn $a}}
                                         <li><a href="#tabs-buy-armies">Buy Armies</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanEquipArmyIn $area}}
+                                        {{if $cp.CanEquipArmyIn $a}}
                                         <li><a href="#tabs-equip-army">Equip Army</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanPlaceArmyIn $area}}
+                                        {{if $cp.CanPlaceArmyIn $a}}
                                         <li><a href="#tabs-place-armies">Place Army</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanTradeIn $area}}
+                                        {{if $cp.CanTradeIn $a}}
                                         <li><a href="#tabs-trade">Trade</a></li>
                                         {{end}}
 
-                                        {{if $cp.CanExpandEmpireIn $area}}
+                                        {{if $cp.CanExpandEmpireIn $a}}
                                         <li><a href="#tabs-expand-empire">Expand Empire</a></li>
                                         {{end}}
 
                                         <li><a href="#tabs-finish">Undo/Finish</a></li>
                                 {{end}}
                         </ul>
-                        {{with $admin := $.CUser.IsAdmin}}
-                                {{if and $admin $.CUser.IsAdmin}}
-                                {{template "atf/admin/non_sumer_area_form" $}}
+                        {{with $admin := $cu.IsAdmin}}
+                                {{if and $admin $cu.IsAdmin}}
+                                {{template "atf/non_sumer_area" data "g" $g "cu" $cu "a" $a}}
                                 {{end}}
                         {{else}}
                                 {{template "atf/pay_action_cost_form" $}}

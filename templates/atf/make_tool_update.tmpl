@@ -1,12 +1,13 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
-{{$cp := $game.CurrentPlayer}}
-{{$used := $game.UsedToolMakerArea}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
+{{$cp := $g.CurrentPlayer}}
+{{$used := $g.UsedToolMakerArea}}
 <div>
-        {{template "atf/area_workers" $area}}
-        {{template "atf/area_workers" $used}}
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $a}}
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $used}}
         {{template "shared/flashbox" .}}
-        {{template "shared/gamelog" .}}
+        {{template "atf/gamelog" .}}
         {{template "shared/last_actions_list" $cp}}
         {{template "atf/player_resources" $cp}}
         {{template "atf/supply_resources_update" $}}

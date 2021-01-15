@@ -1,5 +1,8 @@
-{{with $player := .}}
-<div id="player-city-expansions-{{$player.ID}}">
-        <img src="/images/atf/{{$player.Color}}_city_expansion.png" alt="City Expansion" /> {{$player.Expansion}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{with $p := .p}}
+<div id="player-city-expansions-{{$p.ID}}">
+        <img src="/images/atf/{{$g.Color $p $cu}}_city_expansion.png" alt="City Expansion" /> {{$p.Expansion}}
 </div>
 {{end}}

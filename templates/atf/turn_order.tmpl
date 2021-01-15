@@ -1,8 +1,11 @@
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
 <div id="turn-order">
         <div class="container">
-                {{range $i, $p := $.Game.Players }}
+                {{range $i, $p := $g.Players }}
                 <div id="turn-order-{{$i}}">
-                        <img alt="{{$p.Color}} Disc" src="/images/atf/{{$p.Color}}_disc.png" />
+                        <img alt="{{$g.Color $p $cu}} Disc" src="/images/atf/{{$g.Color $p $cu}}_disc.png" />
                 </div>
                 {{end}}
         </div>

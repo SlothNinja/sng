@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	cloud.google.com/go/datastore v1.3.0
-	github.com/SlothNinja/atf v1.0.10
+	github.com/SlothNinja/atf v1.0.11
 	github.com/SlothNinja/confucius v1.0.12
 	github.com/SlothNinja/game v1.0.11
 	github.com/SlothNinja/got v1.0.12
@@ -25,10 +25,11 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.6.8
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/stretchr/testify v1.7.0 // indirect
+	golang.org/x/mod v0.4.1 // indirect
 	golang.org/x/oauth2 v0.0.0-20210113205817-d3ed898aa8a3 // indirect
 	golang.org/x/sys v0.0.0-20210113181707-4bcb84eeeb78 // indirect
-	golang.org/x/tools v0.0.0-20210113180300-f96436850f18 // indirect
+	golang.org/x/tools v0.0.0-20210114065538-d78b04bdf963 // indirect
 	google.golang.org/api v0.36.0
-	google.golang.org/genproto v0.0.0-20210113195801-ae06605f4595 // indirect
+	google.golang.org/genproto v0.0.0-20210114201628-6edceaf6022f // indirect
 	google.golang.org/grpc v1.35.0
 )

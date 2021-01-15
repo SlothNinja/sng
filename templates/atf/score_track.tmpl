@@ -1,7 +1,9 @@
-{{$game := .}}
-{{range $player := $game.Players}}
-{{$color := $player.Color}}
-{{$score := $player.Score}}
+{{$g := .g}}
+{{$cu := .cu}}
+
+{{range $p := $g.Players}}
+{{$color := $g.Color $p $cu}}
+{{$score := $p.Score}}
 <div id="{{$color}}-score-track-{{$score}}">
         <img alt="{{$color}} Disc" src="/images/atf/{{$color}}_disc.png" />
 </div>

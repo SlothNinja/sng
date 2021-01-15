@@ -1,5 +1,7 @@
-{{$area := .}}
-<div id="{{$area.LName}}">
-        {{template "atf/area_workers" $area}}
-        {{template "atf/area_armies" $area}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{$a := .a}}
+<div id="{{$a.LName}}">
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $a}}
+        {{template "atf/area_armies" data "g" $g "cu" $cu "a" $a}}
 </div>

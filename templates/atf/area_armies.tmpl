@@ -1,9 +1,11 @@
-{{$area := .}}
-{{range $p := $.Game.Players}}
-{{with $w := $p.ArmiesIn $area}}
-<div id="{{$area.LName}}-armies">
-        <img alt="{{$p.Color}} Army" src="/images/atf/{{$p.Color}}_army.png" />
-        <div class="text {{$p.TextColor}}">{{$w}}</div>
+{{$g := .g}}
+{{$cu := .cu}}
+{{$a := .a}}
+{{range $p := $g.Players}}
+{{with $w := $p.ArmiesIn $a}}
+<div id="{{$a.LName}}-armies">
+        <img alt="{{$g.Color $p $cu}} Army" src="/images/atf/{{$g.Color $p $cu}}_army.png" />
+        <div class="text {{$g.TextColor $p $cu}}">{{$w}}</div>
 </div>
 {{end}}
 {{end}}

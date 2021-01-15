@@ -1,7 +1,8 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
 <div>
-        {{template "atf/area_workers" $area}}
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $a}}
         {{template "shared/flashbox" .}}
 </div>
 {{template "atf/select_area_to_place_worker_dialog"}}

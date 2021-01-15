@@ -1,17 +1,18 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
-{{$cp := $game.CurrentPlayer}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
+{{$cp := $g.CurrentPlayer}}
 <div>
-        {{template "atf/player_city_bases" $cp}}
-        {{template "atf/supply_workers" $game.Players}}
-        {{template "atf/city" $area}}
-        {{with $scribes := index $game.Areas 3}}
-        {{template "atf/worker_box" $scribes}}
+        {{template "atf/player_city_bases" data "g" $g "cu" $cu "p" $cp}}
+        {{template "atf/supply_workers" $g.Players}}
+        {{template "atf/city" data "g" $g "cu" $cu "a" $a}}
+        {{with $scribes := index $g.Areas 3}}
+        {{template "atf/worker_box" data "g" $g "cu" $cu "a" $scribes}}
         {{end}}
-        {{with $toolmakers := index $game.Areas 5}}
-        {{template "atf/worker_box" $toolmakers}}
+        {{with $toolmakers := index $g.Areas 5}}
+        {{template "atf/worker_box" data "g" $g "cu" $cu "a" $toolmakers}}
         {{end}}
         {{template "shared/flashbox" .}}
-        {{template "shared/gamelog" .}}
+        {{template "atf/gamelog" .}}
         {{template "shared/last_actions_list" $cp}}
 </div>

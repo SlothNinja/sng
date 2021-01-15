@@ -1,5 +1,7 @@
-{{with $player := .}}
-<div id="player-city-bases-{{$player.ID}}">
-        <img src="/images/atf/{{$player.Color}}_city_base.png" alt="City" /> {{$player.City}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{with $p := .p}}
+<div id="player-city-bases-{{$p.ID}}">
+        <img src="/images/atf/{{$g.Color $p $cu}}_city_base.png" alt="City" /> {{$p.City}}
 </div>
 {{end}}

@@ -1,10 +1,11 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
-{{$cp := $game.CurrentPlayer}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
+{{$cp := $g.CurrentPlayer}}
 <div>
-        {{template "atf/area_workers" $area}}
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $a}}
         {{template "shared/flashbox" .}}
-        {{template "shared/gamelog" .}}
+        {{template "atf/gamelog" .}}
         {{template "shared/last_actions_list" $cp}}
         {{template "atf/player_resources" $cp}}
         {{template "atf/supply_resources_update" $}}

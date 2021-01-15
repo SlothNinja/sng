@@ -1,4 +1,6 @@
-{{$area := .}}
-<div id="{{$area.LName}}">
-        {{template "atf/area_workers" $area}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{$a := .a}}
+<div id="{{$a.LName}}">
+        {{template "atf/area_workers" data "g" $g "cu" $cu "a" $a}}
 </div>

@@ -1,9 +1,12 @@
-{{$scribes := index $.Game.Areas 2}}
-{{$usedscribes := index $.Game.Areas 4}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$cp := $g.CurrentPlayer}}
+{{$scribes := index $g.Areas 2}}
+{{$usedscribes := index $g.Areas 4}}
 <div>
-        {{template "atf/worker_box" $scribes}}
-        {{template "atf/worker_box" $usedscribes}}
-        {{template "atf/player_workers" $.Game.CurrentPlayer}}
+        {{template "atf/worker_box" data "g" $g "cu" $cu "a" $scribes}}
+        {{template "atf/worker_box" data "g" $g "cu" $cu "a" $usedscribes}}
+        {{template "atf/player_workers" data "g" $g "cu" $cu "p" $cp}}
         {{template "shared/flashbox" .}}
 </div>
 {{template "atf/select_worker_to_move_dialog" $}}

@@ -1,4 +1,6 @@
-{{$player := .}}
-<div id="player-armies-{{$player.ID}}">
-        <img src="/images/atf/{{$player.Color}}_army.png" alt="Army" /> {{$player.Army}}
+{{$g := .g}}
+{{$cu := .cu}}
+{{$p := .p}}
+<div id="player-armies-{{$p.ID}}">
+        <img src="/images/atf/{{$g.Color $p $cu}}_army.png" alt="Army" /> {{$p.Army}}
 </div>

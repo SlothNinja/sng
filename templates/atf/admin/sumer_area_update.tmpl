@@ -1,8 +1,9 @@
-{{$game := $.Game}}
-{{$area := $game.SelectedArea}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$a := $g.SelectedArea}}
 <div>
-        <div id="{{$area.LName}}" class="area">
-                {{template "atf/city" $area}}
-                {{template "atf/area_armies" $area}}
+        <div id="{{$a.LName}}" class="area">
+                {{template "atf/city" data "g" $g "cu" $cu "a" $a}}
+                {{template "atf/area_armies" data "g" $g "cu" $cu "a" $a}}
         </div>
 </div>

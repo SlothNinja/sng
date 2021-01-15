@@ -1,13 +1,17 @@
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+{{$cp := $g.CurrentPlayer}}
+
 <div>
 {{template "shared/flashbox" .}}
-{{template "shared/gamelog" .}}
-{{template "shared/last_actions_list" $.Game.CurrentPlayer}}
-{{template "atf/player_armies" $.Game.CurrentPlayer}}
-{{template "atf/supply_armies" $.Game.CurrentPlayer}}
-{{$area := $.Game.SelectedArea}}
-{{if $area.IsSumer}}
-{{template "atf/sumer_area" $area}}
+{{template "atf/gamelog" .}}
+{{template "shared/last_actions_list" $g.CurrentPlayer}}
+{{template "atf/player_armies" data "g" $g "cu" $cu "p" $cp}}
+{{template "atf/supply_armies" data "g" $g "cu" $cu "p" $cp}}
+{{$a := $g.SelectedArea}}
+{{if $a.IsSumer}}
+{{template "atf/sumer_area" data "g" $g "cu" $cu "a" $a}}
 {{else}}
-{{template "atf/non_sumer_area" $area}}
+{{template "atf/non_sumer_area" data "g" $g "cu" $cu "a" $a}}
 {{end}}
 </div>

@@ -1,11 +1,14 @@
-{{range $i, $area := $.Game.Areas}}
-{{if $area.IsSumer}}
-{{template "atf/sumer_area" $area}}
+{{$g := $.Game}}
+{{$cu := $.CUser}}
+
+{{range $i, $a := $g.Areas}}
+{{if $a.IsSumer}}
+{{template "atf/sumer_area" data "g" $g "cu" $cu "a" $a}}
 {{end}}
-{{if $area.IsNonSumer}}
-{{template "atf/non_sumer_area" $area}}
+{{if $a.IsNonSumer}}
+{{template "atf/non_sumer_area" data "g" $g "cu" $cu "a" $a}}
 {{end}}
-{{if $area.IsWorkerBox}}
-{{template "atf/worker_box" $area}}
+{{if $a.IsWorkerBox}}
+{{template "atf/worker_box" data "g" $g "cu" $cu "a" $a}}
 {{end}}
 {{end}}
