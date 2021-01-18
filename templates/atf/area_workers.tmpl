@@ -3,7 +3,7 @@
 {{$a := .a}}
 
 <div id="{{$a.LName}}-workers">
-        {{range $p := $.Game.Players}}
+        {{range $p := $g.Players}}
         {{with $w := $p.WorkersIn $a}}
         <div id="{{$a.LName}}-workers-{{$p.ID}}">
                 <img alt="{{$g.Color $p $cu}} Worker" src="/images/atf/{{$g.Color $p $cu}}_worker.png" />
