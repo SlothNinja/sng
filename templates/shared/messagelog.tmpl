@@ -7,7 +7,7 @@
         </div> 
         <div class="content"> 
                 {{range $m := $.MessageLog.Messages}}
-                {{template "shared/message" data "g" $g "message" $m "map" $.ColorMap "ctx" $.Context}}
+                {{template "shared/message" data "g" $g "message" $m "map" $.ColorMap}}
                 {{end}}
         </div> 
         {{with $cu}}
