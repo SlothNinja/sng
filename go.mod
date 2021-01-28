@@ -7,7 +7,7 @@ require (
 	github.com/SlothNinja/atf v1.0.13
 	github.com/SlothNinja/confucius v1.0.15
 	github.com/SlothNinja/cookie v1.0.1
-	github.com/SlothNinja/game v1.0.14
+	github.com/SlothNinja/game v1.0.15
 	github.com/SlothNinja/got v1.0.15
 	github.com/SlothNinja/indonesia v1.0.19
 	github.com/SlothNinja/log v1.0.2
