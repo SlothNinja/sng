@@ -77,8 +77,8 @@ github.com/SlothNinja/gin-render v1.0.0 h1:mxibLS0HX6/Ek7+RcbA2Yvk8VS2wisifuguAg
 github.com/SlothNinja/gin-render v1.0.0/go.mod h1:tlNalI+QAUXQPOCDxnPF5HkJq/KhhnadKEl/win7Pyw=
 github.com/SlothNinja/glicko v1.0.0 h1:WC/tRr+D+M/NibEBO86IS5IG3y7mTVtU/a4CoMGwGAM=
 github.com/SlothNinja/glicko v1.0.0/go.mod h1:bi+GqCI0m4esu1OuEw3RIatiwr2JOXzVnR9DWogZPLk=
-github.com/SlothNinja/got v1.0.15 h1:94J+yCm17KacljF+ZtSd5N0ezDTydxQ6XqfmaxPphzw=
-github.com/SlothNinja/got v1.0.15/go.mod h1:5dWM6knchcg+iH/EYQ9KvGLY93Lly/d42DxVhhhscCs=
+github.com/SlothNinja/got v1.0.16 h1:85ek3YYfP1UsoUwqU47JpgPSWcSDHt6eh1rCQwlPOB0=
+github.com/SlothNinja/got v1.0.16/go.mod h1:/Z+V+c42pasjXVjqaDD0YpoPODbdhDqUVKTW3XdHXn4=
 github.com/SlothNinja/indonesia v1.0.19 h1:JdPCaggajNQY/f0duM8vJKxd6Z8SYuRJOCm7hn9ZVPA=
 github.com/SlothNinja/indonesia v1.0.19/go.mod h1:oby1NpwxrZXIceGyYdM3XEeaOIsQCf0rDnMjcDFK9Jg=
 github.com/SlothNinja/inflect v1.0.0 h1:OURYwqV6Cx93vtTscpWtMfh1N6s8CHs1wrNQmvrpXUU=
