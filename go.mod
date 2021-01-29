@@ -8,7 +8,7 @@ require (
 	github.com/SlothNinja/confucius v1.0.15
 	github.com/SlothNinja/cookie v1.0.1
 	github.com/SlothNinja/game v1.0.15
-	github.com/SlothNinja/got v1.0.16
+	github.com/SlothNinja/got v1.0.17
 	github.com/SlothNinja/indonesia v1.0.19
 	github.com/SlothNinja/log v1.0.2
 	github.com/SlothNinja/mlog v1.0.3
