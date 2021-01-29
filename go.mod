@@ -15,7 +15,7 @@ require (
 	github.com/SlothNinja/rating v1.0.7
 	github.com/SlothNinja/restful v1.0.0
 	github.com/SlothNinja/sn v1.0.3
-	github.com/SlothNinja/tammany v1.0.17
+	github.com/SlothNinja/tammany v1.0.18
 	github.com/SlothNinja/type v1.0.1
 	github.com/SlothNinja/user v1.0.18
 	github.com/SlothNinja/welcome v1.0.4
