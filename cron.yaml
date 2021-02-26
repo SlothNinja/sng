@@ -9,10 +9,10 @@ cron:
   schedule: 7 of jan, mar, may, jul, sep, nov 01:00
   timezone: America/Indiana/Indianapolis
 
-- description: Bi-Monthly Ratings Update For Guild of Thieves
-  url: /ratings/update/got
-  schedule: 14 of feb, apr, jun, aug, oct, dec 01:00
-  timezone: America/Indiana/Indianapolis
+  #- description: Bi-Monthly Ratings Update For Guild of Thieves
+  #  url: /ratings/update/got
+  #  schedule: 14 of feb, apr, jun, aug, oct, dec 01:00
+  #  timezone: America/Indiana/Indianapolis
 
 - description: Quarterly Ratings Update For Confucius
   url: /ratings/update/confucius
