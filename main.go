@@ -99,8 +99,9 @@ func main() {
 	// Welcome Page (index.html) route
 	// welcome.NewClient(dsClient, userClient, logger, cache, router)
 
+	const afterLoad = true
 	// Game routes
-	client.Game = game.NewClient(dsClient, userClient, logger, cache, router, "games")
+	client.Game = game.NewClient(dsClient, userClient, logger, cache, router, "games", afterLoad)
 
 	// After The Flood
 	atf.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,
