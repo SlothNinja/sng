@@ -22,7 +22,6 @@ import (
 	"github.com/SlothNinja/tammany"
 	gtype "github.com/SlothNinja/type"
 	"github.com/SlothNinja/user"
-	"github.com/SlothNinja/welcome"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/patrickmn/go-cache"
@@ -84,7 +83,7 @@ func main() {
 		logger.Panicf("unable create cookie store: %v", err)
 	}
 
-	router := gin.New()
+	router := gin.Default()
 	renderer := restful.ParseTemplates("templates/", ".tmpl")
 	router.HTMLRender = renderer
 
@@ -98,7 +97,7 @@ func main() {
 	client := NewClient(dsClient, userClient, logger, cache, router)
 
 	// Welcome Page (index.html) route
-	welcome.NewClient(dsClient, userClient, logger, cache, router)
+	// welcome.NewClient(dsClient, userClient, logger, cache, router)
 
 	// Game routes
 	client.Game = game.NewClient(dsClient, userClient, logger, cache, router, "games")
@@ -133,6 +132,9 @@ func main() {
 	// logout
 	router.GET("logout", logout)
 
+	// home
+	router.GET("home", client.homeHandler)
+
 	router.Run()
 }
 
@@ -163,12 +165,18 @@ func (client *Client) staticRoutes() *Client {
 	if sn.IsProduction() {
 		return client
 	}
-	client.Router.StaticFile("/favicon.ico", "public/favicon.ico")
+	// client.Router.StaticFile("/favicon.ico", "public/favicon.ico")
 	client.Router.Static("/images", "public/images")
 	client.Router.Static("/javascripts", "public/javascripts")
-	client.Router.Static("/js", "public/js")
+	client.Router.Static("/jsold", "public/js")
 	client.Router.Static("/stylesheets", "public/stylesheets")
 	client.Router.Static("/rules", "public/rules")
+	client.Router.StaticFile("/", "dist/index.html")
+	client.Router.StaticFile("/app.js", "dist/app.js")
+	client.Router.StaticFile("/favicon.ico", "dist/favicon.ico")
+	client.Router.Static("/img", "dist/img")
+	client.Router.Static("/js", "dist/js")
+	client.Router.Static("/css", "dist/css")
 	return client
 }
 
@@ -202,4 +210,16 @@ func newLogClient() *log.Client {
 		log.Panicf("unable to create logging client: %v", err)
 	}
 	return client
+}
+
+func (cl *Client) homeHandler(c *gin.Context) {
+	cl.Log.Debugf(msgEnter)
+	defer cl.Log.Debugf(msgExit)
+
+	cu, err := cl.User.Current(c)
+	if err != nil {
+		cl.Log.Warningf(err.Error())
+	}
+
+	c.JSON(http.StatusOK, gin.H{"cu": cu})
 }

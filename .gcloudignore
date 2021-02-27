@@ -32,3 +32,6 @@ tools
 v2
 db
 backend
+node_modules
+src
+public
