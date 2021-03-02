@@ -12,7 +12,6 @@ import (
 	"github.com/SlothNinja/confucius"
 	"github.com/SlothNinja/cookie"
 	"github.com/SlothNinja/game"
-	"github.com/SlothNinja/got"
 	"github.com/SlothNinja/indonesia"
 	"github.com/SlothNinja/log"
 	"github.com/SlothNinja/mlog"
@@ -108,7 +107,7 @@ func main() {
 		logger, cache, router, gtype.ATF)
 
 	// Guild of Thieves
-	got.NewClient(dsClient, userClient, client.MLog, client.Rating, logger, cache, router, gtype.GOT)
+	// got.NewClient(dsClient, userClient, client.MLog, client.Rating, logger, cache, router, gtype.GOT)
 
 	// Tammany Hall
 	tammany.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,

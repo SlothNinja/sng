@@ -6,7 +6,7 @@
     :medium="size ? size === 'medium' : true"
     :large="size ? size === 'large' : true"
     :color="color || 'black' "
-    :href="showlink"
+    :to="{ name: 'user-show', params: { uid: user.id } }"
   >
     <v-avatar :size="avatarSize" >
       <img :src="gravatar(user.emailHash, size, user.gravType)" />
@@ -34,11 +34,6 @@
           default:
             return '54px'
         }
-      },
-      showlink: function () {
-        var self = this
-        let userv = process.env.VUE_APP_USER_DOMAIN
-        return `${userv}#/show/${self.user.id}`
       }
     }
   }

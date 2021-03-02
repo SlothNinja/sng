@@ -48,7 +48,7 @@
             <v-list-item-title>Indonesia</v-list-item-title>
           </v-list-item>
           <v-list-item href='/tammany/game/new'>
-            <v-list-item-title>Tammany</v-list-item-title>
+            <v-list-item-title>Tammany Hall</v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-list-group
@@ -71,7 +71,7 @@
             <v-list-item-title>Indonesia</v-list-item-title>
           </v-list-item>
           <v-list-item href='/tammany/games/recruiting'>
-            <v-list-item-title>Tammany</v-list-item-title>
+            <v-list-item-title>Tammany Hall</v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-list-group
@@ -94,7 +94,7 @@
             <v-list-item-title>Indonesia</v-list-item-title>
           </v-list-item>
           <v-list-item href='/tammany/games/running'>
-            <v-list-item-title>Tammany</v-list-item-title>
+            <v-list-item-title>Tammany Hall</v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-list-group
@@ -117,7 +117,7 @@
             <v-list-item-title>Indonesia</v-list-item-title>
           </v-list-item>
           <v-list-item href='/tammany/games/completed'>
-            <v-list-item-title>Tammany</v-list-item-title>
+            <v-list-item-title>Tammany Hall</v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-list-group
@@ -140,7 +140,7 @@
             <v-list-item-title>Indonesia</v-list-item-title>
           </v-list-item>
           <v-list-item href='/ratings/show/tammany'>
-            <v-list-item-title>Tammany</v-list-item-title>
+            <v-list-item-title>Tammany Hall</v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-list-item :to="{ name: 'logout'}" >
