@@ -2,27 +2,13 @@
   <v-app id='app'>
     <sn-toolbar v-model='nav'></sn-toolbar>
     <sn-nav-drawer v-model='nav' app></sn-nav-drawer>
-    <sn-snackbar v-model='snackbar.open'>
-      <div class='text-center'>
-        {{snackbar.message}}
-      </div>
-    </sn-snackbar>
     <v-main>
       <v-container fluid>
       <v-card>
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col cols='6'>
-                <v-img
-                  :src="require('@/assets/slothninja_logo_fullsize.png')"
-                  aspect-ratio='1'
-                  height='480'
-                  contain
-                ></v-img>
-              </v-col>
-
-              <v-col cols='6'>
+              <v-col cols='12' md='6' >
                 <div class='title font-weight-black text-center'>Welcome to SlothNinja Games</div>
                 <div class='body-1 pb-2'>
                   SlothNinja Games is a play-by-web (PBW) site that permits registered members to play board
@@ -44,6 +30,42 @@
                   please create a new game and clearly indicate your desired playing speed in the title.
                 </div>
               </v-col>
+
+              <v-col cols='12' md='6'>
+                <v-card 
+                     min-width='320'
+                     class='my-4'
+                     v-for="(game, index) in games"
+                     :key='index'
+                     :to='game.homelink' >
+                     <v-card-text>
+                       <v-row>
+                         <v-col align='left' cols='4'>
+                           <v-img
+                             :src="game.image"
+                             height='100'
+                             contain
+                             >
+                           </v-img>
+                         </v-col>
+                  <v-col cols='8'>
+                    <v-card-title>{{game.name}}</v-card-title>
+                    <v-card-actions>
+                      <v-row>
+                        <v-col>
+                          <v-btn small color='blue' dark :to='game.playlink'>Play</v-btn>
+                        </v-col>
+                        <v-col>
+                          <v-btn small color='blue' dark :to='game.createlink'>Create</v-btn>
+                        </v-col>
+                      </v-row>
+                    </v-card-actions>
+                  </v-col>
+                       </v-row>
+                     </v-card-text>
+                </v-card>
+              </v-col>
+
             </v-row>
           </v-container>
         </v-card-text>
@@ -57,7 +79,6 @@
 <script>
   import Toolbar from '@/components/Toolbar'
   import NavDrawer from '@/components/NavDrawer'
-  import Snackbar from '@/components/Snackbar'
   import Footer from '@/components/Footer'
   import CurrentUser from '@/components/mixins/CurrentUser'
 
@@ -70,7 +91,6 @@
     components: {
       'sn-toolbar': Toolbar,
       'sn-nav-drawer': NavDrawer,
-      'sn-snackbar': Snackbar,
       'sn-footer': Footer
     },
     created () {
@@ -105,13 +125,44 @@
       },
     },
     computed: {
-      snackbar: {
-        get: function () {
-          return this.$root.snackbar
-        },
-        set: function (value) {
-          this.$root.snackbar = value
-        }
+      games: function () {
+        return [
+          {
+            name: 'After the Flood',
+            image: 'images/atf/ATF-box.jpg',
+            homelink: { name: 'sng-home' },
+            playlink: { name: 'sng-games', params: { type: 'atf', status: 'running' } },
+            createlink: { name: 'sng-new-game', params: { type: 'atf' } },
+          },
+          {
+            name: 'Confucius',
+            image: 'images/confucius/confucius-box.jpg',
+            homelink: { name: 'sng-home' },
+            playlink: { name: 'sng-games', params: { type: 'confucius', status: 'running' } },
+            createlink: { name: 'sng-new-game', params: { type: 'confucius' } },
+          },
+          {
+            name: 'Guild of Thieves',
+            image: 'images/got/got-box.jpg',
+            homelink: { name: 'got-home' },
+            playlink: { name: 'got-games', params: { status: 'running' } },
+            createlink: { name: 'got-new-game' },
+          },
+          {
+            name: 'Indonesia',
+            image: 'images/indonesia/indonesia-box.jpg',
+            homelink: { name: 'sng-home' },
+            playlink: { name: 'sng-games', params: { type: 'indonesia', status: 'running' } },
+            createlink: { name: 'sng-new-game', params: { type: 'indonesia' } },
+          },
+          {
+            name: 'Tammany Hall',
+            image: 'images/tammany/tammany-box.jpg',
+            homelink: { name: 'sng-home' },
+            playlink: { name: 'sng-games', params: { type: 'tammany', status: 'running' } },
+            createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
+          },
+        ]
       },
       nav: {
         get: function () {

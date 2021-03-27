@@ -1,15 +1,101 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/Home'
+import Games from '@/components/game/Index'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/sng-home',
+      name: 'sng-home',
+      beforeEnter() {
+        let sngHome = process.env.VUE_APP_SNG_HOME
+        window.location.href = sngHome
+      }
+    },
+    {
+      path: '/sng-ratings/:type',
+      name: 'sng-ratings',
+      beforeEnter(to) {
+        let sngHome = process.env.VUE_APP_SNG_HOME
+        window.location.href = `${sngHome}ratings/show/${to.params.type}`
+      }
+    },
+    {
+      path: '/sng-games/:type/:status',
+      name: 'sng-games',
+      beforeEnter(to) {
+        let sngHome = process.env.VUE_APP_SNG_HOME
+        window.location.href = `${sngHome}${to.params.type}/games/${to.params.status}`
+      }
+    },
+    {
+      path: '/sng-new-game/:type',
+      name: 'sng-new-game',
+      beforeEnter(to) {
+        let sngHome = process.env.VUE_APP_SNG_HOME
+        window.location.href = `${sngHome}${to.params.type}/game/new`
+      }
+    },
+    {
+      path: '/got-home',
+      name: 'got-home',
+      beforeEnter() {
+        let gotHome = process.env.VUE_APP_GOT_HOME
+        window.location.href = gotHome
+      }
+    },
+    {
+      path: '/got-ratings',
+      name: 'got-ratings',
+      beforeEnter() {
+        let gotHome = process.env.VUE_APP_GOT_HOME
+        window.location.href = `${gotHome}#/ratings`
+      }
+    },
+    {
+      path: '/got-new-game',
+      name: 'got-new-game',
+      beforeEnter() {
+        let gotHome = process.env.VUE_APP_GOT_HOME
+        window.location.href = `${gotHome}#/invitation/new`
+      }
+    },
+    {
+      path: '/got-join-game',
+      name: 'got-join-game',
+      beforeEnter() {
+        let gotHome = process.env.VUE_APP_GOT_HOME
+        window.location.href = `${gotHome}#/invitations`
+      }
+    },
+    {
+      path: '/got-games/:status',
+      name: 'got-games',
+      beforeEnter(to) {
+        let sngHome = process.env.VUE_APP_GOT_HOME
+        window.location.href = `${sngHome}#/games/${to.params.status}`
+      }
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/games/:status',
+      name: 'games',
+      component: Games
+    },
+    {
+      path: '/game/:type/:id',
+      name: 'game',
+      beforeEnter(to) {
+        let sngHome = process.env.VUE_APP_SNG_HOME
+        window.location.href = `${sngHome}${to.params.type}/game/show/${to.params.id}`
+      }
     },
     {
       path: '/logout',
@@ -34,12 +120,8 @@ export default new Router({
       }
     },
     {
-      path: '/login',
-      name: 'logins',
-      beforeEnter(to) {
-        let sngHome = process.env.VUE_APP_SNG_HOME
-        window.location.href = `${sngHome}${to.params.type}/games/${to.params.status}`
-      }
-    },
+      path: '/image/atf/ATF-box.jpg',
+      name: 'atfbox'
+    }
   ]
 })
