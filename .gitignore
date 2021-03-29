@@ -1,8 +1,35 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# VIM swp files
+*.swp
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+#
+
+# environment
+.env.*
+
+# cert keys
+*.pem
+
+node_modules/
+dist/
+
 *.swp
 sng
 app.yaml
 gin-bin
 db
 backend
-node_modules
-dist

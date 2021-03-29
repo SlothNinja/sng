@@ -3,11 +3,13 @@ package main
 import (
 	"context"
 	"encoding/base64"
+	"math/rand"
 	"net/http"
 	"os"
 	"time"
 
 	"cloud.google.com/go/datastore"
+	"cloud.google.com/go/logging"
 	"github.com/SlothNinja/atf"
 	"github.com/SlothNinja/confucius"
 	"github.com/SlothNinja/cookie"
@@ -28,14 +30,18 @@ import (
 
 const (
 	// Environment Variables
-	NODE_ENV           = "NODE_ENV"
-	DS_PROJECT_ID      = "DS_PROJECT_ID"
-	USER_PROJECT_ID    = "USER_PROJECT_ID"
 	COOKIE_URL         = "COOKIE_URL"
 	LOGIN_HOST         = "LOGIN_HOST"
 	DS_HOST            = "DS_HOST"
 	DS_USER_HOST       = "DS_USER_HOST"
 	googleCloudProject = "GOOGLE_CLOUD_PROJECT"
+	NodeEnv            = "NODE_ENV"
+	SNGProjectIDEnv    = "SNG_PROJECT_ID"
+	SNGDSURLEnv        = "SNG_DS_URL"
+	SNGHostURLEnv      = "SNG_HOST_URL"
+	UserProjectIDEnv   = "USER_PROJECT_ID"
+	UserDSURLEnv       = "USER_DS_URL"
+	UserHostURLEnv     = "USER_HOST_URL"
 
 	production     = "production"
 	userPrefix     = "user"
@@ -58,84 +64,79 @@ type Client struct {
 	Rating *rating.Client
 }
 
-func NewClient(dClient *datastore.Client, uClient *user.Client, logger *log.Logger, cache *cache.Cache, router *gin.Engine) *Client {
-	client := &Client{
-		Client: sn.NewClient(dClient, logger, cache, router),
-		User:   uClient,
-		MLog:   mlog.NewClient(dClient, uClient, logger, cache),
-		Rating: rating.NewClient(dClient, uClient, logger, cache, router, "rating"),
+func NewClient(ctx context.Context) *Client {
+	logClient := newLogClient()
+	snClient := sn.NewClient(ctx, sn.Options{
+		ProjectID: getSNGProjectID(),
+		DSURL:     getSNGDSURL(),
+		Logger:    logClient.Logger("sng"),
+		Cache:     cache.New(30*time.Minute, 10*time.Minute),
+		Router:    gin.New(),
+	})
+
+	uClient := user.NewClient(sn.NewClient(ctx, sn.Options{
+		ProjectID: getUserProjectID(),
+		DSURL:     getUserDSURL(),
+		Logger:    snClient.Log,
+		Cache:     snClient.Cache,
+		Router:    snClient.Router,
+	}))
+
+	store, err := cookie.NewClient(uClient.Client).NewStore(ctx)
+	if err != nil {
+		snClient.Log.Panicf("unable create cookie store: %v", err)
 	}
-	return client.staticRoutes()
+
+	renderer := restful.ParseTemplates("templates/", ".tmpl")
+	snClient.Router.HTMLRender = renderer
+
+	snClient.Router.Use(
+		sessions.Sessions(sessionName, store),
+		restful.AddTemplates(renderer.Templates),
+		gin.LoggerWithWriter(snClient.Log.StandardLogger(logging.Debug).Writer()),
+		gin.RecoveryWithWriter(snClient.Log.StandardLogger(logging.Critical).Writer()),
+	)
+
+	const afterLoad = true
+	nClient := &Client{
+		Client: snClient,
+		User:   uClient,
+		MLog:   mlog.NewClient(snClient, uClient),
+		Rating: rating.NewClient(snClient, uClient, "rating"),
+		Game:   game.NewClient(snClient, uClient, "games", afterLoad),
+	}
+
+	// After The Flood
+	atf.NewClient(snClient, uClient, nClient.Game, nClient.Rating, gtype.ATF)
+
+	// Tammany Hall
+	tammany.NewClient(snClient, uClient, nClient.Game, nClient.Rating, gtype.Tammany)
+
+	// Indonesia
+	indonesia.NewClient(snClient, uClient, nClient.Game, nClient.Rating, gtype.Indonesia)
+
+	// Confucius
+	confucius.NewClient(snClient, uClient, nClient.Game, nClient.Rating, gtype.Confucius)
+	return nClient.addRoutes()
 }
 
 func main() {
-	setGinMode()
+	// Seed random number generator
+	rand.Seed(time.Now().UnixNano())
 
-	logClient := newLogClient()
-	defer logClient.Close()
+	ctx := context.Background()
 
-	logger := logClient.Logger("sng")
-	cache := cache.New(30*time.Minute, 10*time.Minute)
-	store, err := cookie.NewClient(logger, cache).NewStore()
-
-	if err != nil {
-		logger.Panicf("unable create cookie store: %v", err)
+	if sn.IsProduction() {
+		gin.SetMode(gin.ReleaseMode)
+		cl := NewClient(ctx)
+		defer cl.Close()
+		cl.Router.Run()
+	} else {
+		gin.SetMode(gin.DebugMode)
+		cl := NewClient(ctx)
+		defer cl.Close()
+		cl.Router.RunTLS(getPort(), "cert.pem", "key.pem")
 	}
-
-	router := gin.Default()
-	renderer := restful.ParseTemplates("templates/", ".tmpl")
-	router.HTMLRender = renderer
-
-	router.Use(
-		sessions.Sessions(sessionName, store),
-		restful.AddTemplates(renderer.Templates),
-	)
-
-	userClient := user.NewClient(logger, cache)
-	dsClient := newDSClient(logger)
-	client := NewClient(dsClient, userClient, logger, cache, router)
-
-	// Welcome Page (index.html) route
-	// welcome.NewClient(dsClient, userClient, logger, cache, router)
-
-	const afterLoad = true
-	// Game routes
-	client.Game = game.NewClient(dsClient, userClient, logger, cache, router, "games", afterLoad)
-
-	// After The Flood
-	atf.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,
-		logger, cache, router, gtype.ATF)
-
-	// Guild of Thieves
-	// got.NewClient(dsClient, userClient, client.MLog, client.Rating, logger, cache, router, gtype.GOT)
-
-	// Tammany Hall
-	tammany.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,
-		logger, cache, router, gtype.Tammany)
-
-	// Indonesia
-	indonesia.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,
-		logger, cache, router, gtype.Indonesia)
-
-	// Confucius
-	confucius.NewClient(dsClient, userClient, client.Game, client.MLog, client.Rating,
-		logger, cache, router, gtype.Confucius)
-
-	// warmup
-	router.GET("_ah/warmup", func(c *gin.Context) {
-		c.Status(http.StatusOK)
-	})
-
-	// login
-	router.GET("login", login)
-
-	// logout
-	router.GET("logout", logout)
-
-	// home
-	router.GET("home", client.homeHandler)
-
-	router.Run()
 }
 
 func setGinMode() {
@@ -155,57 +156,61 @@ func newDSClient(log *log.Logger) *datastore.Client {
 	return client
 }
 
-func getLoginHost() string {
-	return os.Getenv(LOGIN_HOST)
-}
-
 // staticHandler for local development since app.yaml is ignored
 // static files are handled via app.yaml routes when deployed
-func (client *Client) staticRoutes() *Client {
-	if sn.IsProduction() {
-		return client
+func (client *Client) addRoutes() *Client {
+	if !sn.IsProduction() {
+		client.Router.Static("/images", "public/images")
+		client.Router.Static("/javascripts", "public/javascripts")
+		client.Router.Static("/jsold", "public/js")
+		client.Router.Static("/stylesheets", "public/stylesheets")
+		client.Router.Static("/rules", "public/rules")
+		client.Router.StaticFile("/", "dist/index.html")
+		client.Router.StaticFile("/app.js", "dist/app.js")
+		client.Router.StaticFile("/favicon.ico", "dist/favicon.ico")
+		client.Router.Static("/img", "dist/img")
+		client.Router.Static("/js", "dist/js")
+		client.Router.Static("/css", "dist/css")
 	}
-	// client.Router.StaticFile("/favicon.ico", "public/favicon.ico")
-	client.Router.Static("/images", "public/images")
-	client.Router.Static("/javascripts", "public/javascripts")
-	client.Router.Static("/jsold", "public/js")
-	client.Router.Static("/stylesheets", "public/stylesheets")
-	client.Router.Static("/rules", "public/rules")
-	client.Router.StaticFile("/", "dist/index.html")
-	client.Router.StaticFile("/app.js", "dist/app.js")
-	client.Router.StaticFile("/favicon.ico", "dist/favicon.ico")
-	client.Router.Static("/img", "dist/img")
-	client.Router.Static("/js", "dist/js")
-	client.Router.Static("/css", "dist/css")
+
+	// warmup
+	client.Router.GET("_ah/warmup", func(c *gin.Context) {
+		c.Status(http.StatusOK)
+	})
+
+	// login
+	client.Router.GET("login", client.login)
+
+	// logout
+	client.Router.GET("logout", client.logout)
+
+	// home
+	client.Router.GET("home", client.homeHandler)
+
 	return client
 }
 
-func login(c *gin.Context) {
-	log.Debugf(msgEnter)
-	defer log.Debugf(msgExit)
+func (cl *Client) login(c *gin.Context) {
+	cl.Log.Debugf(msgEnter)
+	defer cl.Log.Debugf(msgExit)
 
 	referer := c.Request.Referer()
 	encodedReferer := base64.StdEncoding.EncodeToString([]byte(referer))
 
-	c.Redirect(http.StatusSeeOther, getLoginHost()+"/login?redirect="+encodedReferer)
+	path := getUserHostURL() + "/login?redirect=" + encodedReferer
+	c.Redirect(http.StatusSeeOther, path)
 }
 
-func logout(c *gin.Context) {
-	log.Debugf(msgEnter)
-	defer log.Debugf(msgExit)
+func (cl *Client) logout(c *gin.Context) {
+	cl.Log.Debugf(msgEnter)
+	defer cl.Log.Debugf(msgExit)
 
-	referer := c.Request.Referer()
-	encodedReferer := base64.StdEncoding.EncodeToString([]byte(referer))
-
-	c.Redirect(http.StatusSeeOther, getLoginHost()+"/logout?redirect="+encodedReferer)
-}
-
-func getProjectID() string {
-	return os.Getenv(googleCloudProject)
+	user.Logout(c)
+	c.Redirect(http.StatusSeeOther, "/")
 }
 
 func newLogClient() *log.Client {
-	client, err := log.NewClient(getProjectID())
+	client, err := log.NewClient(getSNGProjectID())
 	if err != nil {
 		log.Panicf("unable to create logging client: %v", err)
 	}
@@ -222,4 +227,32 @@ func (cl *Client) homeHandler(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"cu": cu})
+}
+
+func getSNGProjectID() string {
+	return os.Getenv(SNGProjectIDEnv)
+}
+
+func getSNGHostURL() string {
+	return os.Getenv(SNGHostURLEnv)
+}
+
+func getSNGDSURL() string {
+	return os.Getenv(SNGDSURLEnv)
+}
+
+func getUserProjectID() string {
+	return os.Getenv(UserProjectIDEnv)
+}
+
+func getUserDSURL() string {
+	return os.Getenv(UserDSURLEnv)
+}
+
+func getUserHostURL() string {
+	return os.Getenv(UserHostURLEnv)
+}
+
+func getPort() string {
+	return ":" + os.Getenv("PORT")
 }

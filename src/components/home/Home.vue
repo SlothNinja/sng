@@ -50,7 +50,7 @@
                          </v-col>
                   <v-col cols='8'>
                     <v-card-title>{{game.name}}</v-card-title>
-                    <v-card-actions>
+                    <v-card-actions v-if='cu'>
                       <v-row>
                         <v-col>
                           <v-btn small color='blue' dark :to='game.playlink'>Play</v-btn>
@@ -88,6 +88,11 @@
   export default {
     name: 'home',
     mixins: [ CurrentUser ],
+    data: function () {
+      return {
+        nav: false
+      }
+    },
     components: {
       'sn-toolbar': Toolbar,
       'sn-nav-drawer': NavDrawer,
@@ -163,14 +168,6 @@
             createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
           },
         ]
-      },
-      nav: {
-        get: function () {
-          return this.$root.nav
-        },
-        set: function (value) {
-          this.$root.nav = value
-        }
       }
     }
   }
