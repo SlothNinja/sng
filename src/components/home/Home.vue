@@ -136,14 +136,14 @@
             name: 'After the Flood',
             image: 'images/atf/ATF-box.jpg',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'sng-games', params: { type: 'atf', status: 'running' } },
+            playlink: { name: 'games', params: { type: 'atf', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'atf' } },
           },
           {
             name: 'Confucius',
             image: 'images/confucius/confucius-box.jpg',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'sng-games', params: { type: 'confucius', status: 'running' } },
+            playlink: { name: 'games', params: { type: 'confucius', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'confucius' } },
           },
           {
@@ -157,14 +157,14 @@
             name: 'Indonesia',
             image: 'images/indonesia/indonesia-box.jpg',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'sng-games', params: { type: 'indonesia', status: 'running' } },
+            playlink: { name: 'games', params: { type: 'indonesia', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'indonesia' } },
           },
           {
             name: 'Tammany Hall',
             image: 'images/tammany/tammany-box.jpg',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'sng-games', params: { type: 'tammany', status: 'running' } },
+            playlink: { name: 'games', params: { type: 'tammany', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
           },
         ]

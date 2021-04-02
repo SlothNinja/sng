@@ -25,16 +25,6 @@
       </v-list-item-content>
     </v-list-item>
 
-    <!--
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class='title font-weight-black text-center'>
-          SlothNinja Games
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    -->
-
     <v-divider></v-divider>
 
     <v-list
@@ -135,16 +125,16 @@
           { 
             createlink: { name: 'sng-new-game', params: { type: 'atf' } },
             joinlink: { name: 'sng-games', params: { type: 'atf', status: 'recruiting' } },
-            playlink: { name: 'sng-games', params: { type: 'atf', status: 'running' } },
-            completedlink: { name: 'sng-games', params: { type: 'atf', status: 'completed' } },
+            playlink: { name: 'games', params: { type: 'atf', status: 'running' } },
+            completedlink: { name: 'games', params: { type: 'atf', status: 'completed' } },
             ratingslink: { name: 'sng-ratings', params: { type: 'atf' } },
             title: "After the Flood"
           },
           { 
             createlink: { name: 'sng-new-game', params: { type: 'confucius' } },
             joinlink: { name: 'sng-games', params: { type: 'confucius', status: 'recruiting' } },
-            playlink: { name: 'sng-games', params: { type: 'confucius', status: 'running' } },
-            completedlink: { name: 'sng-games', params: { type: 'confucius', status: 'completed' } },
+            playlink: { name: 'games', params: { type: 'confucius', status: 'running' } },
+            completedlink: { name: 'games', params: { type: 'confucius', status: 'completed' } },
             ratingslink: { name: 'sng-ratings', params: { type: 'confucius' } },
             title: "Confucius"
           },
@@ -159,16 +149,16 @@
           { 
             createlink: { name: 'sng-new-game', params: { type: 'indonesia' } },
             joinlink: { name: 'sng-games', params: { type: 'indonesia', status: 'recruiting' } },
-            playlink: { name: 'sng-games', params: { type: 'indonesia', status: 'running' } },
-            completedlink: { name: 'sng-games', params: { type: 'indonesia', status: 'completed' } },
+            playlink: { name: 'games', params: { type: 'indonesia', status: 'running' } },
+            completedlink: { name: 'games', params: { type: 'indonesia', status: 'completed' } },
             ratingslink: { name: 'sng-ratings', params: { type: 'indonesia' } },
             title: "Indonesia"
           },
           { 
             createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
             joinlink: { name: 'sng-games', params: { type: 'tammany', status: 'recruiting' } },
-            playlink: { name: 'sng-games', params: { type: 'tammany', status: 'running' } },
-            completedlink: { name: 'sng-games', params: { type: 'tammany', status: 'completed' } },
+            playlink: { name: 'games', params: { type: 'tammany', status: 'running' } },
+            completedlink: { name: 'games', params: { type: 'tammany', status: 'completed' } },
             ratingslink: { name: 'sng-ratings', params: { type: 'tammany' } },
             title: "Tammany Hall"
           },

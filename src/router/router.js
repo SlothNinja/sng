@@ -85,7 +85,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/games/:status',
+      path: '/games/:status/:type',
       name: 'games',
       component: Games
     },
