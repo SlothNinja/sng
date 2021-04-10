@@ -8,8 +8,10 @@ require (
 	github.com/SlothNinja/atf v1.0.15
 	github.com/SlothNinja/confucius v1.0.17
 	github.com/SlothNinja/cookie v1.0.2
-	github.com/SlothNinja/game v1.0.22
-	github.com/SlothNinja/indonesia v1.0.21
+	github.com/SlothNinja/game v1.0.24
+	github.com/SlothNinja/got v1.0.17
+	github.com/SlothNinja/got/v2 v2.0.16
+	github.com/SlothNinja/indonesia v1.0.22
 	github.com/SlothNinja/log v1.0.5
 	github.com/SlothNinja/mlog v1.0.5
 	github.com/SlothNinja/rating v1.0.10

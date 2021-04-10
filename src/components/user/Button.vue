@@ -7,6 +7,7 @@
     :large="size ? size === 'large' : true"
     :color="color || 'black' "
     :to="{ name: 'user-show', params: { uid: user.id } }"
+    @click.stop
   >
     <v-avatar :size="avatarSize" >
       <img :src="gravatar(user.emailHash, size, user.gravType)" />

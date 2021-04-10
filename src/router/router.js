@@ -90,11 +90,21 @@ export default new Router({
       component: Games
     },
     {
+      path: '/ugames/:uid/:status/:type',
+      name: 'ugames',
+      component: Games
+    },
+    {
       path: '/game/:type/:id',
       name: 'game',
       beforeEnter(to) {
-        let sngHome = process.env.VUE_APP_SNG_HOME
-        window.location.href = `${sngHome}${to.params.type}/game/show/${to.params.id}`
+        if (to.params.type != 'got') {
+          let sngHome = process.env.VUE_APP_SNG_HOME
+          window.location.href = `${sngHome}${to.params.type}/game/show/${to.params.id}`
+        } else {
+          let gotHome = process.env.VUE_APP_GOT_HOME
+          window.location.href = `${gotHome}#/game/${to.params.id}`
+        }
       }
     },
     {

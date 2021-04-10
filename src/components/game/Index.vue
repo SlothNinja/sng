@@ -136,6 +136,10 @@ export default {
         status: self.$route.params.status,
         type: self.$route.params.type,
       }
+      if (self.$route.name == "ugames") {
+        data.userId = _.toInteger(self.$route.params.uid)
+      }
+      console.log(`data: ${JSON.stringify(data)}`)
       axios.post('/games', data)
         .then(function (response) {
           let msg = _.get(response, 'data.message', false)
@@ -234,7 +238,7 @@ export default {
       return _.map(item.userIds, function (id, i) {
         return {
           id: id,
-          name: item.userNames[i],
+          name: _.nth(item.userNames, i),
           emailHash: _.nth(item.userEmailHashes, i),
           gravType: _.nth(item.userGravTypes, i),
         }
@@ -248,20 +252,30 @@ export default {
       return this.cpClass(item, user)
     },
     cpClass: function (item, user) {
-      let pid = _.indexOf(item.userIds, user.id) + 1
-      let cpid = _.first(item.cpUserIndices)
-      if (pid == cpid) {
-        if (this.cuid == user.id) {
-          return 'font-weight-black red--text text--darken-4'
-        }
-        return 'font-weight-black'
+      switch (this.type(item)) {
+        case 'got':
+          var pid = _.indexOf(item.userIds, user.id) + 1
+          if (_.includes(item.cpids, pid)) {
+            if (this.cuid == user.id) {
+              return 'font-weight-black red--text text--darken-4'
+            }
+            return 'font-weight-black'
+          }
+          return ''
+        default:
+          var uIndex = _.indexOf(item.userIds, user.id)
+          if (_.includes(item.cpUserIndices, uIndex)) {
+            if (this.cuid == user.id) {
+              return 'font-weight-black red--text text--darken-4'
+            }
+            return 'font-weight-black'
+          }
+          return ''
       }
-      return ''
     },
     winnerClass: function (item, user) {
-      let index = _.indexOf(item.userIds, user.id)
-      let uKey = _.nth(item.userKeys, index)
-      if (_.includes(item.winnerKeys, uKey)) {
+      let uIndex = _.indexOf(item.userIds, user.id)
+      if (_.includes(item.winnerIndices, uIndex)) {
         if (this.cuid == user.id) {
           return 'font-weight-black red--text text--darken-4'
         }

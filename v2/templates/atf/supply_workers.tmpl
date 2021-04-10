@@ -1,8 +1,0 @@
-{{$players := .}}
-<table id="supply-workers">
-        <tr>
-                {{range $index, $player := $players}}
-                {{template "atf/supply_worker" $player}}
-                {{end}}
-        </tr>
-</table>

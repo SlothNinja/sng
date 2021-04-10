@@ -30,18 +30,20 @@ import (
 
 const (
 	// Environment Variables
-	COOKIE_URL         = "COOKIE_URL"
-	LOGIN_HOST         = "LOGIN_HOST"
-	DS_HOST            = "DS_HOST"
-	DS_USER_HOST       = "DS_USER_HOST"
-	googleCloudProject = "GOOGLE_CLOUD_PROJECT"
-	NodeEnv            = "NODE_ENV"
-	SNGProjectIDEnv    = "SNG_PROJECT_ID"
-	SNGDSURLEnv        = "SNG_DS_URL"
-	SNGHostURLEnv      = "SNG_HOST_URL"
-	UserProjectIDEnv   = "USER_PROJECT_ID"
-	UserDSURLEnv       = "USER_DS_URL"
-	UserHostURLEnv     = "USER_HOST_URL"
+	COOKIE_URL       = "COOKIE_URL"
+	LOGIN_HOST       = "LOGIN_HOST"
+	DS_HOST          = "DS_HOST"
+	DS_USER_HOST     = "DS_USER_HOST"
+	NodeEnv          = "NODE_ENV"
+	SNGProjectIDEnv  = "SNG_PROJECT_ID"
+	SNGDSURLEnv      = "SNG_DS_URL"
+	SNGHostURLEnv    = "SNG_HOST_URL"
+	UserProjectIDEnv = "USER_PROJECT_ID"
+	UserDSURLEnv     = "USER_DS_URL"
+	UserHostURLEnv   = "USER_HOST_URL"
+	GotProjectIDEnv  = "GOT_PROJECT_ID"
+	GotDSURLEnv      = "GOT_DS_URL"
+	GotHostURLEnv    = "GOT_HOST_URL"
 
 	production     = "production"
 	userPrefix     = "user"
@@ -58,6 +60,7 @@ const (
 
 type Client struct {
 	*sn.Client
+	Got    *game.Client
 	User   *user.Client
 	Game   *game.Client
 	MLog   *mlog.Client
@@ -72,6 +75,14 @@ func NewClient(ctx context.Context) *Client {
 		Logger:    logClient.Logger("sng"),
 		Cache:     cache.New(30*time.Minute, 10*time.Minute),
 		Router:    gin.New(),
+	})
+
+	gotClient := sn.NewClient(ctx, sn.Options{
+		ProjectID: getGotProjectID(),
+		DSURL:     getGotDSURL(),
+		Logger:    snClient.Log,
+		Cache:     snClient.Cache,
+		Router:    snClient.Router,
 	})
 
 	uClient := user.NewClient(sn.NewClient(ctx, sn.Options{
@@ -104,6 +115,7 @@ func NewClient(ctx context.Context) *Client {
 		MLog:   mlog.NewClient(snClient, uClient),
 		Rating: rating.NewClient(snClient, uClient, "rating"),
 		Game:   game.NewClient(snClient, uClient, "games", afterLoad),
+		Got:    game.NewClient(gotClient, uClient, "gotgames", !afterLoad),
 	}
 
 	// After The Flood
@@ -187,6 +199,8 @@ func (client *Client) addRoutes() *Client {
 	// home
 	client.Router.GET("home", client.homeHandler)
 
+	client.Router.POST("games", client.myGamesHandler)
+
 	return client
 }
 
@@ -251,6 +265,18 @@ func getUserDSURL() string {
 
 func getUserHostURL() string {
 	return os.Getenv(UserHostURLEnv)
+}
+
+func getGotProjectID() string {
+	return os.Getenv(GotProjectIDEnv)
+}
+
+func getGotDSURL() string {
+	return os.Getenv(GotDSURLEnv)
+}
+
+func getGotHostURL() string {
+	return os.Getenv(GotHostURLEnv)
 }
 
 func getPort() string {

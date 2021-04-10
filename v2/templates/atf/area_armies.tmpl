@@ -1,9 +1,0 @@
-{{$area := .}}
-{{range $p := $.Game.Players}}
-{{with $w := $p.ArmiesIn $area}}
-<div id="{{$area.LName}}-armies">
-        <img alt="{{$p.Color}} Army" src="/images/atf/{{$p.Color}}_army.png" />
-        <div class="text {{$p.TextColor}}">{{$w}}</div>
-</div>
-{{end}}
-{{end}}
