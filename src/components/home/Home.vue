@@ -77,10 +77,10 @@
 </template>
 
 <script>
-  import Toolbar from '@/components/Toolbar'
-  import NavDrawer from '@/components/NavDrawer'
-  import Footer from '@/components/Footer'
-  import CurrentUser from '@/components/mixins/CurrentUser'
+  import Toolbar from '@/components/lib/Toolbar'
+  import NavDrawer from '@/components/lib/NavDrawer'
+  import Footer from '@/components/lib/Footer'
+  import CurrentUser from '@/components/lib/mixins/CurrentUser'
 
   const _ = require('lodash')
   const axios = require('axios')

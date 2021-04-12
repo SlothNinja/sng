@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    overflow
     clipped
     v-model='nav'
     light
@@ -39,7 +40,7 @@
           <v-list-item-title>Home</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item :to="{ name: 'ugames', params: { status: 'running', type: 'all', uid: cuid} }" exact>
+      <v-list-item :to="{ name: 'sng-ugames', params: { status: 'running', type: 'all', uid: cuid} }" exact>
         <v-list-item-icon>
           <v-icon>mdi-account-details</v-icon>
         </v-list-item-icon>
@@ -117,69 +118,120 @@
 </template>
 
 <script>
-  import UserButton from '@/components/user/Button'
-  import CurrentUser from '@/components/mixins/CurrentUser'
+import UserButton from '@/components/lib/user/Button'
+import CurrentUser from '@/components/lib/mixins/CurrentUser'
 
-  export default {
-    mixins: [ CurrentUser ],
-    name: 'nav-drawer',
-    props: [ 'value' ],
-    components: {
-      'sn-user-btn': UserButton
-    },
-    computed: {
-      items: function () {
-        return [
-          { 
-            createlink: { name: 'sng-new-game', params: { type: 'atf' } },
-            joinlink: { name: 'sng-games', params: { type: 'atf', status: 'recruiting' } },
-            playlink: { name: 'games', params: { type: 'atf', status: 'running' } },
-            completedlink: { name: 'games', params: { type: 'atf', status: 'completed' } },
-            ratingslink: { name: 'sng-ratings', params: { type: 'atf' } },
-            title: "After the Flood"
+const _ = require('lodash')
+
+export default {
+  mixins: [ CurrentUser ],
+  name: 'nav-drawer',
+  props: [ 'value' ],
+  components: {
+    'sn-user-btn': UserButton
+  },
+  created: function () {
+    _.forEach(this.routes, route => this.$router.addRoute(route))
+  },
+  computed: {
+    routes: () => {
+      return [
+        {
+          path: '/sng-games/:type/:status',
+          name: 'sng-games',
+          beforeEnter: (to, from, next) => {
+            let game = process.env.VUE_APP_GAME
+            let sngHome = process.env.VUE_APP_SNG_HOME
+            if (to.params.type == game) {
+              next({ name: 'games', params: { status: to.params.status } })
+            } else {
+              window.location.replace(`${sngHome}#/games/${to.params.status}/${to.params.type}`)
+              next()
+            }
           },
-          { 
-            createlink: { name: 'sng-new-game', params: { type: 'confucius' } },
-            joinlink: { name: 'sng-games', params: { type: 'confucius', status: 'recruiting' } },
-            playlink: { name: 'games', params: { type: 'confucius', status: 'running' } },
-            completedlink: { name: 'games', params: { type: 'confucius', status: 'completed' } },
-            ratingslink: { name: 'sng-ratings', params: { type: 'confucius' } },
-            title: "Confucius"
-          },
-          { 
-            createlink: { name: 'got-new-game' },
-            joinlink: { name: 'got-join-game' },
-            playlink: { name: 'got-games', params: { status: 'running' } },
-            completedlink: { name: 'got-games', params: { status: 'completedlink' } },
-            ratingslink: { name: 'got-ratings' },
-            title: "Guild of Thieves"
-          },
-          { 
-            createlink: { name: 'sng-new-game', params: { type: 'indonesia' } },
-            joinlink: { name: 'sng-games', params: { type: 'indonesia', status: 'recruiting' } },
-            playlink: { name: 'games', params: { type: 'indonesia', status: 'running' } },
-            completedlink: { name: 'games', params: { type: 'indonesia', status: 'completed' } },
-            ratingslink: { name: 'sng-ratings', params: { type: 'indonesia' } },
-            title: "Indonesia"
-          },
-          { 
-            createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
-            joinlink: { name: 'sng-games', params: { type: 'tammany', status: 'recruiting' } },
-            playlink: { name: 'games', params: { type: 'tammany', status: 'running' } },
-            completedlink: { name: 'games', params: { type: 'tammany', status: 'completed' } },
-            ratingslink: { name: 'sng-ratings', params: { type: 'tammany' } },
-            title: "Tammany Hall"
-          },
-        ]
-      },
-      nav: {
-        get: function () {
-          return this.value
         },
-        set: function (value) {
-          this.$emit('input', value)
+        {
+          path: '/sng-ugames/:uid/:status/:type',
+          name: 'sng-ugames',
+          beforeEnter: (to, from, next) => {
+            let home = process.env.VUE_APP_HOME
+            let sngHome = process.env.VUE_APP_SNG_HOME
+            if (home == sngHome) {
+              next({ name: 'ugames', params: { uid: to.params.uid, status: to.params.status, type: to.params.type } })
+            } else {
+              window.location.replace(`${sngHome}#/ugames/${to.params.uid}/${to.params.status}/${to.params.type}`)
+              next()
+            }
+          }
+        },
+        {
+          path: '/sng-new-game/:type',
+          name: 'sng-new-game',
+          beforeEnter: (to, from, next) => {
+            let game = process.env.VUE_APP_GAME
+            let sngHome = process.env.VUE_APP_SNG_HOME
+            if (to.params.type == game) {
+              next({ name: 'new'})
+            } else {
+              window.location.replace(`${sngHome}${to.params.type}/game/new`)
+              next()
+            }
+          }
+        },
+        {
+          path: '/sng-home',
+          name: 'sng-home',
+          beforeEnter: (to, from, next) => {
+            let sngHome = process.env.VUE_APP_SNG_HOME
+            window.location.replace(sngHome)
+            next()
+          }
+        },
+        {
+          path: '/logout',
+          name: 'logout',
+          beforeEnter() {
+            window.location.replace('/logout')
+          }
+        },
+        {
+          path: '/login',
+          name: 'login',
+          beforeEnter() {
+            window.location.replace('/login')
+          }
+        },
+      ]
+    },
+    types: function () {
+      return [
+        { type: 'atf', title: 'After the Flood' },
+        { type: 'confucius', title: 'Confucius' },
+        { type: 'got', title: 'Guild of Thieves' },
+        { type: 'indonesia', title: 'Indonesia' },
+        { type: 'tammany', title: 'Tammany Hall' }
+      ]
+    },
+    items: function () {
+      return _.map(this.types, game => {
+        return { 
+          createlink: { name: 'sng-new-game', params: { type: game.type } },
+          joinlink: { name: 'sng-games', params: { type: game.type, status: 'recruiting' } },
+          playlink: { name: 'sng-games', params: { type: game.type, status: 'running' } },
+          completedlink: { name: 'sng-games', params: { type: game.type, status: 'completed' } },
+          ratingslink: { name: 'sng-ratings', params: { type: game.type } },
+          title: game.title
         }
+      })
+    },
+    nav: {
+      get: function () {
+        return this.value
+      },
+      set: function (value) {
+        this.$emit('input', value)
       }
     }
   }
+}
 </script>
