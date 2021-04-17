@@ -1,6 +1,6 @@
 {
   "name": "sng",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
     "fibers": "^5.0.0",
+    "flatted": "^3.1.1",
     "g": "^2.0.1",
     "lodash": "^4.17.21",
     "node-sass": "^4.14.1",

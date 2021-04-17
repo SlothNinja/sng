@@ -38,7 +38,7 @@
             </template>
             <template v-slot:item.players="{ item }">
               <v-row no-gutters>
-                <v-col class='my-1' cols='12' md='6' v-for="user in users(item)" :key="user.id" >
+                <v-col class='my-1' cols='12' md='6' v-for="user in users(item)" :key="`${item.id}-${user.id}`" >
                   <sn-user-btn :user="user" size="x-small">
                     <span :class='userClass(item, user)'>{{user.name}}</span>
                   </sn-user-btn>
