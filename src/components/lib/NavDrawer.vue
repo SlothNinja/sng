@@ -40,15 +40,15 @@
           <v-list-item-title>Home</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item :to="{ name: 'sng-ugames', params: { status: 'running', type: 'all', uid: cuid} }" exact>
-        <v-list-item-icon>
-          <v-icon>mdi-account-details</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Your Games</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
       <template v-if='cu'>
+        <v-list-item :to="{ name: 'sng-ugames', params: { status: 'running', type: 'all', uid: cuid} }" exact>
+          <v-list-item-icon>
+            <v-icon>mdi-account-details</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Your Games</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-group
           no-action
           prepend-icon='mdi-pencil'
@@ -143,7 +143,7 @@ export default {
           beforeEnter: (to, from, next) => {
             if (_.includes(this.sngGames, to.params.type)) {
               let sngHome = process.env.VUE_APP_SNG_HOME
-              window.location.replace(`${sngHome}#/games/${to.params.status}/${to.params.type}`)
+              window.location.href = `${sngHome}#/games/${to.params.status}/${to.params.type}`
               next()
             } else {
               let game = process.env.VUE_APP_GAME
@@ -162,7 +162,7 @@ export default {
           name: 'sng-ugames',
           beforeEnter: (to, from, next) => {
             let sngHome = process.env.VUE_APP_SNG_HOME
-            window.location.replace(`${sngHome}#/ugames/${to.params.uid}/${to.params.status}/${to.params.type}`)
+            window.location.href = `${sngHome}#/ugames/${to.params.uid}/${to.params.status}/${to.params.type}`
             next()
           }
         },

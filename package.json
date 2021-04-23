@@ -1,6 +1,6 @@
 {
   "name": "sng",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "core-js": "^3.10.0",
+    "core-js": "^3.11.0",
     "fibers": "^5.0.0",
     "flatted": "^3.1.1",
     "g": "^2.0.1",
@@ -22,17 +22,17 @@
     "vue-fragment": "^1.5.2",
     "vue-router": "^3.5.1",
     "vue-script2": "^2.1.0",
-    "vuetify": "^2.4.9"
+    "vuetify": "^2.4.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.12",
     "@vue/cli-plugin-eslint": "^4.5.12",
     "@vue/cli-service": "^4.5.12",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.23.0",
+    "eslint": "^7.24.0",
     "eslint-plugin-vue": "^6.2.2",
     "jquery": "^3.6.0",
-    "sass": "^1.32.8",
+    "sass": "^1.32.11",
     "sass-loader": "^9.0.3",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",

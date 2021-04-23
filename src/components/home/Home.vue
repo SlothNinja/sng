@@ -42,7 +42,7 @@
                        <v-row>
                          <v-col align='left' cols='4'>
                            <v-img
-                             :src="game.image"
+                             :src="assetPath(game.image)"
                              height='100'
                              contain
                              >
@@ -81,13 +81,14 @@
   import NavDrawer from '@/components/lib/NavDrawer'
   import Footer from '@/components/lib/Footer'
   import CurrentUser from '@/components/lib/mixins/CurrentUser'
+  import AssetPaths from '@/components/mixins/AssetPaths'
 
   const _ = require('lodash')
   const axios = require('axios')
 
   export default {
     name: 'home',
-    mixins: [ CurrentUser ],
+    mixins: [ CurrentUser, AssetPaths ],
     data: function () {
       return {
         nav: false
@@ -134,37 +135,37 @@
         return [
           {
             name: 'After the Flood',
-            image: 'images/atf/ATF-box.jpg',
+            image: 'atf-box',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'games', params: { type: 'atf', status: 'running' } },
+            playlink: { name: 'sng-games', params: { type: 'atf', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'atf' } },
           },
           {
             name: 'Confucius',
-            image: 'images/confucius/confucius-box.jpg',
+            image: 'confucius-box',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'games', params: { type: 'confucius', status: 'running' } },
+            playlink: { name: 'sng-games', params: { type: 'confucius', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'confucius' } },
           },
           {
             name: 'Guild of Thieves',
-            image: 'images/got/got-box.jpg',
+            image: 'got-box',
             homelink: { name: 'got-home' },
-            playlink: { name: 'got-games', params: { status: 'running' } },
+            playlink: { name: 'sng-games', params: { type: 'got', status: 'running' } },
             createlink: { name: 'got-new-game' },
           },
           {
             name: 'Indonesia',
-            image: 'images/indonesia/indonesia-box.jpg',
+            image: 'indonesia-box',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'games', params: { type: 'indonesia', status: 'running' } },
+            playlink: { name: 'sng-games', params: { type: 'indonesia', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'indonesia' } },
           },
           {
             name: 'Tammany Hall',
-            image: 'images/tammany/tammany-box.jpg',
+            image: 'tammany-box',
             homelink: { name: 'sng-home' },
-            playlink: { name: 'games', params: { type: 'tammany', status: 'running' } },
+            playlink: { name: 'sng-games', params: { type: 'tammany', status: 'running' } },
             createlink: { name: 'sng-new-game', params: { type: 'tammany' } },
           },
         ]

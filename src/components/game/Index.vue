@@ -8,11 +8,45 @@
       </div>
     </sn-snackbar>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <v-card>
-          <v-card-title>
-            {{ gameName }} {{ status }} Games
-          </v-card-title>
+          <v-row v-if="image == 'box'">
+            <v-col cols='1' style='min-width:80px;max-width:80px'>
+              <v-img
+                class='ma-2'
+                min-width='74'
+                max-width='74'
+                :src="assetPath(`${$route.params.type}-box`)"
+                >
+              </v-img>
+            </v-col>
+            <v-col>
+              <v-card-title>
+                {{ gameName }}
+              </v-card-title>
+              <v-card-subtitle>
+                {{ status }} Games
+              </v-card-subtitle>
+            </v-col>
+          </v-row>
+          <v-row v-else>
+            <v-col cols='1' v-if="image == 'button'" style='min-width:80px;max-width:80px'>
+              <sn-user-btn v-if='cu' :user='cu'></sn-user-btn>
+            </v-col>
+            <v-col v-if='cu'>
+              <v-card-title>
+                {{ cu.name }}
+              </v-card-title>
+              <v-card-subtitle>
+                {{ gameName }} {{ status }} Games
+              </v-card-subtitle>
+            </v-col>
+            <v-col v-else>
+              <v-card-title>
+                {{ gameName }} {{ status }} Games
+              </v-card-title>
+            </v-col>
+          </v-row>
           <v-data-table
             @click:row="showGame"
             :headers="headers"
@@ -60,13 +94,14 @@ import NavDrawer from '@/components/lib/NavDrawer'
 import Snackbar from '@/components/lib/Snackbar'
 import Footer from '@/components/lib/Footer'
 import CurrentUser from '@/components/lib/mixins/CurrentUser'
+import AssetPaths from '@/components/mixins/AssetPaths'
 
 const _ = require('lodash')
 const axios = require('axios')
 
 export default {
   name: 'index',
-  mixins: [ CurrentUser ],
+  mixins: [ CurrentUser, AssetPaths ],
   components: {
     'sn-user-btn': UserButton,
     'sn-toolbar': Toolbar,
@@ -152,30 +187,26 @@ export default {
       console.log(`data: ${JSON.stringify(data)}`)
       axios.post('/games', data)
         .then(function (response) {
-          let msg = _.get(response, 'data.message', false)
-          if (msg) {
-            self.snackbar.message = msg
+
+          if (_.has(response, 'data.message')) {
+            self.snackbar.message = response.data.message
             self.snackbar.open = true
           }
 
-          let totalItems = _.get(response, 'data.totalItems', false)
-          if (totalItems) {
-            self.totalItems = totalItems
+          if (_.has(response, 'data.totalItems')) {
+            self.totalItems = response.data.totalItems
           }
 
-          let forward = _.get(response, 'data.forward', false)
-          if (forward) {
-            self.forward = forward
+          if (_.has(response, 'data.forward')) {
+            self.forward = response.data.forward
           }
 
-          let gheaders = _.get(response, 'data.gheaders', false)
-          if (gheaders) {
-            self.items = gheaders
+          if (_.has(response, 'data.gheaders')) {
+            self.items = response.data.gheaders
           }
 
-          let cu = _.get(response, 'data.cu', false)
-          if (cu) {
-            self.cu = cu
+          if (_.has(response, 'data.cu')) {
+            self.cu = response.data.cu
             self.cuLoading = false
           }
 
@@ -191,17 +222,17 @@ export default {
       let self = this
       axios.put(`/game/${action}/${id}`)
         .then(function (response) {
-          let msg = _.get(response, 'data.message', false)
-          if (msg) {
-            self.snackbar.message = msg
+
+          if (_.has(response, 'data.message')) {
+            self.snackbar.message = response.data.message
             self.snackbar.open = true
           }
-          let header = _.get(response, 'data.header', false)
-          if (header) {
+
+          if (_.has(response, 'data.header')) {
             let index = _.findIndex(self.items, [ 'id', id ])
             if (index >= 0) {
-              if (header.status === 1) { // recruiting is a status of 1
-                self.items.splice(index, 1, header)
+              if (response.data.header.status === 1) { // recruiting is a status of 1
+                self.items.splice(index, 1, response.data.header)
               } else {
                 self.items.splice(index, 1)
               }
@@ -295,6 +326,15 @@ export default {
     },
   },
   computed: {
+    image: function () {
+      if (this.$route.name == 'ugames') {
+        return 'button'
+      }
+      if (this.gameName) {
+        return 'box'
+      }
+      return ''
+    },
     forward: {
       get: function () {
         return this.cursors[this.options.page-1]
@@ -368,3 +408,10 @@ export default {
   }
 }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+::v-deep tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .04);
+}
+</style>
