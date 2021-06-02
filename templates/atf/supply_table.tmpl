@@ -23,7 +23,15 @@
                 <tbody>
                         <tr>
                                 <td class="worker">
-                                        {{template "atf/supply_workers" $g.Players}}
+                                        <table>
+                                                <tr>
+                                                        {{range $index, $p := $g.Players}}
+                                                        <td>
+                                                                {{template "atf/supply_workers" data "g" $g "cu" $cu "p" $p}}
+                                                        </td>
+                                                        {{end}}
+                                                </tr>
+                                        </table>
                                 </td>
                                 <td class="army">
                                         <table>

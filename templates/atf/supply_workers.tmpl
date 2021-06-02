@@ -1,8 +1,9 @@
-{{$players := .}}
-<table id="supply-workers">
-        <tr>
-                {{range $index, $player := $players}}
-                {{template "atf/supply_worker" $player}}
-                {{end}}
-        </tr>
-</table>
+{{$g := .g}}
+{{$cu := .cu}}
+{{$p := .p}}
+
+<td>
+        <div id="worker-supply-{{$p.ID}}">
+                <img src="/images/atf/{{$g.Color $p $cu}}_worker.png" alt="Worker" /> {{$p.WorkerSupply}}
+        </div>
+</td>
